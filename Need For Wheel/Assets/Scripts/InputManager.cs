@@ -28,35 +28,63 @@ public class InputManager : MonoBehaviour
 
         steering = new Steering();
         steering.Ground.Enable();
-        //steering.Ground.Testmap.performed += Moving;
+        
+        steering.Ground.Testmap.canceled += ResetDirection;
     }
 
     private void FixedUpdate()
     {
         Vector3 direction = (Vector3)steering.Ground.Testmap.ReadValue<Vector2>();
+        //print(direction);
         direction.z = direction.y;
         direction.y = 0;
 
         if (direction.x > 0)
         {
-            direction.z = 0;
+            //direction.z = 0;
             right_command.Execute(player, direction);
         }
         else if (direction.x < 0)
         {
-            direction.z = 0;
+            //direction.z = 0;
             left_command.Execute(player, direction);
         }
 
-        if (direction.z > 0)
+        if (direction.z < 0)
+        {
+            //direction.x = 0;
+            down_command.Execute(player, direction);
+        }
+
+        if (player.autoForward)
         {
             direction.x = 0;
             up_command.Execute(player, direction);
         }
-        else if (direction.z < 0)
+        else if(!player.autoForward && direction.z > 0)
         {
-            direction.x = 0;
-            down_command.Execute(player, direction);
+            //direction.x = 0;
+            up_command.Execute(player, direction);
+        }
+    }
+
+    private void ResetDirection(InputAction.CallbackContext context)
+    {
+        Vector3 direction = (Vector3)context.ReadValue<Vector2>();
+        print("hej");
+
+        if(direction.x == 0)
+        {
+            right_command.Execute(player, direction);
+            left_command.Execute(player, direction);
+        }
+
+        if(direction.y == 0)
+        {
+            direction.z = direction.y;
+            direction.y = 0;
+            up_command.Execute(player, direction);
+            up_command.Execute(player, direction);
         }
     }
 

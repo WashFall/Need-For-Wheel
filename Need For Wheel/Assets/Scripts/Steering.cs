@@ -560,6 +560,15 @@ public partial class @Steering : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Debug"",
+                    ""type"": ""Button"",
+                    ""id"": ""fb795df0-40ff-428c-b9b6-bc40313b37c3"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -668,7 +677,7 @@ public partial class @Steering : IInputActionCollection2, IDisposable
                     ""path"": ""<Keyboard>/w"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Keyboard&Mouse"",
                     ""action"": ""Testmap"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
@@ -679,7 +688,7 @@ public partial class @Steering : IInputActionCollection2, IDisposable
                     ""path"": ""<Keyboard>/s"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Keyboard&Mouse"",
                     ""action"": ""Testmap"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
@@ -690,7 +699,7 @@ public partial class @Steering : IInputActionCollection2, IDisposable
                     ""path"": ""<Keyboard>/a"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Keyboard&Mouse"",
                     ""action"": ""Testmap"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
@@ -701,10 +710,32 @@ public partial class @Steering : IInputActionCollection2, IDisposable
                     ""path"": ""<Keyboard>/d"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Keyboard&Mouse"",
                     ""action"": ""Testmap"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""5c114a9e-6425-4c62-a9b0-812a70dd6a86"",
+                    ""path"": ""<Keyboard>/r"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""Debug"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""fc2fe250-7ebc-4381-989d-2b037fc691c7"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""Debug"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -788,6 +819,7 @@ public partial class @Steering : IInputActionCollection2, IDisposable
         m_Ground = asset.FindActionMap("Ground", throwIfNotFound: true);
         m_Ground_Steering = m_Ground.FindAction("Steering", throwIfNotFound: true);
         m_Ground_Testmap = m_Ground.FindAction("Testmap", throwIfNotFound: true);
+        m_Ground_Debug = m_Ground.FindAction("Debug", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -954,12 +986,14 @@ public partial class @Steering : IInputActionCollection2, IDisposable
     private IGroundActions m_GroundActionsCallbackInterface;
     private readonly InputAction m_Ground_Steering;
     private readonly InputAction m_Ground_Testmap;
+    private readonly InputAction m_Ground_Debug;
     public struct GroundActions
     {
         private @Steering m_Wrapper;
         public GroundActions(@Steering wrapper) { m_Wrapper = wrapper; }
         public InputAction @Steering => m_Wrapper.m_Ground_Steering;
         public InputAction @Testmap => m_Wrapper.m_Ground_Testmap;
+        public InputAction @Debug => m_Wrapper.m_Ground_Debug;
         public InputActionMap Get() { return m_Wrapper.m_Ground; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -975,6 +1009,9 @@ public partial class @Steering : IInputActionCollection2, IDisposable
                 @Testmap.started -= m_Wrapper.m_GroundActionsCallbackInterface.OnTestmap;
                 @Testmap.performed -= m_Wrapper.m_GroundActionsCallbackInterface.OnTestmap;
                 @Testmap.canceled -= m_Wrapper.m_GroundActionsCallbackInterface.OnTestmap;
+                @Debug.started -= m_Wrapper.m_GroundActionsCallbackInterface.OnDebug;
+                @Debug.performed -= m_Wrapper.m_GroundActionsCallbackInterface.OnDebug;
+                @Debug.canceled -= m_Wrapper.m_GroundActionsCallbackInterface.OnDebug;
             }
             m_Wrapper.m_GroundActionsCallbackInterface = instance;
             if (instance != null)
@@ -985,6 +1022,9 @@ public partial class @Steering : IInputActionCollection2, IDisposable
                 @Testmap.started += instance.OnTestmap;
                 @Testmap.performed += instance.OnTestmap;
                 @Testmap.canceled += instance.OnTestmap;
+                @Debug.started += instance.OnDebug;
+                @Debug.performed += instance.OnDebug;
+                @Debug.canceled += instance.OnDebug;
             }
         }
     }
@@ -1051,5 +1091,6 @@ public partial class @Steering : IInputActionCollection2, IDisposable
     {
         void OnSteering(InputAction.CallbackContext context);
         void OnTestmap(InputAction.CallbackContext context);
+        void OnDebug(InputAction.CallbackContext context);
     }
 }
