@@ -38,14 +38,26 @@ public class InputManager : MonoBehaviour
         direction.y = 0;
 
         if (direction.x > 0)
+        {
+            direction.z = 0;
             right_command.Execute(player, direction);
+        }
         else if (direction.x < 0)
+        {
+            direction.z = 0;
             left_command.Execute(player, direction);
+        }
 
         if (direction.z > 0)
+        {
+            direction.x = 0;
             up_command.Execute(player, direction);
+        }
         else if (direction.z < 0)
+        {
+            direction.x = 0;
             down_command.Execute(player, direction);
+        }
     }
 
     //private void Moving(InputAction.CallbackContext context)

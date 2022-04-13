@@ -19,30 +19,30 @@ public class PlayerController : MonoBehaviour
 
     private void Start()
     {
-        velocityMultiplier = 20;
+        velocityMultiplier = 100f;
     }
 
     public void Forward(Vector3 inputVector)
     {
-        rigidBody.AddForce(inputVector * velocityMultiplier);
+        rigidBody.AddForce(inputVector * 75f, ForceMode.Force);
         //rigidBody.velocity = inputVector * velocityMultiplier;
     }
 
     public void Backward(Vector3 inputVector)
     {
-        rigidBody.AddForce(inputVector * velocityMultiplier);
+        rigidBody.AddForce(inputVector * velocityMultiplier, ForceMode.Force);
         //rigidBody.velocity = inputVector * velocityMultiplier;
     }
 
     public void Left(Vector3 inputVector)
     {
-        rigidBody.AddForce(inputVector * velocityMultiplier);
+        rigidBody.AddForce(inputVector * velocityMultiplier, ForceMode.Force);
         //rigidBody.velocity = inputVector * velocityMultiplier;
     }
 
     public void Right(Vector3 inputVector)
     {
-        rigidBody.AddForce(inputVector * velocityMultiplier);
+        rigidBody.AddForce(inputVector * velocityMultiplier, ForceMode.Force);
         //rigidBody.velocity = inputVector * velocityMultiplier;
     }
 }
