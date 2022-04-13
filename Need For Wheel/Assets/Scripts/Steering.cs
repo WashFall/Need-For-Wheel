@@ -547,7 +547,16 @@ public partial class @Steering : IInputActionCollection2, IDisposable
                     ""name"": ""Steering"",
                     ""type"": ""Value"",
                     ""id"": ""41db18a3-d179-4885-bf24-508ede3b2002"",
-                    ""expectedControlType"": ""Analog"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Testmap"",
+                    ""type"": ""Value"",
+                    ""id"": ""48fbcde0-c8d1-4eff-a398-f41496a94615"",
+                    ""expectedControlType"": ""Vector2"",
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
@@ -570,7 +579,7 @@ public partial class @Steering : IInputActionCollection2, IDisposable
                     ""id"": ""aa5d5a08-55e0-4063-be85-81ca3902a5e1"",
                     ""path"": ""<DualShockGamepad>/leftStick/left"",
                     ""interactions"": """",
-                    ""processors"": """",
+                    ""processors"": ""Invert"",
                     ""groups"": ""Gamepad"",
                     ""action"": ""Steering"",
                     ""isComposite"": false,
@@ -581,7 +590,7 @@ public partial class @Steering : IInputActionCollection2, IDisposable
                     ""id"": ""aabd8623-af06-4a05-95c0-6e4b6772de6d"",
                     ""path"": ""<XInputController>/leftStick/left"",
                     ""interactions"": """",
-                    ""processors"": """",
+                    ""processors"": ""Invert"",
                     ""groups"": ""Gamepad"",
                     ""action"": ""Steering"",
                     ""isComposite"": false,
@@ -592,7 +601,7 @@ public partial class @Steering : IInputActionCollection2, IDisposable
                     ""id"": ""fe294bcf-de94-490c-9a42-0df757595c9c"",
                     ""path"": ""<SwitchProControllerHID>/leftStick/left"",
                     ""interactions"": """",
-                    ""processors"": """",
+                    ""processors"": ""Invert"",
                     ""groups"": ""Gamepad"",
                     ""action"": ""Steering"",
                     ""isComposite"": false,
@@ -641,6 +650,61 @@ public partial class @Steering : IInputActionCollection2, IDisposable
                     ""action"": ""Steering"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""2D Vector"",
+                    ""id"": ""9d98c2a3-b357-413b-8736-aa3b2746234d"",
+                    ""path"": ""2DVector"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Testmap"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""up"",
+                    ""id"": ""1a4feb43-08ac-492c-9662-4e552a596ef1"",
+                    ""path"": ""<Keyboard>/w"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Testmap"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""down"",
+                    ""id"": ""d0b313ea-dab5-4096-8d92-45407f64033c"",
+                    ""path"": ""<Keyboard>/s"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Testmap"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""left"",
+                    ""id"": ""318bdd9c-8841-4ee3-a17a-d728b6b29355"",
+                    ""path"": ""<Keyboard>/a"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Testmap"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""right"",
+                    ""id"": ""e8419087-5c53-4cf8-a2c7-7df833aa7078"",
+                    ""path"": ""<Keyboard>/d"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Testmap"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
                 }
             ]
         }
@@ -723,6 +787,7 @@ public partial class @Steering : IInputActionCollection2, IDisposable
         // Ground
         m_Ground = asset.FindActionMap("Ground", throwIfNotFound: true);
         m_Ground_Steering = m_Ground.FindAction("Steering", throwIfNotFound: true);
+        m_Ground_Testmap = m_Ground.FindAction("Testmap", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -888,11 +953,13 @@ public partial class @Steering : IInputActionCollection2, IDisposable
     private readonly InputActionMap m_Ground;
     private IGroundActions m_GroundActionsCallbackInterface;
     private readonly InputAction m_Ground_Steering;
+    private readonly InputAction m_Ground_Testmap;
     public struct GroundActions
     {
         private @Steering m_Wrapper;
         public GroundActions(@Steering wrapper) { m_Wrapper = wrapper; }
         public InputAction @Steering => m_Wrapper.m_Ground_Steering;
+        public InputAction @Testmap => m_Wrapper.m_Ground_Testmap;
         public InputActionMap Get() { return m_Wrapper.m_Ground; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -905,6 +972,9 @@ public partial class @Steering : IInputActionCollection2, IDisposable
                 @Steering.started -= m_Wrapper.m_GroundActionsCallbackInterface.OnSteering;
                 @Steering.performed -= m_Wrapper.m_GroundActionsCallbackInterface.OnSteering;
                 @Steering.canceled -= m_Wrapper.m_GroundActionsCallbackInterface.OnSteering;
+                @Testmap.started -= m_Wrapper.m_GroundActionsCallbackInterface.OnTestmap;
+                @Testmap.performed -= m_Wrapper.m_GroundActionsCallbackInterface.OnTestmap;
+                @Testmap.canceled -= m_Wrapper.m_GroundActionsCallbackInterface.OnTestmap;
             }
             m_Wrapper.m_GroundActionsCallbackInterface = instance;
             if (instance != null)
@@ -912,6 +982,9 @@ public partial class @Steering : IInputActionCollection2, IDisposable
                 @Steering.started += instance.OnSteering;
                 @Steering.performed += instance.OnSteering;
                 @Steering.canceled += instance.OnSteering;
+                @Testmap.started += instance.OnTestmap;
+                @Testmap.performed += instance.OnTestmap;
+                @Testmap.canceled += instance.OnTestmap;
             }
         }
     }
@@ -977,5 +1050,6 @@ public partial class @Steering : IInputActionCollection2, IDisposable
     public interface IGroundActions
     {
         void OnSteering(InputAction.CallbackContext context);
+        void OnTestmap(InputAction.CallbackContext context);
     }
 }

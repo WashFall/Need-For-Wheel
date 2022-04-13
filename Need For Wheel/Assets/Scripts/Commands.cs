@@ -4,37 +4,37 @@ using UnityEngine;
 
 public interface ICommand
 {
-    void Execute(PlayerController player);
+    void Execute(PlayerController player, Vector3 inputVector);
 }
 
 public class MoveLeft : ICommand
 {
-    public void Execute(PlayerController player)
+    public void Execute(PlayerController player, Vector3 inputVector)
     {
-        player.Left();
+        player.Left(inputVector);
     }
 }
 
 public class MoveRight : ICommand
 {
-    public void Execute(PlayerController player)
+    public void Execute(PlayerController player, Vector3 inputVector)
     {
-        player.Right();
+        player.Right(inputVector);
     }
 }
 
 public class MoveForward : ICommand
 {
-    public void Execute(PlayerController player)
+    public void Execute(PlayerController player, Vector3 inputVector)
     {
-        player.Forward();
+        player.Forward(inputVector);
     }
 }
 
 public class MoveBackward : ICommand
 {
-    public void Execute(PlayerController player)
+    public void Execute(PlayerController player, Vector3 inputVector)
     {
-        player.Backward();
+        player.Backward(inputVector);
     }
 }

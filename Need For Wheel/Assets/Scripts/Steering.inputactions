@@ -525,7 +525,16 @@
                     "name": "Steering",
                     "type": "Value",
                     "id": "41db18a3-d179-4885-bf24-508ede3b2002",
-                    "expectedControlType": "Analog",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "Testmap",
+                    "type": "Value",
+                    "id": "48fbcde0-c8d1-4eff-a398-f41496a94615",
+                    "expectedControlType": "Vector2",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
@@ -548,7 +557,7 @@
                     "id": "aa5d5a08-55e0-4063-be85-81ca3902a5e1",
                     "path": "<DualShockGamepad>/leftStick/left",
                     "interactions": "",
-                    "processors": "",
+                    "processors": "Invert",
                     "groups": "Gamepad",
                     "action": "Steering",
                     "isComposite": false,
@@ -559,7 +568,7 @@
                     "id": "aabd8623-af06-4a05-95c0-6e4b6772de6d",
                     "path": "<XInputController>/leftStick/left",
                     "interactions": "",
-                    "processors": "",
+                    "processors": "Invert",
                     "groups": "Gamepad",
                     "action": "Steering",
                     "isComposite": false,
@@ -570,7 +579,7 @@
                     "id": "fe294bcf-de94-490c-9a42-0df757595c9c",
                     "path": "<SwitchProControllerHID>/leftStick/left",
                     "interactions": "",
-                    "processors": "",
+                    "processors": "Invert",
                     "groups": "Gamepad",
                     "action": "Steering",
                     "isComposite": false,
@@ -619,6 +628,61 @@
                     "action": "Steering",
                     "isComposite": false,
                     "isPartOfComposite": false
+                },
+                {
+                    "name": "2D Vector",
+                    "id": "9d98c2a3-b357-413b-8736-aa3b2746234d",
+                    "path": "2DVector",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Testmap",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "up",
+                    "id": "1a4feb43-08ac-492c-9662-4e552a596ef1",
+                    "path": "<Keyboard>/w",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Testmap",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "down",
+                    "id": "d0b313ea-dab5-4096-8d92-45407f64033c",
+                    "path": "<Keyboard>/s",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Testmap",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "left",
+                    "id": "318bdd9c-8841-4ee3-a17a-d728b6b29355",
+                    "path": "<Keyboard>/a",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Testmap",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "right",
+                    "id": "e8419087-5c53-4cf8-a2c7-7df833aa7078",
+                    "path": "<Keyboard>/d",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Testmap",
+                    "isComposite": false,
+                    "isPartOfComposite": true
                 }
             ]
         }
