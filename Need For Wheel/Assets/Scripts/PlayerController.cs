@@ -6,11 +6,8 @@ public class PlayerController : MonoBehaviour
 {
     public bool autoForward;
     public Rigidbody rigidBody;
+    public float velocityMultiplier = 1.4f;
 
-    private float vertical;
-    private float horizontal;
-    private float velocityMultiplier;
-    private Vector3 velocity;
     private Transform playerTransform;
 
     private void Awake()
@@ -21,46 +18,38 @@ public class PlayerController : MonoBehaviour
 
     private void Start()
     {
-        velocityMultiplier = 1.4f;
+        //velocityMultiplier = 1.4f;
     }
 
     private void Update()
     {
-        //print(velocity);
+        //print(playerTransform.position);
     }
 
     public void Forward(Vector3 inputVector)
     {
-        velocity.z = inputVector.z;
-
         if(autoForward)
             rigidBody.AddForce(new Vector3(0, 0, 1) * 2, ForceMode.VelocityChange);
         else
-            rigidBody.AddForce(velocity * velocityMultiplier, ForceMode.Impulse);
+            rigidBody.AddForce(inputVector * velocityMultiplier, ForceMode.Impulse);
         //rigidBody.velocity = inputVector * velocityMultiplier;
     }
 
     public void Backward(Vector3 inputVector)
     {
-        velocity.z = inputVector.z;
-
-        rigidBody.AddForce(velocity * velocityMultiplier, ForceMode.Impulse);
+        rigidBody.AddForce(inputVector * velocityMultiplier, ForceMode.Impulse);
         //rigidBody.velocity = inputVector * velocityMultiplier;
     }
 
     public void Left(Vector3 inputVector)
     {
-        velocity.x = inputVector.x;
-
-        rigidBody.AddForce(velocity * velocityMultiplier, ForceMode.Impulse);
+        rigidBody.AddForce(inputVector * velocityMultiplier, ForceMode.Impulse);
         //rigidBody.velocity = inputVector * velocityMultiplier;
     }
 
     public void Right(Vector3 inputVector)
     {
-        velocity.x = inputVector.x;
-
-        rigidBody.AddForce(velocity * velocityMultiplier, ForceMode.Impulse);
+        rigidBody.AddForce(inputVector * velocityMultiplier, ForceMode.Impulse);
         //rigidBody.velocity = inputVector * velocityMultiplier;
     }
 }

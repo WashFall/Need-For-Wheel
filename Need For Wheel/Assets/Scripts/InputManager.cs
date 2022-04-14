@@ -7,7 +7,9 @@ public class InputManager : MonoBehaviour
 {
     private PlayerInput playerInput;
     public PlayerController player;
-    private Steering steering;
+
+    [HideInInspector]
+    public Steering steering;
 
     private ICommand up_command;
     private ICommand down_command;
@@ -28,50 +30,50 @@ public class InputManager : MonoBehaviour
 
         steering = new Steering();
         steering.Ground.Enable();
-        
-        steering.Ground.Testmap.canceled += ResetDirection;
+
+        //steering.Ground.Testmap.canceled += ResetDirection;
+
+        steering.Ground.LeftRight.canceled += ResetDirection;
+        steering.Ground.ForwardBack.canceled += ResetDirection;
     }
 
     private void FixedUpdate()
     {
-        Vector3 direction = (Vector3)steering.Ground.Testmap.ReadValue<Vector2>();
-        //print(direction);
-        direction.z = direction.y;
-        direction.y = 0;
+        Vector3 direction = new Vector3(steering.Ground.LeftRight.ReadValue<float>(), 0, steering.Ground.ForwardBack.ReadValue<float>());
 
         if (direction.x > 0)
         {
-            //direction.z = 0;
-            right_command.Execute(player, direction);
+            Vector3 inputVector = new Vector3(direction.x, 0, 0);
+            right_command.Execute(player, inputVector);
         }
-        else if (direction.x < 0)
+
+        if (direction.x < 0)
         {
-            //direction.z = 0;
-            left_command.Execute(player, direction);
+            Vector3 inputVector = new Vector3(direction.x, 0, 0);
+            left_command.Execute(player, inputVector);
         }
 
         if (direction.z < 0)
         {
-            //direction.x = 0;
-            down_command.Execute(player, direction);
+            Vector3 inputVector = new Vector3(0, 0, direction.z);
+            down_command.Execute(player, inputVector);
         }
 
         if (player.autoForward)
         {
-            direction.x = 0;
-            up_command.Execute(player, direction);
+            Vector3 inputVector = new Vector3(0, 0, direction.z);
+            up_command.Execute(player, inputVector);
         }
         else if(!player.autoForward && direction.z > 0)
         {
-            //direction.x = 0;
-            up_command.Execute(player, direction);
+            Vector3 inputVector = new Vector3(0, 0, direction.z);
+            up_command.Execute(player, inputVector);
         }
     }
 
     private void ResetDirection(InputAction.CallbackContext context)
     {
-        Vector3 direction = (Vector3)context.ReadValue<Vector2>();
-        print("hej");
+        Vector3 direction = new Vector3(steering.Ground.LeftRight.ReadValue<float>(), 0, steering.Ground.ForwardBack.ReadValue<float>());
 
         if(direction.x == 0)
         {
@@ -79,12 +81,11 @@ public class InputManager : MonoBehaviour
             left_command.Execute(player, direction);
         }
 
-        if(direction.y == 0)
+        if(direction.z == 0)
         {
-            direction.z = direction.y;
-            direction.y = 0;
+            direction.z = 0;
             up_command.Execute(player, direction);
-            up_command.Execute(player, direction);
+            down_command.Execute(player, direction);
         }
     }
 

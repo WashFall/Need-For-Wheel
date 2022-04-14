@@ -2752,6 +2752,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77a57d280d6317b4695b34adadc18e07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  inputManager: {fileID: 1273355390}
 --- !u!4 &605970058
 Transform:
   m_ObjectHideFlags: 0
@@ -5384,6 +5385,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   autoForward: 0
   rigidBody: {fileID: 0}
+  velocityMultiplier: 1.4
 --- !u!65 &1273355385
 BoxCollider:
   m_ObjectHideFlags: 0

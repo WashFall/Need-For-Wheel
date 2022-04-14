@@ -6,6 +6,8 @@ using UnityEngine.SceneManagement;
 
 public class DebugManager : MonoBehaviour
 {
+    public InputManager inputManager;
+
     private PlayerInput playerInput;
     private Steering steering;
 
@@ -23,6 +25,7 @@ public class DebugManager : MonoBehaviour
     {
         if (Keyboard.current.rKey.wasPressedThisFrame)
         {
+            inputManager.steering.Disable();
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
         else if (Keyboard.current.escapeKey.wasPressedThisFrame)
