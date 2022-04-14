@@ -23,12 +23,12 @@ public class DebugManager : MonoBehaviour
     }
     private void DebugCommands(InputAction.CallbackContext context)
     {
-        if (Keyboard.current.rKey.wasPressedThisFrame)
+        if (Keyboard.current.rKey.wasPressedThisFrame || Gamepad.current.buttonWest.wasPressedThisFrame)
         {
             inputManager.steering.Disable();
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
-        else if (Keyboard.current.escapeKey.wasPressedThisFrame)
+        else if (Keyboard.current.escapeKey.wasPressedThisFrame || Gamepad.current.buttonEast.wasPressedThisFrame)
         {
             UnityEditor.EditorApplication.isPlaying = false;
         }

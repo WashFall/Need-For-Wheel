@@ -5383,7 +5383,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8dc3b44e9115e4d4ab3c702c4199cbab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  autoForward: 0
+  autoForward: 1
   rigidBody: {fileID: 0}
   velocityMultiplier: 1.4
 --- !u!65 &1273355385

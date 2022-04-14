@@ -40,7 +40,6 @@ public class InputManager : MonoBehaviour
     private void FixedUpdate()
     {
         Vector3 direction = new Vector3(steering.Ground.LeftRight.ReadValue<float>(), 0, steering.Ground.ForwardBack.ReadValue<float>());
-
         if (direction.x > 0)
         {
             Vector3 inputVector = new Vector3(direction.x, 0, 0);
