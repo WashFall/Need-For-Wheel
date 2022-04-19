@@ -10,6 +10,7 @@ public class DebugManager : MonoBehaviour
 
     private PlayerInput playerInput;
     private Steering steering;
+
     [SerializeField]
     private bool gamepadConnected;
 

@@ -56,4 +56,9 @@ public class PlayerController : MonoBehaviour
         rigidBody.AddForce(inputVector * sidewayVelocityMultiplier, ForceMode.Impulse);
         //rigidBody.velocity = inputVector * velocityMultiplier;
     }
+
+    public void Rise(Vector3 inputVector)
+    {
+        // TODO: Add flight movement; flying upwards.
+    }
 }
