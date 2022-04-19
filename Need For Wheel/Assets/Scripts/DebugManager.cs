@@ -10,7 +10,8 @@ public class DebugManager : MonoBehaviour
 
     private PlayerInput playerInput;
     private Steering steering;
-
+    [SerializeField]
+    private bool gamepadConnected;
 
     void Start()
     {
@@ -19,7 +20,12 @@ public class DebugManager : MonoBehaviour
         steering = new Steering();
         steering.Ground.Enable();
 
-        steering.Ground.Debug.performed += DebugCommands;
+        gamepadConnected = Gamepad.all.Count < 1 ? false : true;
+
+        if (gamepadConnected)
+            steering.Ground.Debug.performed += DebugCommands;
+        else
+            steering.Ground.Debug.performed += KeyboardDebugOnly;
     }
     private void DebugCommands(InputAction.CallbackContext context)
     {
@@ -32,6 +38,19 @@ public class DebugManager : MonoBehaviour
         {
             UnityEditor.EditorApplication.isPlaying = false;
         }
+
     }
 
+    private void KeyboardDebugOnly(InputAction.CallbackContext context)
+    {
+        if (Keyboard.current.rKey.wasPressedThisFrame)
+        {
+            inputManager.steering.Disable();
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }
+        else if (Keyboard.current.escapeKey.wasPressedThisFrame)
+        {
+            UnityEditor.EditorApplication.isPlaying = false;
+        }
+    }
 }

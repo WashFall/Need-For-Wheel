@@ -5,8 +5,10 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     public bool autoForward;
+    public bool noForward;
     public Rigidbody rigidBody;
-    public float velocityMultiplier = 1.4f;
+    public float forwardVelocityMultiplier = 1.4f;
+    public float sidewayVelocityMultiplier = 1.2f;
 
     private Transform playerTransform;
 
@@ -30,26 +32,28 @@ public class PlayerController : MonoBehaviour
     {
         if(autoForward)
             rigidBody.AddForce(new Vector3(0, 0, 1) * 2, ForceMode.VelocityChange);
+        else if (noForward) { }
+
         else
-            rigidBody.AddForce(inputVector * velocityMultiplier, ForceMode.Impulse);
+            rigidBody.AddForce(inputVector * forwardVelocityMultiplier, ForceMode.Impulse);
         //rigidBody.velocity = inputVector * velocityMultiplier;
     }
 
     public void Backward(Vector3 inputVector)
     {
-        rigidBody.AddForce(inputVector * velocityMultiplier, ForceMode.Impulse);
+        rigidBody.AddForce(inputVector * forwardVelocityMultiplier, ForceMode.Impulse);
         //rigidBody.velocity = inputVector * velocityMultiplier;
     }
 
     public void Left(Vector3 inputVector)
     {
-        rigidBody.AddForce(inputVector * velocityMultiplier, ForceMode.Impulse);
+        rigidBody.AddForce(inputVector * sidewayVelocityMultiplier, ForceMode.Impulse);
         //rigidBody.velocity = inputVector * velocityMultiplier;
     }
 
     public void Right(Vector3 inputVector)
     {
-        rigidBody.AddForce(inputVector * velocityMultiplier, ForceMode.Impulse);
+        rigidBody.AddForce(inputVector * sidewayVelocityMultiplier, ForceMode.Impulse);
         //rigidBody.velocity = inputVector * velocityMultiplier;
     }
 }
