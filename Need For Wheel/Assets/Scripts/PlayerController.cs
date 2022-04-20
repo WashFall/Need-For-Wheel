@@ -18,47 +18,33 @@ public class PlayerController : MonoBehaviour
         rigidBody = GetComponent<Rigidbody>();
     }
 
-    private void Start()
-    {
-        //velocityMultiplier = 1.4f;
-    }
-
-    private void Update()
-    {
-        //print(playerTransform.position);
-    }
-
     public void Forward(Vector3 inputVector)
     {
         if(autoForward)
             rigidBody.AddForce(new Vector3(0, 0, 1) * 2, ForceMode.VelocityChange);
         else if (noForward) { }
-
         else
             rigidBody.AddForce(inputVector * forwardVelocityMultiplier, ForceMode.Impulse);
-        //rigidBody.velocity = inputVector * velocityMultiplier;
     }
 
     public void Backward(Vector3 inputVector)
     {
         rigidBody.AddForce(inputVector * forwardVelocityMultiplier, ForceMode.Impulse);
-        //rigidBody.velocity = inputVector * velocityMultiplier;
     }
 
     public void Left(Vector3 inputVector)
     {
         rigidBody.AddForce(inputVector * sidewayVelocityMultiplier, ForceMode.Impulse);
-        //rigidBody.velocity = inputVector * velocityMultiplier;
     }
 
     public void Right(Vector3 inputVector)
     {
         rigidBody.AddForce(inputVector * sidewayVelocityMultiplier, ForceMode.Impulse);
-        //rigidBody.velocity = inputVector * velocityMultiplier;
     }
 
     public void Rise(Vector3 inputVector)
     {
         // TODO: Add flight movement; flying upwards.
+        rigidBody.AddForce(inputVector * forwardVelocityMultiplier, ForceMode.Impulse);
     }
 }

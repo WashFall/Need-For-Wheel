@@ -18,19 +18,19 @@ public class SwitchObstacleEditor : Editor
 		if (GUILayout.Button("'Box'"))
 		{
 			meshfilter = script.GetComponent<MeshFilter>();
-			meshfilter.sharedMesh = Resources.GetBuiltinResource<Mesh>("Cube.fbx");
+			meshfilter.mesh = Resources.GetBuiltinResource<Mesh>("Cube.fbx");
 		}
 
 		if (GUILayout.Button("'Tree'"))
 		{
 			meshfilter = script.GetComponent<MeshFilter>();
-			meshfilter.sharedMesh = Resources.GetBuiltinResource<Mesh>("Cylinder.fbx");
+			meshfilter.mesh = Resources.GetBuiltinResource<Mesh>("Cylinder.fbx");
 		}
 
 		if (GUILayout.Button("'Person'"))
 		{
 			meshfilter = script.GetComponent<MeshFilter>();
-			meshfilter.sharedMesh = Resources.GetBuiltinResource<Mesh>("Capsule.fbx");
+			meshfilter.mesh = Resources.GetBuiltinResource<Mesh>("Capsule.fbx");
 		}
 	}
 }

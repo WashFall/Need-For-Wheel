@@ -5,23 +5,26 @@ using UnityEngine.InputSystem;
 
 public class InputManager : MonoBehaviour
 {
-    private PlayerInput playerInput;
+    public bool flying;
     public PlayerController player;
 
     [HideInInspector]
     public Steering steering;
 
     private ICommand up_command;
-    private ICommand down_command;
     private ICommand left_command;
     private ICommand right_command;
+    private PlayerInput playerInput;
+    private ICommand forward_command;
+    private ICommand backward_command;
 
     private void Awake()
     {
-        up_command = new MoveForward();
-        down_command = new MoveBackward();
+        up_command = new MoveUp();
         left_command = new MoveLeft();
         right_command = new MoveRight();
+        forward_command = new MoveForward();
+        backward_command = new MoveBackward();
     }
 
     private void Start()
@@ -30,16 +33,18 @@ public class InputManager : MonoBehaviour
 
         steering = new Steering();
         steering.Ground.Enable();
-
-        //steering.Ground.Testmap.canceled += ResetDirection;
-
         steering.Ground.LeftRight.canceled += ResetDirection;
         steering.Ground.ForwardBack.canceled += ResetDirection;
     }
 
     private void FixedUpdate()
     {
-        Vector3 direction = new Vector3(steering.Ground.LeftRight.ReadValue<float>(), 0, steering.Ground.ForwardBack.ReadValue<float>());
+        Vector3 direction;
+        if (!flying)
+            direction = new Vector3(steering.Ground.LeftRight.ReadValue<float>(), 0, steering.Ground.ForwardBack.ReadValue<float>());
+        else
+            direction = new Vector3(steering.Ground.LeftRight.ReadValue<float>(), steering.Ground.ForwardBack.ReadValue<float>(), 0);
+
         if (direction.x > 0)
         {
             Vector3 inputVector = new Vector3(direction.x, 0, 0);
@@ -55,17 +60,23 @@ public class InputManager : MonoBehaviour
         if (direction.z < 0)
         {
             Vector3 inputVector = new Vector3(0, 0, direction.z);
-            down_command.Execute(player, inputVector);
+            backward_command.Execute(player, inputVector);
         }
 
         if (player.autoForward)
         {
-            Vector3 inputVector = new Vector3(0, 0, direction.z);
-            up_command.Execute(player, inputVector);
+            Vector3 inputVector = new Vector3(0, 0, 1);
+            forward_command.Execute(player, inputVector);
         }
         else if(!player.autoForward && direction.z > 0)
         {
             Vector3 inputVector = new Vector3(0, 0, direction.z);
+            forward_command.Execute(player, inputVector);
+        }
+
+        if(flying && direction.y > 0)
+        {
+            Vector3 inputVector = new Vector3(0, direction.y, 0);
             up_command.Execute(player, inputVector);
         }
     }
@@ -83,8 +94,8 @@ public class InputManager : MonoBehaviour
         if(direction.z == 0)
         {
             direction.z = 0;
-            up_command.Execute(player, direction);
-            down_command.Execute(player, direction);
+            forward_command.Execute(player, direction);
+            backward_command.Execute(player, direction);
         }
     }
 
