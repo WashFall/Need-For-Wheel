@@ -61,7 +61,6 @@ public class SwitchObstacleEditor : Editor
     {
         List<string> filePaths = new List<string>();
 
-        // search for a ScriptObject called CatchphraseCategoryData inside the PhraseDataFolder
         var guids = AssetDatabase.FindAssets($"{filter}", new string[] { folderPath });
         foreach (string guid in guids)
         {
