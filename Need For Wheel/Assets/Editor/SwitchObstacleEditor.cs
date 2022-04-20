@@ -14,23 +14,27 @@ public class SwitchObstacleEditor : Editor
 		base.OnInspectorGUI();
 
 		SwitchObstacleComponent script = (SwitchObstacleComponent)target;
+		meshfilter = script.GetComponent<MeshFilter>();
 
 		if (GUILayout.Button("'Box'"))
 		{
-			meshfilter = script.GetComponent<MeshFilter>();
-			meshfilter.mesh = Resources.GetBuiltinResource<Mesh>("Cube.fbx");
+			SetMesh("Cube.fbx");
 		}
 
 		if (GUILayout.Button("'Tree'"))
 		{
-			meshfilter = script.GetComponent<MeshFilter>();
-			meshfilter.mesh = Resources.GetBuiltinResource<Mesh>("Cylinder.fbx");
+			SetMesh("Cylinder.fbx");
 		}
 
 		if (GUILayout.Button("'Person'"))
 		{
-			meshfilter = script.GetComponent<MeshFilter>();
-			meshfilter.mesh = Resources.GetBuiltinResource<Mesh>("Capsule.fbx");
+			SetMesh("Capsule.fbx");
 		}
+	}
+
+	private void SetMesh(string name)
+    {
+		Undo.RecordObject(meshfilter, "Name of my operation after this Undo-block");
+		meshfilter.mesh = Resources.GetBuiltinResource<Mesh>(name);
 	}
 }
