@@ -53,7 +53,7 @@ public class SwitchObstacleEditor : Editor
         {
             Undo.DestroyObjectImmediate(trans.gameObject);
         }
-        var temporary = Instantiate(obstaclePrefabs[prefabIndex], script.transform);
+        var temporary = PrefabUtility.InstantiatePrefab(obstaclePrefabs[prefabIndex], script.transform);
         Undo.RecordObject(temporary, "Added object");
     }
 
