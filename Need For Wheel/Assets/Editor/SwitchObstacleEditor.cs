@@ -44,6 +44,12 @@ public class SwitchObstacleEditor : Editor
         {
             SetPrefab(selected);
         }
+
+        if (GUILayout.Button("Random Obstacle"))
+        {
+            int rand = Random.Range(0, obstaclePrefabs.Length);
+            SetPrefab(rand);
+        }
     }
 
     private void SetPrefab(int prefabIndex)

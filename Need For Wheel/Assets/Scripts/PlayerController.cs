@@ -12,12 +12,9 @@ public class PlayerController : MonoBehaviour
     public float forwardVelocityMultiplier = 1.4f;
     public float sidewayVelocityMultiplier = 1.2f;
 
-    private Transform playerTransform;
-
     private void Awake()
     {
         dead = false;
-        playerTransform = transform;
         rigidBody = GetComponent<Rigidbody>();
         if(increaseGravity)
             Physics.gravity = new Vector3(0, -40, 0);

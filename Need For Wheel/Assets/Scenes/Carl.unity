@@ -7255,7 +7255,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a63e6649d8faa24682fb5ed24dc7a27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dead: 0
   player: {fileID: 1273355382}
 --- !u!1 &831912573
 GameObject:
@@ -10253,6 +10252,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8dc3b44e9115e4d4ab3c702c4199cbab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dead: 0
   noForward: 0
   autoForward: 1
   rigidBody: {fileID: 0}
