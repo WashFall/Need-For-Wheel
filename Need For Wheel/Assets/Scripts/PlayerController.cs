@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    public bool autoForward;
     public bool noForward;
+    public bool autoForward;
     public Rigidbody rigidBody;
+    public bool increaseGravity;
     public float forwardVelocityMultiplier = 1.4f;
     public float sidewayVelocityMultiplier = 1.2f;
 
@@ -16,6 +17,8 @@ public class PlayerController : MonoBehaviour
     {
         playerTransform = transform;
         rigidBody = GetComponent<Rigidbody>();
+        if(increaseGravity)
+            Physics.gravity = new Vector3(0, -40, 0);
     }
 
     public void Forward(Vector3 inputVector)
@@ -45,6 +48,6 @@ public class PlayerController : MonoBehaviour
     public void Rise(Vector3 inputVector)
     {
         // TODO: Add flight movement; flying upwards.
-        rigidBody.AddForce(inputVector * forwardVelocityMultiplier, ForceMode.Impulse);
+        rigidBody.AddForce(inputVector * 12, ForceMode.Impulse);
     }
 }
