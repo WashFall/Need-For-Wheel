@@ -38,3 +38,10 @@ public class MoveBackward : ICommand
         player.Backward(inputVector);
     }
 }
+public class MoveUp : ICommand
+{
+    public void Execute(PlayerController player, Vector3 inputVector)
+    {
+        player.Rise(inputVector);
+    }
+}

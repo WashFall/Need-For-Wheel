@@ -544,15 +544,6 @@ public partial class @Steering : IInputActionCollection2, IDisposable
             ""id"": ""9c2bd201-349b-4911-af4d-18dbf3b29016"",
             ""actions"": [
                 {
-                    ""name"": ""Steering"",
-                    ""type"": ""Value"",
-                    ""id"": ""41db18a3-d179-4885-bf24-508ede3b2002"",
-                    ""expectedControlType"": """",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": true
-                },
-                {
                     ""name"": ""Testmap"",
                     ""type"": ""Value"",
                     ""id"": ""48fbcde0-c8d1-4eff-a398-f41496a94615"",
@@ -560,97 +551,36 @@ public partial class @Steering : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Debug"",
+                    ""type"": ""Button"",
+                    ""id"": ""fb795df0-40ff-428c-b9b6-bc40313b37c3"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""ForwardBack"",
+                    ""type"": ""Value"",
+                    ""id"": ""2e0e1c65-296b-477e-8e55-55cf02269a84"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""LeftRight"",
+                    ""type"": ""Button"",
+                    ""id"": ""b8478630-addf-480f-afb4-86fcdbd469f0"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
-                {
-                    ""name"": """",
-                    ""id"": ""00eef86f-99af-44c0-9cc7-4bc70bf1efc2"",
-                    ""path"": ""<Keyboard>/a"",
-                    ""interactions"": """",
-                    ""processors"": ""Invert"",
-                    ""groups"": ""Keyboard&Mouse"",
-                    ""action"": ""Steering"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""aa5d5a08-55e0-4063-be85-81ca3902a5e1"",
-                    ""path"": ""<DualShockGamepad>/leftStick/left"",
-                    ""interactions"": """",
-                    ""processors"": ""Invert"",
-                    ""groups"": ""Gamepad"",
-                    ""action"": ""Steering"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""aabd8623-af06-4a05-95c0-6e4b6772de6d"",
-                    ""path"": ""<XInputController>/leftStick/left"",
-                    ""interactions"": """",
-                    ""processors"": ""Invert"",
-                    ""groups"": ""Gamepad"",
-                    ""action"": ""Steering"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""fe294bcf-de94-490c-9a42-0df757595c9c"",
-                    ""path"": ""<SwitchProControllerHID>/leftStick/left"",
-                    ""interactions"": """",
-                    ""processors"": ""Invert"",
-                    ""groups"": ""Gamepad"",
-                    ""action"": ""Steering"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""1d214b40-ab60-49d1-b5fa-3cfd24310e82"",
-                    ""path"": ""<Keyboard>/d"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Keyboard&Mouse"",
-                    ""action"": ""Steering"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""8b5774cc-a25a-495c-ad31-0294c3a7f3f9"",
-                    ""path"": ""<DualShockGamepad>/leftStick/right"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Gamepad"",
-                    ""action"": ""Steering"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""106b0991-4102-4113-b640-3e2711fae6a9"",
-                    ""path"": ""<XInputController>/leftStick/right"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Gamepad"",
-                    ""action"": ""Steering"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""920deb6c-c618-4b58-b048-72db78c3e844"",
-                    ""path"": ""<SwitchProControllerHID>/leftStick/right"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Gamepad"",
-                    ""action"": ""Steering"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
                 {
                     ""name"": ""2D Vector"",
                     ""id"": ""9d98c2a3-b357-413b-8736-aa3b2746234d"",
@@ -668,7 +598,7 @@ public partial class @Steering : IInputActionCollection2, IDisposable
                     ""path"": ""<Keyboard>/w"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Keyboard&Mouse"",
                     ""action"": ""Testmap"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
@@ -679,7 +609,7 @@ public partial class @Steering : IInputActionCollection2, IDisposable
                     ""path"": ""<Keyboard>/s"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Keyboard&Mouse"",
                     ""action"": ""Testmap"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
@@ -690,7 +620,7 @@ public partial class @Steering : IInputActionCollection2, IDisposable
                     ""path"": ""<Keyboard>/a"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Keyboard&Mouse"",
                     ""action"": ""Testmap"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
@@ -701,8 +631,250 @@ public partial class @Steering : IInputActionCollection2, IDisposable
                     ""path"": ""<Keyboard>/d"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Keyboard&Mouse"",
                     ""action"": ""Testmap"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""5c114a9e-6425-4c62-a9b0-812a70dd6a86"",
+                    ""path"": ""<Keyboard>/r"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""Debug"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""fc2fe250-7ebc-4381-989d-2b037fc691c7"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""Debug"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""19ee8e8b-d82a-46a3-a1b5-956838cb368d"",
+                    ""path"": ""<Gamepad>/buttonWest"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Debug"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""aec74d20-7939-4cd9-9a60-b739cbfd80d9"",
+                    ""path"": ""<Gamepad>/buttonEast"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Debug"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""1D Axis"",
+                    ""id"": ""ccb8fb83-946d-4d28-977c-a74119f09647"",
+                    ""path"": ""1DAxis"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ForwardBack"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""negative"",
+                    ""id"": ""8f055e5d-af2b-4fdc-9c64-cba6b986fbd3"",
+                    ""path"": ""<Keyboard>/s"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""ForwardBack"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""positive"",
+                    ""id"": ""537ce569-3732-44c0-94e5-04a0ce65f620"",
+                    ""path"": ""<Keyboard>/w"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""ForwardBack"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""1D Axis"",
+                    ""id"": ""eb5e7649-d38a-4f5c-af39-f9fe4bd4da8e"",
+                    ""path"": ""1DAxis"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ForwardBack"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""negative"",
+                    ""id"": ""6f75e25c-b8ef-4b22-ba04-00be1cfb52ed"",
+                    ""path"": ""<Gamepad>/leftStick/down"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""ForwardBack"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""positive"",
+                    ""id"": ""b015b8a6-7284-46bc-918b-908eb572f017"",
+                    ""path"": ""<Gamepad>/leftStick/up"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""ForwardBack"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""1D Axis"",
+                    ""id"": ""b75898c5-d8ef-4e48-b80a-94f7e45864b7"",
+                    ""path"": ""1DAxis"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ForwardBack"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""negative"",
+                    ""id"": ""05ebccd1-5006-4f08-bfed-7d5e5055f7df"",
+                    ""path"": ""<Keyboard>/downArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ForwardBack"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""positive"",
+                    ""id"": ""4b784d43-c949-457f-8277-b028da80d334"",
+                    ""path"": ""<Keyboard>/upArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""ForwardBack"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""1D Axis"",
+                    ""id"": ""70d7a27e-8949-467d-847e-e8a2f58ad059"",
+                    ""path"": ""1DAxis"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""LeftRight"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""negative"",
+                    ""id"": ""72cdc15b-45f2-472f-97bc-105ae380dba8"",
+                    ""path"": ""<Keyboard>/a"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""LeftRight"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""positive"",
+                    ""id"": ""1bb0daa3-3470-44cd-88bc-1e66f17b8fa6"",
+                    ""path"": ""<Keyboard>/d"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""LeftRight"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""1D Axis"",
+                    ""id"": ""9611eeb1-023c-4e62-8c3f-88095408f25d"",
+                    ""path"": ""1DAxis"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""LeftRight"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""negative"",
+                    ""id"": ""1772c1ac-f0c6-4a17-b9f4-1602bf011fe9"",
+                    ""path"": ""<Gamepad>/leftStick/left"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""LeftRight"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""positive"",
+                    ""id"": ""79d4824a-dd2d-42f5-8dae-54818f509443"",
+                    ""path"": ""<Gamepad>/leftStick/right"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""LeftRight"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""1D Axis"",
+                    ""id"": ""31f59847-a7c4-41c4-b046-59900488df3c"",
+                    ""path"": ""1DAxis"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""LeftRight"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""negative"",
+                    ""id"": ""edd89f3a-3dfb-4751-81bd-aadc56b474f8"",
+                    ""path"": ""<Keyboard>/leftArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""LeftRight"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""positive"",
+                    ""id"": ""90fed707-6c83-4441-b232-9412a30a2df9"",
+                    ""path"": ""<Keyboard>/rightArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""LeftRight"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 }
@@ -786,8 +958,10 @@ public partial class @Steering : IInputActionCollection2, IDisposable
         m_UI_TrackedDeviceOrientation = m_UI.FindAction("TrackedDeviceOrientation", throwIfNotFound: true);
         // Ground
         m_Ground = asset.FindActionMap("Ground", throwIfNotFound: true);
-        m_Ground_Steering = m_Ground.FindAction("Steering", throwIfNotFound: true);
         m_Ground_Testmap = m_Ground.FindAction("Testmap", throwIfNotFound: true);
+        m_Ground_Debug = m_Ground.FindAction("Debug", throwIfNotFound: true);
+        m_Ground_ForwardBack = m_Ground.FindAction("ForwardBack", throwIfNotFound: true);
+        m_Ground_LeftRight = m_Ground.FindAction("LeftRight", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -952,14 +1126,18 @@ public partial class @Steering : IInputActionCollection2, IDisposable
     // Ground
     private readonly InputActionMap m_Ground;
     private IGroundActions m_GroundActionsCallbackInterface;
-    private readonly InputAction m_Ground_Steering;
     private readonly InputAction m_Ground_Testmap;
+    private readonly InputAction m_Ground_Debug;
+    private readonly InputAction m_Ground_ForwardBack;
+    private readonly InputAction m_Ground_LeftRight;
     public struct GroundActions
     {
         private @Steering m_Wrapper;
         public GroundActions(@Steering wrapper) { m_Wrapper = wrapper; }
-        public InputAction @Steering => m_Wrapper.m_Ground_Steering;
         public InputAction @Testmap => m_Wrapper.m_Ground_Testmap;
+        public InputAction @Debug => m_Wrapper.m_Ground_Debug;
+        public InputAction @ForwardBack => m_Wrapper.m_Ground_ForwardBack;
+        public InputAction @LeftRight => m_Wrapper.m_Ground_LeftRight;
         public InputActionMap Get() { return m_Wrapper.m_Ground; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -969,22 +1147,34 @@ public partial class @Steering : IInputActionCollection2, IDisposable
         {
             if (m_Wrapper.m_GroundActionsCallbackInterface != null)
             {
-                @Steering.started -= m_Wrapper.m_GroundActionsCallbackInterface.OnSteering;
-                @Steering.performed -= m_Wrapper.m_GroundActionsCallbackInterface.OnSteering;
-                @Steering.canceled -= m_Wrapper.m_GroundActionsCallbackInterface.OnSteering;
                 @Testmap.started -= m_Wrapper.m_GroundActionsCallbackInterface.OnTestmap;
                 @Testmap.performed -= m_Wrapper.m_GroundActionsCallbackInterface.OnTestmap;
                 @Testmap.canceled -= m_Wrapper.m_GroundActionsCallbackInterface.OnTestmap;
+                @Debug.started -= m_Wrapper.m_GroundActionsCallbackInterface.OnDebug;
+                @Debug.performed -= m_Wrapper.m_GroundActionsCallbackInterface.OnDebug;
+                @Debug.canceled -= m_Wrapper.m_GroundActionsCallbackInterface.OnDebug;
+                @ForwardBack.started -= m_Wrapper.m_GroundActionsCallbackInterface.OnForwardBack;
+                @ForwardBack.performed -= m_Wrapper.m_GroundActionsCallbackInterface.OnForwardBack;
+                @ForwardBack.canceled -= m_Wrapper.m_GroundActionsCallbackInterface.OnForwardBack;
+                @LeftRight.started -= m_Wrapper.m_GroundActionsCallbackInterface.OnLeftRight;
+                @LeftRight.performed -= m_Wrapper.m_GroundActionsCallbackInterface.OnLeftRight;
+                @LeftRight.canceled -= m_Wrapper.m_GroundActionsCallbackInterface.OnLeftRight;
             }
             m_Wrapper.m_GroundActionsCallbackInterface = instance;
             if (instance != null)
             {
-                @Steering.started += instance.OnSteering;
-                @Steering.performed += instance.OnSteering;
-                @Steering.canceled += instance.OnSteering;
                 @Testmap.started += instance.OnTestmap;
                 @Testmap.performed += instance.OnTestmap;
                 @Testmap.canceled += instance.OnTestmap;
+                @Debug.started += instance.OnDebug;
+                @Debug.performed += instance.OnDebug;
+                @Debug.canceled += instance.OnDebug;
+                @ForwardBack.started += instance.OnForwardBack;
+                @ForwardBack.performed += instance.OnForwardBack;
+                @ForwardBack.canceled += instance.OnForwardBack;
+                @LeftRight.started += instance.OnLeftRight;
+                @LeftRight.performed += instance.OnLeftRight;
+                @LeftRight.canceled += instance.OnLeftRight;
             }
         }
     }
@@ -1049,7 +1239,9 @@ public partial class @Steering : IInputActionCollection2, IDisposable
     }
     public interface IGroundActions
     {
-        void OnSteering(InputAction.CallbackContext context);
         void OnTestmap(InputAction.CallbackContext context);
+        void OnDebug(InputAction.CallbackContext context);
+        void OnForwardBack(InputAction.CallbackContext context);
+        void OnLeftRight(InputAction.CallbackContext context);
     }
 }

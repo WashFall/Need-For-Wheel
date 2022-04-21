@@ -4,45 +4,52 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    private Transform playerTransform;
+    public bool dead;
+    public bool noForward;
+    public bool autoForward;
     public Rigidbody rigidBody;
+    public bool increaseGravity;
+    public float forwardVelocityMultiplier = 1.4f;
+    public float sidewayVelocityMultiplier = 1.2f;
 
-    private float vertical;
-    private float horizontal;
-    private float velocityMultiplier;
+    private Transform playerTransform;
 
     private void Awake()
     {
+        dead = false;
         playerTransform = transform;
         rigidBody = GetComponent<Rigidbody>();
-    }
-
-    private void Start()
-    {
-        velocityMultiplier = 0.02f;
+        if(increaseGravity)
+            Physics.gravity = new Vector3(0, -40, 0);
     }
 
     public void Forward(Vector3 inputVector)
     {
-        rigidBody.AddForce(inputVector * velocityMultiplier);
-        //rigidBody.velocity = inputVector * velocityMultiplier;
+        if(autoForward)
+            rigidBody.AddForce(new Vector3(0, 0, 1) * 1.5f, ForceMode.VelocityChange);
+        else if (noForward) { }
+        else
+            rigidBody.AddForce(inputVector * forwardVelocityMultiplier, ForceMode.Impulse);
     }
 
     public void Backward(Vector3 inputVector)
     {
-        rigidBody.AddForce(inputVector * velocityMultiplier);
-        //rigidBody.velocity = inputVector * velocityMultiplier;
+        rigidBody.AddForce(inputVector * forwardVelocityMultiplier, ForceMode.Impulse);
     }
 
     public void Left(Vector3 inputVector)
     {
-        rigidBody.AddForce(inputVector * velocityMultiplier);
-        //rigidBody.velocity = inputVector * velocityMultiplier;
+        rigidBody.AddForce(inputVector * sidewayVelocityMultiplier, ForceMode.Impulse);
     }
 
     public void Right(Vector3 inputVector)
     {
-        rigidBody.AddForce(inputVector * velocityMultiplier);
-        //rigidBody.velocity = inputVector * velocityMultiplier;
+        rigidBody.AddForce(inputVector * sidewayVelocityMultiplier, ForceMode.Impulse);
+    }
+
+    public void Rise(Vector3 inputVector)
+    {
+        // TODO: Add flight movement; flying upwards.
+        rigidBody.AddForce(inputVector * 12, ForceMode.Impulse);
     }
 }
