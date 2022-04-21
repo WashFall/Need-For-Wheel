@@ -21,7 +21,7 @@ public class PlayerController : MonoBehaviour
     public void Forward(Vector3 inputVector)
     {
         if(autoForward)
-            rigidBody.AddForce(new Vector3(0, 0, 1) * 2, ForceMode.VelocityChange);
+            rigidBody.AddForce(new Vector3(0, 0, 1) * 1.5f, ForceMode.VelocityChange);
         else if (noForward) { }
         else
             rigidBody.AddForce(inputVector * forwardVelocityMultiplier, ForceMode.Impulse);
