@@ -15,7 +15,7 @@ public class WaterTrigger : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         other.gameObject.GetComponent<InputManager>().steering.Ground.Disable();
-        Camera.main.GetComponent<QuickCameraFollow>().dead = true;
+        other.gameObject.GetComponent<PlayerController>().dead = true;
         canvas.SetActive(true);
     }
 }

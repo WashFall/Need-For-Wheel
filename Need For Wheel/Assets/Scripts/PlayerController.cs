@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    public bool dead;
     public bool noForward;
     public bool autoForward;
     public Rigidbody rigidBody;
@@ -15,6 +16,7 @@ public class PlayerController : MonoBehaviour
 
     private void Awake()
     {
+        dead = false;
         playerTransform = transform;
         rigidBody = GetComponent<Rigidbody>();
         if(increaseGravity)
