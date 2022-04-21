@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BigRampTrigger : MonoBehaviour
 {
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider collision)
     {
         collision.gameObject.GetComponent<InputManager>().flying = true;
     }

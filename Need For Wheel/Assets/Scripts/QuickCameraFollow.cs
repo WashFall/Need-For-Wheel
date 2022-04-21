@@ -3,7 +3,9 @@ using System.Collections;
 
 public class QuickCameraFollow : MonoBehaviour
 {
+    public bool dead = false;
     public GameObject player;
+
     private Vector3 offset;
 
     void Start()
@@ -13,6 +15,7 @@ public class QuickCameraFollow : MonoBehaviour
 
     void LateUpdate()
     {
-        transform.position = player.transform.position + offset;
+        if(!dead)
+            transform.position = player.transform.position + offset;
     }
 }
