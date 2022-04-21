@@ -19,7 +19,7 @@ public class PlayerController : MonoBehaviour
 
     private void Start()
     {
-        velocityMultiplier = 20;
+        velocityMultiplier = 0.02f;
     }
 
     public void Forward(Vector3 inputVector)
