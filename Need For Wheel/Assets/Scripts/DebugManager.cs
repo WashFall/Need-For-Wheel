@@ -39,6 +39,16 @@ public class DebugManager : MonoBehaviour
         {
             UnityEditor.EditorApplication.isPlaying = false;
         }
+        else if (Keyboard.current.digit1Key.wasPressedThisFrame || Gamepad.current.dpad.up.wasPressedThisFrame)
+        {
+            inputManager.steering.Disable();
+            SceneManager.LoadScene("PlayTest");
+        }
+        else if (Keyboard.current.digit2Key.wasPressedThisFrame || Gamepad.current.dpad.down.wasPressedThisFrame)
+        {
+            inputManager.steering.Disable();
+            SceneManager.LoadScene("Carl");
+        }
 
     }
 
@@ -52,6 +62,16 @@ public class DebugManager : MonoBehaviour
         else if (Keyboard.current.escapeKey.wasPressedThisFrame)
         {
             UnityEditor.EditorApplication.isPlaying = false;
+        }
+        else if (Keyboard.current.digit1Key.wasPressedThisFrame)
+        {
+            inputManager.steering.Disable();
+            SceneManager.LoadScene("PlayTest");
+        }
+        else if (Keyboard.current.digit2Key.wasPressedThisFrame)
+        {
+            inputManager.steering.Disable();
+            SceneManager.LoadScene("Carl");
         }
     }
 }
