@@ -16,22 +16,21 @@ public class PointSystem : MonoBehaviour
 
     private void Start()
     {
-        startingPoint = 0 - player.transform.position.z;
+        startingPoint = player.transform.position.z;
         points = 0;
         rb = player.GetComponent<Rigidbody>();
-        oldPosition = startingPoint;
+        oldPosition = 0;
     }
 
     void Update()
     {
         if (!player.GetComponent<PlayerController>().dead)
         {
-            newPosition = player.transform.position.z - oldPosition;
-            points += (newPosition) * (rb.velocity.z / 100);
+            newPosition = player.transform.position.z - startingPoint - oldPosition;
+            points += (newPosition) * (rb.velocity.z / 10);
             points = Mathf.Round(points);
             pointsDisplay.text = "POINTS: " + points.ToString();
-            Debug.Log(rb.velocity);
-            oldPosition = player.transform.position.z + startingPoint;
+            oldPosition = player.transform.position.z - startingPoint;
         }
     }
 }
