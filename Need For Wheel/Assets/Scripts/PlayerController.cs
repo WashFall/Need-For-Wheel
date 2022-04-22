@@ -49,4 +49,18 @@ public class PlayerController : MonoBehaviour
         // TODO: Add flight movement; flying upwards.
         rigidBody.AddForce(inputVector * 12, ForceMode.Impulse);
     }
+
+    public void GravitySwitch()
+    {
+        increaseGravity = increaseGravity ? false : true;
+
+        if (increaseGravity)
+        {
+            Physics.gravity = new Vector3(0, -40, 0);
+        }
+        else
+        {
+            Physics.gravity = new Vector3(0, -9.8f, 0);
+        }
+    }
 }

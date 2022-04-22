@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 public class DebugManager : MonoBehaviour
 {
     public InputManager inputManager;
+    public GameObject player;
 
     private PlayerInput playerInput;
     private Steering steering;
@@ -49,6 +50,11 @@ public class DebugManager : MonoBehaviour
             inputManager.steering.Disable();
             SceneManager.LoadScene("Carl");
         }
+        else if (Keyboard.current.gKey.wasPressedThisFrame)
+        {
+            var pc = player.GetComponent<PlayerController>();
+            pc.increaseGravity = pc.increaseGravity ? false : true;
+        }
 
     }
 
@@ -72,6 +78,10 @@ public class DebugManager : MonoBehaviour
         {
             inputManager.steering.Disable();
             SceneManager.LoadScene("Carl");
+        }
+        else if (Keyboard.current.gKey.wasPressedThisFrame)
+        {
+            player.GetComponent<PlayerController>().GravitySwitch();
         }
     }
 }
