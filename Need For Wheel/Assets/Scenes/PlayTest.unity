@@ -6708,6 +6708,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inputManager: {fileID: 1273355390}
+  player: {fileID: 1273355382}
   gamepadConnected: 1
 --- !u!4 &605970058
 Transform:
