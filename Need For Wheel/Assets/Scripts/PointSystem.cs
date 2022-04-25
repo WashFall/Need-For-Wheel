@@ -22,7 +22,7 @@ public class PointSystem : MonoBehaviour
         oldPosition = 0;
     }
 
-    void Update()
+    void FixedUpdate()
     {
         if (!player.GetComponent<PlayerController>().dead)
         {

@@ -79,6 +79,7 @@ public class InputManager : MonoBehaviour
             Vector3 inputVector = new Vector3(0, direction.y, 0);
             up_command.Execute(player, inputVector);
         }
+
     }
 
     private void ResetDirection(InputAction.CallbackContext context)

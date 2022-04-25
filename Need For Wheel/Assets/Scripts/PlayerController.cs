@@ -16,38 +16,37 @@ public class PlayerController : MonoBehaviour
     {
         dead = false;
         rigidBody = GetComponent<Rigidbody>();
-        if(increaseGravity)
-            Physics.gravity = new Vector3(0, -40, 0);
     }
 
     public void Forward(Vector3 inputVector)
     {
         if(autoForward)
-            rigidBody.AddForce(new Vector3(0, 0, 1) * 1.5f, ForceMode.VelocityChange);
+            rigidBody.AddRelativeForce(new Vector3(0, 0, 1) * 1.5f, ForceMode.VelocityChange);
         else if (noForward) { }
         else
-            rigidBody.AddForce(inputVector * forwardVelocityMultiplier, ForceMode.Impulse);
+            rigidBody.AddRelativeForce(inputVector * forwardVelocityMultiplier, ForceMode.Impulse);
     }
 
     public void Backward(Vector3 inputVector)
     {
-        rigidBody.AddForce(inputVector * forwardVelocityMultiplier, ForceMode.Impulse);
+        rigidBody.AddRelativeForce(inputVector * forwardVelocityMultiplier, ForceMode.Impulse);
     }
 
     public void Left(Vector3 inputVector)
     {
-        rigidBody.AddForce(inputVector * sidewayVelocityMultiplier, ForceMode.Impulse);
+        rigidBody.AddRelativeForce(inputVector * sidewayVelocityMultiplier, ForceMode.Impulse);
     }
 
     public void Right(Vector3 inputVector)
     {
-        rigidBody.AddForce(inputVector * sidewayVelocityMultiplier, ForceMode.Impulse);
+        rigidBody.AddRelativeForce(inputVector * sidewayVelocityMultiplier, ForceMode.Impulse);
     }
 
     public void Rise(Vector3 inputVector)
     {
         // TODO: Add flight movement; flying upwards.
-        rigidBody.AddForce(inputVector * 12, ForceMode.Impulse);
+        rigidBody.AddRelativeForce(inputVector * 12, ForceMode.Impulse);
+        
     }
 
     public void GravitySwitch()
