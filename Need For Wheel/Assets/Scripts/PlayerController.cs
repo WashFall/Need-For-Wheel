@@ -9,8 +9,8 @@ public class PlayerController : MonoBehaviour
     public bool autoForward;
     public Rigidbody rigidBody;
     public bool increaseGravity;
-    public float forwardVelocityMultiplier = 1.4f;
-    public float sidewayVelocityMultiplier = 1.2f;
+    public float forwardVelocityMultiplier = 10;
+    public float sidewayVelocityMultiplier = 5;
 
     private void Awake()
     {
@@ -52,14 +52,5 @@ public class PlayerController : MonoBehaviour
     public void GravitySwitch()
     {
         increaseGravity = increaseGravity ? false : true;
-
-        if (increaseGravity)
-        {
-            Physics.gravity = new Vector3(0, -40, 0);
-        }
-        else
-        {
-            Physics.gravity = new Vector3(0, -9.8f, 0);
-        }
     }
 }
