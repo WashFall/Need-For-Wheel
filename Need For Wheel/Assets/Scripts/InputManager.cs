@@ -6,6 +6,7 @@ using UnityEngine.InputSystem;
 public class InputManager : MonoBehaviour
 {
     public bool flying;
+    public float driftSpeed;
     public bool increaseGravity;
     public PlayerController player;
 
@@ -62,7 +63,7 @@ public class InputManager : MonoBehaviour
         {
             Vector3 inputVector = new Vector3(0, 0, direction.z);
             backward_command.Execute(player, inputVector);
-            player.sidewayVelocityMultiplier = 10;
+            player.sidewayVelocityMultiplier = driftSpeed;
         }
 
         if(direction.z == 0)
@@ -94,11 +95,6 @@ public class InputManager : MonoBehaviour
         if (increaseGravity)
             Gravity();
 
-    }
-
-    private void Update()
-    {
-        
     }
 
     private void ResetDirection(InputAction.CallbackContext context)
