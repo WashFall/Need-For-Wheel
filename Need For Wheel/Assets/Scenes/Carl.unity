@@ -10347,7 +10347,7 @@ MonoBehaviour:
   autoForward: 1
   rigidBody: {fileID: 0}
   increaseGravity: 1
-  forwardVelocityMultiplier: 10
+  forwardVelocityMultiplier: 7
   sidewayVelocityMultiplier: 5
 --- !u!65 &1273355385
 BoxCollider:
@@ -10454,7 +10454,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   flying: 0
+  driftSpeed: 10
   increaseGravity: 0
+  gravityIncrease: -20
   player: {fileID: 1273355384}
 --- !u!1 &1275958533
 GameObject:

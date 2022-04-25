@@ -8,6 +8,7 @@ public class InputManager : MonoBehaviour
     public bool flying;
     public float driftSpeed;
     public bool increaseGravity;
+    public float gravityIncrease;
     public PlayerController player;
 
     [HideInInspector]
@@ -117,6 +118,6 @@ public class InputManager : MonoBehaviour
 
     public void Gravity()
     {
-        player.GetComponent<Rigidbody>().AddForce(new Vector3(0, -20, 0), ForceMode.Acceleration);
+        player.GetComponent<Rigidbody>().AddRelativeForce(new Vector3(0, gravityIncrease, 0), ForceMode.Acceleration);
     }
 }
