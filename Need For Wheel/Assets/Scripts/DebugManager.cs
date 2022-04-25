@@ -63,6 +63,7 @@ public class DebugManager : MonoBehaviour
         if (Keyboard.current.rKey.wasPressedThisFrame)
         {
             inputManager.steering.Disable();
+            steering.Disable();
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
         else if (Keyboard.current.escapeKey.wasPressedThisFrame)
@@ -72,11 +73,13 @@ public class DebugManager : MonoBehaviour
         else if (Keyboard.current.digit1Key.wasPressedThisFrame)
         {
             inputManager.steering.Disable();
+            steering.Disable();
             SceneManager.LoadScene("PlayTest");
         }
         else if (Keyboard.current.digit2Key.wasPressedThisFrame)
         {
             inputManager.steering.Disable();
+            steering.Disable();
             SceneManager.LoadScene("Carl");
         }
         else if (Keyboard.current.gKey.wasPressedThisFrame)
