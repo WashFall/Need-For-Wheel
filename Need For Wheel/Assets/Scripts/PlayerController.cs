@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     public bool dead;
+    public bool rotate;
     public bool noForward;
     public bool autoForward;
     public Rigidbody rigidBody;
@@ -16,6 +17,19 @@ public class PlayerController : MonoBehaviour
     {
         dead = false;
         rigidBody = GetComponent<Rigidbody>();
+    }
+
+    private void Update()
+    {
+        if (rotate)
+        {
+            RaycastHit hit;
+            if (Physics.SphereCast(transform.position, 0.5f, -(transform.up), out hit, 10, 5))
+            {
+                transform.rotation = Quaternion.Lerp(transform.rotation, hit.transform.rotation , 2 * Time.deltaTime);
+                
+            }
+        }
     }
 
     public void Forward(Vector3 inputVector)
