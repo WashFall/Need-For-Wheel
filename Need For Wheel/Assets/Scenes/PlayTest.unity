@@ -10720,13 +10720,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 830417676}
-  m_LocalRotation: {x: 0.18974052, y: -0, z: -0, w: 0.9818343}
-  m_LocalPosition: {x: 3.9, y: 480.17, z: 33.33}
+  m_LocalRotation: {x: 0.28766927, y: -0, z: -0, w: 0.9577298}
+  m_LocalPosition: {x: 0, y: 480.17, z: 40.54}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 21.875, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 33.437, y: 0, z: 0}
 --- !u!114 &830417680
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15611,7 +15611,7 @@ MonoBehaviour:
   autoForward: 1
   rigidBody: {fileID: 0}
   increaseGravity: 1
-  forwardVelocityMultiplier: 5
+  forwardVelocityMultiplier: 7
   sidewayVelocityMultiplier: 5
 --- !u!65 &1273355385
 BoxCollider:
@@ -15682,13 +15682,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1273355382}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.4, y: 473.7, z: 43.32}
+  m_LocalRotation: {x: 0.15397315, y: -0, z: -0, w: 0.9880751}
+  m_LocalPosition: {x: 0, y: 473.7, z: 47.59}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 17.714, y: 0, z: 0}
 --- !u!54 &1273355389
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -15720,7 +15720,7 @@ MonoBehaviour:
   flying: 0
   driftSpeed: 10
   increaseGravity: 0
-  gravityIncrease: -30.2
+  gravityIncrease: -20
   player: {fileID: 1273355384}
 --- !u!1 &1280666355
 GameObject:
