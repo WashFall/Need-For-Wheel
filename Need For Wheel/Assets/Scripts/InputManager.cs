@@ -6,6 +6,9 @@ using UnityEngine.InputSystem;
 public class InputManager : MonoBehaviour
 {
     public bool flying;
+    public float driftSpeed;
+    public bool increaseGravity;
+    public float gravityIncrease;
     public PlayerController player;
 
     [HideInInspector]
@@ -40,10 +43,10 @@ public class InputManager : MonoBehaviour
     private void FixedUpdate()
     {
         Vector3 direction;
-        if (!flying)
+        //if (!flying)
             direction = new Vector3(steering.Ground.LeftRight.ReadValue<float>(), 0, steering.Ground.ForwardBack.ReadValue<float>());
-        else
-            direction = new Vector3(steering.Ground.LeftRight.ReadValue<float>(), steering.Ground.ForwardBack.ReadValue<float>(), 0);
+        //else
+            //direction = new Vector3(steering.Ground.LeftRight.ReadValue<float>(), steering.Ground.ForwardBack.ReadValue<float>(), 0);
 
         if (direction.x > 0)
         {
@@ -61,6 +64,12 @@ public class InputManager : MonoBehaviour
         {
             Vector3 inputVector = new Vector3(0, 0, direction.z);
             backward_command.Execute(player, inputVector);
+            player.sidewayVelocityMultiplier = driftSpeed;
+        }
+
+        if(direction.z == 0)
+        {
+            player.sidewayVelocityMultiplier = 5;
         }
 
         if (player.autoForward)
@@ -74,11 +83,18 @@ public class InputManager : MonoBehaviour
             forward_command.Execute(player, inputVector);
         }
 
-        if(flying && direction.y > 0)
+        if(flying && direction.z > 0)
         {
+            direction.y = direction.z;
+            direction.z = 0;
             Vector3 inputVector = new Vector3(0, direction.y, 0);
             up_command.Execute(player, inputVector);
         }
+
+        increaseGravity = player.increaseGravity;
+
+        if (increaseGravity)
+            Gravity();
 
     }
 
@@ -100,19 +116,8 @@ public class InputManager : MonoBehaviour
         }
     }
 
-    //private void Moving(InputAction.CallbackContext context)
-    //{
-    //    print(context);
-    //    Vector2 direction = context.ReadValue<Vector2>();
-
-    //    if (direction.x > 0)
-    //        right_command.Execute(player);
-    //    else if(direction.x < 0)
-    //        left_command.Execute(player);
-
-    //    if(direction.y > 0)
-    //        up_command.Execute(player);
-    //    else if(direction.y < 0)
-    //        down_command.Execute(player);
-    //}
+    public void Gravity()
+    {
+        player.GetComponent<Rigidbody>().AddRelativeForce(new Vector3(0, gravityIncrease, 0), ForceMode.Acceleration);
+    }
 }

@@ -5,17 +5,36 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     public bool dead;
+    public bool rotate;
     public bool noForward;
     public bool autoForward;
     public Rigidbody rigidBody;
     public bool increaseGravity;
-    public float forwardVelocityMultiplier = 1.4f;
-    public float sidewayVelocityMultiplier = 1.2f;
+    public float forwardVelocityMultiplier = 10;
+    public float sidewayVelocityMultiplier = 5;
+
+    private Vector3 rayOrigin;
+    private Renderer rend;
 
     private void Awake()
     {
         dead = false;
+        rend = GetComponent<Renderer>();
         rigidBody = GetComponent<Rigidbody>();
+    }
+
+    private void Update()
+    {
+        if (rotate)
+        {
+            RaycastHit hit;
+            rayOrigin = transform.position + transform.forward * (rend.bounds.size.z / 2);
+            if (Physics.Raycast(rayOrigin, -(transform.up), out hit, 20, 5))
+            {
+                Quaternion newrot = Quaternion.LookRotation(Vector3.Cross(transform.right, hit.normal));
+                transform.rotation = Quaternion.Lerp(transform.rotation, newrot, 10 * Time.deltaTime);
+            }
+        }
     }
 
     public void Forward(Vector3 inputVector)
@@ -52,14 +71,5 @@ public class PlayerController : MonoBehaviour
     public void GravitySwitch()
     {
         increaseGravity = increaseGravity ? false : true;
-
-        if (increaseGravity)
-        {
-            Physics.gravity = new Vector3(0, -40, 0);
-        }
-        else
-        {
-            Physics.gravity = new Vector3(0, -9.8f, 0);
-        }
     }
 }
