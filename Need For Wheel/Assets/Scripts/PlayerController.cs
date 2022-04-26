@@ -29,13 +29,11 @@ public class PlayerController : MonoBehaviour
         {
             RaycastHit hit;
             rayOrigin = transform.position + transform.forward * (rend.bounds.size.z / 2);
-            if (Physics.Raycast(rayOrigin, -(transform.up), out hit, 10, 5))
+            if (Physics.Raycast(rayOrigin, -(transform.up), out hit, 20, 5))
             {
-                var newrot = Quaternion.LookRotation(Vector3.Cross(transform.right, hit.normal));
+                Quaternion newrot = Quaternion.LookRotation(Vector3.Cross(transform.right, hit.normal));
                 transform.rotation = Quaternion.Lerp(transform.rotation, newrot, 10 * Time.deltaTime);
             }
-            Debug.DrawRay(rayOrigin, -(transform.up), Color.yellow);
-            print(transform.localRotation);
         }
     }
 
