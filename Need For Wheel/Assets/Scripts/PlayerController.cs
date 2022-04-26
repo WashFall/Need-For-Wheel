@@ -13,9 +13,13 @@ public class PlayerController : MonoBehaviour
     public float forwardVelocityMultiplier = 10;
     public float sidewayVelocityMultiplier = 5;
 
+    private Vector3 rayOrigin;
+    private Renderer rend;
+
     private void Awake()
     {
         dead = false;
+        rend = GetComponent<Renderer>();
         rigidBody = GetComponent<Rigidbody>();
     }
 
@@ -24,11 +28,14 @@ public class PlayerController : MonoBehaviour
         if (rotate)
         {
             RaycastHit hit;
-            if (Physics.SphereCast(transform.position, 0.5f, -(transform.up), out hit, 10, 5))
+            rayOrigin = transform.position + transform.forward * (rend.bounds.size.z / 2);
+            if (Physics.Raycast(rayOrigin, -(transform.up), out hit, 10, 5))
             {
-                transform.rotation = Quaternion.Lerp(transform.rotation, hit.transform.rotation , 2 * Time.deltaTime);
-                
+                var newrot = Quaternion.LookRotation(Vector3.Cross(transform.right, hit.normal));
+                transform.rotation = Quaternion.Lerp(transform.rotation, newrot, 10 * Time.deltaTime);
             }
+            Debug.DrawRay(rayOrigin, -(transform.up), Color.yellow);
+            print(transform.localRotation);
         }
     }
 

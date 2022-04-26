@@ -10343,6 +10343,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dead: 0
+  rotate: 1
   noForward: 0
   autoForward: 1
   rigidBody: {fileID: 0}
