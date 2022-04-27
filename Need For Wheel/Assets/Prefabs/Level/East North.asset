@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f56c66ea5edafc45ad597e8120028c7, type: 3}
+  m_Name: East North
+  m_EditorClassIdentifier: 
+  SectionSize: {x: 100, y: 0, z: 600}
+  levelSections:
+  - {fileID: 5927588317467325237, guid: 6860ecbccdd57824aa709269e54363a2, type: 3}
+  entryDirection: 1
+  exitDirection: 0

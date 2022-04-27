@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f56c66ea5edafc45ad597e8120028c7, type: 3}
+  m_Name: West North
+  m_EditorClassIdentifier: 
+  SectionSize: {x: 100, y: 0, z: 600}
+  levelSections:
+  - {fileID: 4687071045826751161, guid: e0d3759e3f00f434484636aa5b008d99, type: 3}
+  entryDirection: 3
+  exitDirection: 0
