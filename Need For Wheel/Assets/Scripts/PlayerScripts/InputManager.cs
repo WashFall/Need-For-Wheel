@@ -7,7 +7,6 @@ public class InputManager : MonoBehaviour
 {
     public bool flying;
     public float driftSpeed;
-    public bool increaseGravity;
     public float gravityIncrease;
     public PlayerController player;
 
@@ -91,9 +90,7 @@ public class InputManager : MonoBehaviour
             up_command.Execute(player, inputVector);
         }
 
-        increaseGravity = player.increaseGravity;
-
-        if (increaseGravity)
+        if (player.increaseGravity)
             Gravity();
 
     }

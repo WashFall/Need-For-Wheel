@@ -16,6 +16,6 @@ public class BikeTurning : MonoBehaviour
 
     private void Update()
     {
-        bike.rotation = Quaternion.LookRotation(rb.velocity);
+        bike.rotation = rb.velocity == Vector3.zero ? Quaternion.identity : Quaternion.LookRotation(rb.velocity);
     }
 }
