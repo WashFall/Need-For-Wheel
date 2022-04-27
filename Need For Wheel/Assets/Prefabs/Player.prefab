@@ -159,7 +159,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dead: 0
-  rotate: 0
+  tilt: 0
   noForward: 0
   autoForward: 1
   rigidBody: {fileID: 0}
@@ -240,6 +240,10 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 74cde61806a5a704fa296613f7fa7d35, type: 2}
+    - target: {fileID: 1005416576191532222, guid: 025a7f021a717e1448383373a4d5945c, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 6548619150207384722}
     - target: {fileID: 1934543972994457865, guid: 025a7f021a717e1448383373a4d5945c, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -284,6 +288,10 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6761413825529088566, guid: 025a7f021a717e1448383373a4d5945c, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 6548619150207384722}
     - target: {fileID: 6992088459217717254, guid: 025a7f021a717e1448383373a4d5945c, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -356,6 +364,10 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8542580376300808547, guid: 025a7f021a717e1448383373a4d5945c, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 6548619150207384722}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 025a7f021a717e1448383373a4d5945c, type: 3}
 --- !u!4 &9125326127663382484 stripped
