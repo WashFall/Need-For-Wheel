@@ -207,7 +207,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7794803310471005991}
-  m_LocalRotation: {x: -0.1557622, y: -0, z: -0, w: 0.98779464}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: -0.5, z: 0.17}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -228,6 +228,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 6548619150207384722}
+  bike: {fileID: 3514298322579260717}
 --- !u!1001 &1209199275009326953
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -325,19 +326,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7954583543179395261, guid: 025a7f021a717e1448383373a4d5945c, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.98779464
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7954583543179395261, guid: 025a7f021a717e1448383373a4d5945c, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.1557622
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7954583543179395261, guid: 025a7f021a717e1448383373a4d5945c, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7954583543179395261, guid: 025a7f021a717e1448383373a4d5945c, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7954583543179395261, guid: 025a7f021a717e1448383373a4d5945c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x

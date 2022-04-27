@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     public bool dead;
-    public bool rotate;
+    public bool tilt;
     public bool noForward;
     public bool autoForward;
     public Rigidbody rigidBody;
@@ -25,7 +25,7 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-        if (rotate)
+        if (tilt)
         {
             RaycastHit hit;
             rayOrigin = transform.position + transform.forward * (rend.bounds.size.z / 2);

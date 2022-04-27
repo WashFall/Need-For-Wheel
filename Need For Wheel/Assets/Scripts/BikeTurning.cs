@@ -5,6 +5,7 @@ using UnityEngine;
 public class BikeTurning : MonoBehaviour
 {
     public GameObject player;
+    public Transform bike;
 
     private Rigidbody rb;
 
@@ -15,6 +16,6 @@ public class BikeTurning : MonoBehaviour
 
     private void Update()
     {
-        transform.rotation = Quaternion.LookRotation(rb.velocity);
+        bike.rotation = Quaternion.LookRotation(rb.velocity);
     }
 }
