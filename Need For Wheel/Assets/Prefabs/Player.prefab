@@ -16,6 +16,8 @@ GameObject:
   - component: {fileID: 6548619150207384729}
   - component: {fileID: 6548619150207384732}
   - component: {fileID: 6548619150207384730}
+  - component: {fileID: 1934125793159342344}
+  - component: {fileID: 5790571890958584284}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -164,8 +166,10 @@ MonoBehaviour:
   autoForward: 1
   rigidBody: {fileID: 0}
   increaseGravity: 1
-  forwardVelocityMultiplier: 7
+  gravityIncrease: 0
   sidewayVelocityMultiplier: 5
+  forwardVelocityMultiplier: 7
+  controls: {fileID: 0}
 --- !u!114 &6548619150207384730
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -180,8 +184,32 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   flying: 0
   driftSpeed: 10
-  increaseGravity: 0
-  gravityIncrease: -20
+  player: {fileID: 6548619150207384732}
+--- !u!114 &1934125793159342344
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6548619150207384722}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f23aacc43ce57374499540633661fca7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 6548619150207384732}
+--- !u!114 &5790571890958584284
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6548619150207384722}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81b6c9fac43f7194bba394d345ab6e4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   player: {fileID: 6548619150207384732}
 --- !u!1 &7794803310471005991
 GameObject:

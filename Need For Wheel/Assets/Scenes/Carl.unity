@@ -9383,6 +9383,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6548619150207384732, guid: 2a85816d04f9be9478b50c352af9b0a5, type: 3}
+      propertyPath: gravityIncrease
+      value: -20
+      objectReference: {fileID: 0}
+    - target: {fileID: 6548619150207384732, guid: 2a85816d04f9be9478b50c352af9b0a5, type: 3}
       propertyPath: increaseGravity
       value: 1
       objectReference: {fileID: 0}

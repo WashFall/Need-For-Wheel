@@ -7,41 +7,41 @@ public interface ICommand
     void Execute(PlayerController player, Vector3 inputVector);
 }
 
-public class MoveLeft : ICommand
+public class DriveLeft : ICommand
 {
     public void Execute(PlayerController player, Vector3 inputVector)
     {
-        player.Left(inputVector);
+        player.controls.Left(inputVector);
     }
 }
 
-public class MoveRight : ICommand
+public class DriveRight : ICommand
 {
     public void Execute(PlayerController player, Vector3 inputVector)
     {
-        player.Right(inputVector);
+        player.controls.Right(inputVector);
     }
 }
 
-public class MoveForward : ICommand
+public class DriveForward : ICommand
 {
     public void Execute(PlayerController player, Vector3 inputVector)
     {
-        player.Forward(inputVector);
+        player.controls.Forward(inputVector);
     }
 }
 
-public class MoveBackward : ICommand
+public class DriveBackward : ICommand
 {
     public void Execute(PlayerController player, Vector3 inputVector)
     {
-        player.Backward(inputVector);
+        player.controls.Backward(inputVector);
     }
 }
-public class MoveUp : ICommand
+public class FlyUp : ICommand
 {
     public void Execute(PlayerController player, Vector3 inputVector)
     {
-        player.Rise(inputVector);
+        player.controls.Forward(inputVector);
     }
 }
