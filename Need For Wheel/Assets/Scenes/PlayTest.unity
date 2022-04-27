@@ -25865,7 +25865,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6548619150207384730, guid: 2a85816d04f9be9478b50c352af9b0a5, type: 3}
       propertyPath: flying
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6548619150207384732, guid: 2a85816d04f9be9478b50c352af9b0a5, type: 3}
       propertyPath: tilt
@@ -25873,6 +25873,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6548619150207384732, guid: 2a85816d04f9be9478b50c352af9b0a5, type: 3}
       propertyPath: rotate
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6548619150207384732, guid: 2a85816d04f9be9478b50c352af9b0a5, type: 3}
+      propertyPath: autoForward
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6548619150207384734, guid: 2a85816d04f9be9478b50c352af9b0a5, type: 3}

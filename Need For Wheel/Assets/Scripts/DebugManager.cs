@@ -33,6 +33,7 @@ public class DebugManager : MonoBehaviour
     {
         if (Keyboard.current.rKey.wasPressedThisFrame || Gamepad.current.buttonWest.wasPressedThisFrame)
         {
+            steering.Disable();
             inputManager.steering.Disable();
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
@@ -42,11 +43,13 @@ public class DebugManager : MonoBehaviour
         }
         else if (Keyboard.current.digit1Key.wasPressedThisFrame || Gamepad.current.dpad.up.wasPressedThisFrame)
         {
+            steering.Disable();
             inputManager.steering.Disable();
             SceneManager.LoadScene("PlayTest");
         }
         else if (Keyboard.current.digit2Key.wasPressedThisFrame || Gamepad.current.dpad.down.wasPressedThisFrame)
         {
+            steering.Disable();
             inputManager.steering.Disable();
             SceneManager.LoadScene("Carl");
         }
@@ -55,6 +58,10 @@ public class DebugManager : MonoBehaviour
             var pc = player.GetComponent<PlayerController>();
             pc.increaseGravity = pc.increaseGravity ? false : true;
         }
+        else if (Keyboard.current.hKey.wasPressedThisFrame)
+        {
+            inputManager.flying = inputManager.flying ? false : true;
+        }
 
     }
 
@@ -62,8 +69,8 @@ public class DebugManager : MonoBehaviour
     {
         if (Keyboard.current.rKey.wasPressedThisFrame)
         {
-            inputManager.steering.Disable();
             steering.Disable();
+            inputManager.steering.Disable();
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
         else if (Keyboard.current.escapeKey.wasPressedThisFrame)
@@ -72,19 +79,23 @@ public class DebugManager : MonoBehaviour
         }
         else if (Keyboard.current.digit1Key.wasPressedThisFrame)
         {
-            inputManager.steering.Disable();
             steering.Disable();
+            inputManager.steering.Disable();
             SceneManager.LoadScene("PlayTest");
         }
         else if (Keyboard.current.digit2Key.wasPressedThisFrame)
         {
-            inputManager.steering.Disable();
             steering.Disable();
+            inputManager.steering.Disable();
             SceneManager.LoadScene("Carl");
         }
         else if (Keyboard.current.gKey.wasPressedThisFrame)
         {
             player.GetComponent<PlayerController>().GravitySwitch();
+        }
+        else if (Keyboard.current.hKey.wasPressedThisFrame)
+        {
+            inputManager.flying = inputManager.flying ? false : true;
         }
     }
 }

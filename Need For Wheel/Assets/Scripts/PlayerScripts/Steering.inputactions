@@ -714,6 +714,17 @@
                     "isPartOfComposite": false
                 },
                 {
+                    "name": "",
+                    "id": "ad921e83-83eb-4a2b-b5d0-e47117eb96c7",
+                    "path": "<Keyboard>/h",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "Debug",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
                     "name": "1D Axis",
                     "id": "ccb8fb83-946d-4d28-977c-a74119f09647",
                     "path": "1DAxis",
