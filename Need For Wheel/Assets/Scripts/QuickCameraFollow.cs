@@ -26,7 +26,6 @@ public class QuickCameraFollow : MonoBehaviour
             transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.identity, 10 * Time.deltaTime);
             offset = Vector3.Lerp(offset, offsetChange, 7 * Time.deltaTime);
         }
-        Debug.Log(transform.position);
     }
 
     private void StateChanged()

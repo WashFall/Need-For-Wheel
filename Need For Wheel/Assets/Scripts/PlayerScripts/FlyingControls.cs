@@ -19,11 +19,11 @@ public class FlyingControls : Controls
 
     public override void Left(Vector3 inputVector)
     {
-
+        player.rigidBody.AddRelativeForce(inputVector * 3, ForceMode.Impulse);
     }
 
     public override void Right(Vector3 inputVector)
     {
-
+        player.rigidBody.AddRelativeForce(inputVector * 3, ForceMode.Impulse);
     }
 }

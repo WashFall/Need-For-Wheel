@@ -91,6 +91,18 @@ public class InputManager : MonoBehaviour
                 Vector3 inputVector = new Vector3(0, direction.y, 0);
                 driveBackward_command.Execute(player, inputVector);
             }
+
+            if (direction.x > 0)
+            {
+                Vector3 inputVector = new Vector3(direction.x, 0, 0);
+                driveRight_command.Execute(player, inputVector);
+            }
+
+            if (direction.x < 0)
+            {
+                Vector3 inputVector = new Vector3(direction.x, 0, 0);
+                driveLeft_command.Execute(player, inputVector);
+            }
         }
 
 

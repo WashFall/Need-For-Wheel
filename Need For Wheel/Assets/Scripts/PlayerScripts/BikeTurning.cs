@@ -18,5 +18,6 @@ public class BikeTurning : MonoBehaviour
     {
         if(PlayerController.State == PlayerState.Driving)
             bike.rotation = rb.velocity == Vector3.zero ? Quaternion.identity : Quaternion.LookRotation(rb.velocity);
+        
     }
 }

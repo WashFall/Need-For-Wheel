@@ -29802,6 +29802,14 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4397848365236939579, guid: 2a85816d04f9be9478b50c352af9b0a5, type: 3}
+      propertyPath: m_Animations.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4397848365236939579, guid: 2a85816d04f9be9478b50c352af9b0a5, type: 3}
+      propertyPath: m_Animations.Array.data[0]
+      value: 
+      objectReference: {fileID: -8897550313144337857, guid: 5387ccfc0d3f7a649826a52a787f683c, type: 3}
     - target: {fileID: 5790571890958584284, guid: 2a85816d04f9be9478b50c352af9b0a5, type: 3}
       propertyPath: divePower
       value: 6
