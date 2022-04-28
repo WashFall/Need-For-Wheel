@@ -9,7 +9,6 @@ public class DebugManager : MonoBehaviour
     public InputManager inputManager;
     public GameObject player;
 
-    private PlayerInput playerInput;
     private Steering steering;
 
     [SerializeField]
@@ -17,8 +16,6 @@ public class DebugManager : MonoBehaviour
 
     void Start()
     {
-        playerInput = GetComponent<PlayerInput>();
-
         steering = new Steering();
         steering.Ground.Enable();
 
