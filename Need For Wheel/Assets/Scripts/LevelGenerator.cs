@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class LevelGenerator : MonoBehaviour
 {
@@ -8,6 +9,7 @@ public class LevelGenerator : MonoBehaviour
     public LevelSectionData firstSection;
 
     private LevelSectionData previousSection;
+    private Steering steering;
 
     public Vector3 spawnOrigin;
 
@@ -29,6 +31,10 @@ public class LevelGenerator : MonoBehaviour
         {
             SpawnLegalSection();
         }
+
+        steering = new Steering();
+        steering.Ground.Enable();
+        steering.Ground.Debug.performed += SpawnLegalSectionTrigger;
     }
 
     LevelSectionData PickNextSection()
@@ -90,5 +96,13 @@ public class LevelGenerator : MonoBehaviour
     public void UpdateSpawnOrigin(Vector3 originDelta)
     {
         spawnOrigin = spawnOrigin + originDelta;
+    }
+
+    void SpawnLegalSectionTrigger(InputAction.CallbackContext context)
+    {
+        if (Keyboard.current.tKey.wasPressedThisFrame)
+        {
+            SpawnLegalSection();
+        }
     }
 }
