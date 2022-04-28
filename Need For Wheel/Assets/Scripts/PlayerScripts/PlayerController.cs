@@ -40,6 +40,12 @@ public class PlayerController : MonoBehaviour
                 transform.rotation = Quaternion.Lerp(transform.rotation, newrot, 10 * Time.deltaTime);
             }
         }
+
+        if(State == PlayerState.Flying)
+        {
+            controls = GetComponent<FlyingControls>();
+        }
+
     }
 
     public void GravitySwitch()

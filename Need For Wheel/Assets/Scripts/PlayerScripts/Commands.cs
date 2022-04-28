@@ -38,10 +38,3 @@ public class DriveBackward : ICommand
         player.controls.Backward(inputVector);
     }
 }
-public class FlyUp : ICommand
-{
-    public void Execute(PlayerController player, Vector3 inputVector)
-    {
-        player.controls.Forward(inputVector);
-    }
-}

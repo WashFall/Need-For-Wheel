@@ -4,14 +4,17 @@ using UnityEngine;
 
 public class FlyingControls : Controls
 {
-    public override void Forward(Vector3 inputVector)
+    public float risePower = 12;
+    public float divePower = 6;
+
+    public override void Forward(Vector3 inputVector) //Rise
     {
-        player.rigidBody.AddRelativeForce(inputVector * 12, ForceMode.Impulse);
+        player.rigidBody.AddRelativeForce(inputVector * risePower, ForceMode.Impulse);
     }
 
-    public override void Backward(Vector3 inputVector)
+    public override void Backward(Vector3 inputVector) //Dive
     {
-
+        player.rigidBody.AddForce(inputVector * divePower, ForceMode.Impulse);
     }
 
     public override void Left(Vector3 inputVector)

@@ -211,6 +211,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 6548619150207384732}
+  risePower: 12
+  divePower: -66
 --- !u!1 &7794803310471005991
 GameObject:
   m_ObjectHideFlags: 0
@@ -280,6 +282,10 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 6548619150207384722}
+    - target: {fileID: 1703281303007361016, guid: 025a7f021a717e1448383373a4d5945c, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 6548619150207384722}
     - target: {fileID: 1934543972994457865, guid: 025a7f021a717e1448383373a4d5945c, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -316,6 +322,10 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 74cde61806a5a704fa296613f7fa7d35, type: 2}
+    - target: {fileID: 5249219113518085876, guid: 025a7f021a717e1448383373a4d5945c, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 6548619150207384722}
     - target: {fileID: 5407603602611352269, guid: 025a7f021a717e1448383373a4d5945c, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 

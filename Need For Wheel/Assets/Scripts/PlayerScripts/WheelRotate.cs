@@ -16,7 +16,7 @@ public class WheelRotate : MonoBehaviour
 
     private void Update()
     {
-        Vector3 position = GetComponent<Renderer>().bounds.center;
+        Vector3 position = GetComponentInChildren<MeshRenderer>().bounds.center;
         transform.RotateAround(position, transform.right, (rb.velocity.z * speed) * Time.deltaTime);
     }
 }
