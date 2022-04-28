@@ -136,15 +136,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 2038a972b3220a34ca01e47ca0f9528a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 7.446495
+      value: 2.17
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 2038a972b3220a34ca01e47ca0f9528a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 8.429518
+      value: 1.08
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 2038a972b3220a34ca01e47ca0f9528a, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 6.2356744
+      value: -3.48
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 2038a972b3220a34ca01e47ca0f9528a, type: 3}
       propertyPath: m_LocalRotation.w
@@ -178,6 +178,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bike_uv_color
       objectReference: {fileID: 0}
+    - target: {fileID: 5120686543112285618, guid: 2038a972b3220a34ca01e47ca0f9528a, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 49750a44d792c5247a9236593cf8aa36, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2038a972b3220a34ca01e47ca0f9528a, type: 3}
 --- !u!1 &1158735177
