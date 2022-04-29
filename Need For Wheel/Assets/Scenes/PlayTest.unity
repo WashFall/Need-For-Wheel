@@ -29976,7 +29976,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5790571890958584284, guid: 2a85816d04f9be9478b50c352af9b0a5, type: 3}
       propertyPath: risePower
-      value: 6
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 5790571890958584284, guid: 2a85816d04f9be9478b50c352af9b0a5, type: 3}
       propertyPath: flightSpeed

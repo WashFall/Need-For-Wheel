@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class FlyingControls : Controls
 {
-    public float risePower = 6;
+    public float risePower = 5;
     public float divePower = 3;
     public float flightSpeed = 3;
 
