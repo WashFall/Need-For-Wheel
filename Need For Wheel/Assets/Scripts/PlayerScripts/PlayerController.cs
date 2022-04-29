@@ -47,7 +47,6 @@ public class PlayerController : MonoBehaviour
             increaseGravity = false;
             rigidBody.drag = 0.1f;
         }
-
     }
 
     public void GravitySwitch()
