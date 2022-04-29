@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f56c66ea5edafc45ad597e8120028c7, type: 3}
   m_Name: South West
   m_EditorClassIdentifier: 
-  SectionSize: {x: 100, y: 0, z: 600}
+  SectionSize: {x: 20, y: 50}
   levelSections:
   - {fileID: 8725634951013630769, guid: 7d5e6a6f3182faa4eb489a801623741e, type: 3}
   entryDirection: 2
