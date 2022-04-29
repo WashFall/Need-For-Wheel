@@ -38,18 +38,6 @@ public class DebugManager : MonoBehaviour
         {
             UnityEditor.EditorApplication.isPlaying = false;
         }
-        else if (Keyboard.current.digit1Key.wasPressedThisFrame || Gamepad.current.dpad.up.wasPressedThisFrame)
-        {
-            steering.Disable();
-            inputManager.steering.Disable();
-            SceneManager.LoadScene("PlayTest");
-        }
-        else if (Keyboard.current.digit2Key.wasPressedThisFrame || Gamepad.current.dpad.down.wasPressedThisFrame)
-        {
-            steering.Disable();
-            inputManager.steering.Disable();
-            SceneManager.LoadScene("Carl");
-        }
         else if (Keyboard.current.gKey.wasPressedThisFrame)
         {
             var pc = player.GetComponent<PlayerController>();
@@ -73,18 +61,6 @@ public class DebugManager : MonoBehaviour
         else if (Keyboard.current.escapeKey.wasPressedThisFrame)
         {
             UnityEditor.EditorApplication.isPlaying = false;
-        }
-        else if (Keyboard.current.digit1Key.wasPressedThisFrame)
-        {
-            steering.Disable();
-            inputManager.steering.Disable();
-            SceneManager.LoadScene("PlayTest");
-        }
-        else if (Keyboard.current.digit2Key.wasPressedThisFrame)
-        {
-            steering.Disable();
-            inputManager.steering.Disable();
-            SceneManager.LoadScene("Carl");
         }
         else if (Keyboard.current.gKey.wasPressedThisFrame)
         {
