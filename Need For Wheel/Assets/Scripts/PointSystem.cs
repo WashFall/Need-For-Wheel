@@ -7,9 +7,9 @@ public class PointSystem : MonoBehaviour
 {
     public GameObject player;
     public Text pointsDisplay;
+    public static float points;
 
     private Rigidbody rb;
-    private float points;
     private float oldPosition;
     private float newPosition;
     private float startingPoint;
