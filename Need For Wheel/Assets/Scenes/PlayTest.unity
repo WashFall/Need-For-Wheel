@@ -29950,6 +29950,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4130231102913528212, guid: 2a85816d04f9be9478b50c352af9b0a5, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4397848365236939579, guid: 2a85816d04f9be9478b50c352af9b0a5, type: 3}
       propertyPath: m_Enabled
       value: 1
@@ -29972,7 +29976,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5790571890958584284, guid: 2a85816d04f9be9478b50c352af9b0a5, type: 3}
       propertyPath: risePower
-      value: 6
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5790571890958584284, guid: 2a85816d04f9be9478b50c352af9b0a5, type: 3}
+      propertyPath: flightSpeed
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6548619150207384722, guid: 2a85816d04f9be9478b50c352af9b0a5, type: 3}
       propertyPath: m_Name
@@ -30049,6 +30057,10 @@ PrefabInstance:
     - target: {fileID: 6548619150207384732, guid: 2a85816d04f9be9478b50c352af9b0a5, type: 3}
       propertyPath: gravityIncrease
       value: -20.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 6548619150207384733, guid: 2a85816d04f9be9478b50c352af9b0a5, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6548619150207384734, guid: 2a85816d04f9be9478b50c352af9b0a5, type: 3}
       propertyPath: m_Enabled

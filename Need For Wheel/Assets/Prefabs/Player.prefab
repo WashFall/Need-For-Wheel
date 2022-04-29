@@ -18,6 +18,7 @@ GameObject:
   - component: {fileID: 6548619150207384730}
   - component: {fileID: 1934125793159342344}
   - component: {fileID: 5790571890958584284}
+  - component: {fileID: 4130231102913528212}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -164,12 +165,12 @@ MonoBehaviour:
   tilt: 0
   noForward: 0
   autoForward: 1
+  controls: {fileID: 0}
   rigidBody: {fileID: 0}
   increaseGravity: 1
   gravityIncrease: 0
   sidewayVelocityMultiplier: 5
   forwardVelocityMultiplier: 7
-  controls: {fileID: 0}
 --- !u!114 &6548619150207384730
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -213,6 +214,20 @@ MonoBehaviour:
   player: {fileID: 6548619150207384732}
   risePower: 12
   divePower: -66
+  flightSpeed: 4
+--- !u!135 &4130231102913528212
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6548619150207384722}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 0
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &7794803310471005991
 GameObject:
   m_ObjectHideFlags: 0
@@ -314,6 +329,10 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 74cde61806a5a704fa296613f7fa7d35, type: 2}
+    - target: {fileID: 4570968586886248346, guid: 025a7f021a717e1448383373a4d5945c, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 6548619150207384722}
     - target: {fileID: 4589954141745833769, guid: 025a7f021a717e1448383373a4d5945c, type: 3}
       propertyPath: player
       value: 
@@ -419,6 +438,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8542580376300808547, guid: 025a7f021a717e1448383373a4d5945c, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 6548619150207384722}
+    - target: {fileID: 8992548730475769541, guid: 025a7f021a717e1448383373a4d5945c, type: 3}
       propertyPath: player
       value: 
       objectReference: {fileID: 6548619150207384722}

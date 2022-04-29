@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class FlyingControls : Controls
 {
-    public float risePower = 6;
+    public float risePower = 5;
     public float divePower = 3;
+    public float flightSpeed = 3;
 
     public override void Forward(Vector3 inputVector) //Rise
     {
@@ -15,7 +16,7 @@ public class FlyingControls : Controls
     public override void Backward(Vector3 inputVector) //Dive
     {
         player.rigidBody.AddForce(inputVector * divePower, ForceMode.Impulse);
-        player.rigidBody.AddForce(new Vector3(0, 0, 1) * risePower, ForceMode.Impulse);
+        player.rigidBody.AddForce(new Vector3(0, 0, 1) * flightSpeed, ForceMode.Impulse);
     }
 
     public override void Left(Vector3 inputVector)
