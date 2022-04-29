@@ -18,6 +18,7 @@ GameObject:
   - component: {fileID: 6548619150207384730}
   - component: {fileID: 1934125793159342344}
   - component: {fileID: 5790571890958584284}
+  - component: {fileID: 4130231102913528212}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -98,7 +99,7 @@ BoxCollider:
   m_GameObject: {fileID: 6548619150207384722}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
@@ -214,6 +215,19 @@ MonoBehaviour:
   risePower: 12
   divePower: -66
   flightSpeed: 4
+--- !u!135 &4130231102913528212
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6548619150207384722}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &7794803310471005991
 GameObject:
   m_ObjectHideFlags: 0
