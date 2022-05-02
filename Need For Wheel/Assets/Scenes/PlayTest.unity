@@ -41363,6 +41363,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5294461701003165, guid: 2a85816d04f9be9478b50c352af9b0a5, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3514298322579260717, guid: 2a85816d04f9be9478b50c352af9b0a5, type: 3}
       propertyPath: m_LocalRotation.w
       value: 1
