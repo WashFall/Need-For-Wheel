@@ -39,6 +39,7 @@ public class PlayerController : MonoBehaviour
                 Quaternion newrot = Quaternion.LookRotation(Vector3.Cross(transform.right, hit.normal));
                 transform.rotation = Quaternion.Lerp(transform.rotation, newrot, 10 * Time.deltaTime);
             }
+            Debug.DrawLine(rayOrigin, new Vector3(rayOrigin.x, rayOrigin.y - 20, rayOrigin.z), Color.red);
         }
 
         if(State == PlayerState.Flying)
