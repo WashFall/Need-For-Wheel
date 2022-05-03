@@ -13,8 +13,11 @@ public class FinishLineCollider : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        collision.transform.GetComponent<PlayerController>().dead = true;
-        collision.gameObject.GetComponent<InputManager>().steering.Ground.Disable();
-        canvas.SetActive(true);
+        if(collision.transform.tag == "Player")
+        {
+            collision.transform.GetComponent<PlayerController>().dead = true;
+            collision.gameObject.GetComponent<InputManager>().steering.Ground.Disable();
+            canvas.SetActive(true);
+        }
     }
 }

@@ -8,6 +8,7 @@ public class BigRampTrigger : MonoBehaviour
     {
         if(collision.tag == "Player")
             collision.gameObject.GetComponent<InputManager>().flying = true;
-            PlayerController.State = PlayerState.Flying;
+
+        PlayerController.State = PlayerState.Flying;
     }
 }
