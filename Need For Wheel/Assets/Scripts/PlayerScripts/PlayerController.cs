@@ -30,6 +30,7 @@ public class PlayerController : MonoBehaviour
             controls = GetComponent<FlyingControls>();
             increaseGravity = false;
             rigidBody.drag = 0.1f;
+            rigidBody.rotation = Quaternion.identity;
         }
     }
 

@@ -119,8 +119,6 @@ public class InputManager : MonoBehaviour
             }
         }
 
-        Debug.Log(flightStamina.stamina);
-
         if (player.increaseGravity)
             player.Gravity();
     }
