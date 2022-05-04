@@ -13,7 +13,7 @@ public class InputManager : MonoBehaviour
     public Steering steering;
 
     private bool rising;
-    private FlightStamina flightStamina = new FlightStamina();
+    private BoostSystem boost = new BoostSystem();
     private Animator animator;
 
     private ICommand driveLeft_command;
@@ -98,27 +98,26 @@ public class InputManager : MonoBehaviour
             {
                 animator.SetBool("DriftLeft", false);
             }
-            Debug.Log(animator.GetBool("DriftRight"));
         }
         else if(PlayerController.State == PlayerState.Flying)
         {
             Vector3 direction;
             direction = new Vector3(steering.Ground.LeftRight.ReadValue<float>(), steering.Ground.ForwardBack.ReadValue<float>(), 0);
 
-            if(flightStamina.stamina > 0 && !flightStamina.outOfStamina)
+            if(boost.boost > 0 && !boost.outOfBoost)
             {
                 if (direction.y > 0)
                 {
                     Vector3 inputVector = new Vector3(0, direction.y, 0);
                     driveForward_command.Execute(player, inputVector);
-                    flightStamina.StaminaDown();
+                    boost.StaminaDown();
                     rising = true;
                 }
             }
 
-            if(flightStamina.stamina < 150 && !rising)
+            if(boost.boost < 150 && !rising)
             {
-                flightStamina.StaminaUp();
+                boost.StaminaUp();
             }
 
             if(direction.y < 0)
