@@ -42339,8 +42339,12 @@ PrefabInstance:
       value: -20.01
       objectReference: {fileID: 0}
     - target: {fileID: 6548619150207384732, guid: 2a85816d04f9be9478b50c352af9b0a5, type: 3}
+      propertyPath: forwardVelocityMultiplier
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 6548619150207384732, guid: 2a85816d04f9be9478b50c352af9b0a5, type: 3}
       propertyPath: sidewayVelocityMultiplier
-      value: 7
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 6548619150207384733, guid: 2a85816d04f9be9478b50c352af9b0a5, type: 3}
       propertyPath: m_Enabled

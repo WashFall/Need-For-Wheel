@@ -5,15 +5,14 @@ using UnityEngine.InputSystem;
 
 public class InputManager : MonoBehaviour
 {
-    public bool flying;
     public float driftSpeed;
     public PlayerController player;
+    public BoostSystem boost = new BoostSystem();
 
     [HideInInspector]
     public Steering steering;
 
-    private bool rising;
-    private FlightStamina flightStamina = new FlightStamina();
+    private Animator animator;
 
     private ICommand driveLeft_command;
     private ICommand driveRight_command;
@@ -22,6 +21,7 @@ public class InputManager : MonoBehaviour
 
     private void Awake()
     {
+        animator = GetComponentInChildren<Animator>();
         driveLeft_command = new DriveLeft();
         driveRight_command = new DriveRight();
         driveForward_command = new DriveForward();
@@ -33,7 +33,6 @@ public class InputManager : MonoBehaviour
         steering = new Steering();
         steering.Ground.Enable();
         steering.Ground.LeftRight.canceled += ResetDirection;
-        steering.Ground.ForwardBack.canceled += (InputAction.CallbackContext context) => rising = false;
         steering.Ground.ForwardBack.canceled += ResetDirection;
     }
 
@@ -65,7 +64,7 @@ public class InputManager : MonoBehaviour
 
             if(direction.z == 0)
             {
-                player.sidewayVelocityMultiplier = 7;
+                player.sidewayVelocityMultiplier = 8;
             }
 
             if (player.autoForward)
@@ -78,26 +77,38 @@ public class InputManager : MonoBehaviour
                 Vector3 inputVector = new Vector3(0, 0, direction.z);
                 driveForward_command.Execute(player, inputVector);
             }
+
+            if(direction.z < 0 && direction.x > 0)
+            {
+                animator.SetBool("DriftRight", true);
+            }
+            else
+            {
+                animator.SetBool("DriftRight", false);
+            }
+
+            if(direction.z < 0 && direction.x < 0)
+            {
+                animator.SetBool("DriftLeft", true);
+            }
+            else
+            {
+                animator.SetBool("DriftLeft", false);
+            }
         }
         else if(PlayerController.State == PlayerState.Flying)
         {
             Vector3 direction;
             direction = new Vector3(steering.Ground.LeftRight.ReadValue<float>(), steering.Ground.ForwardBack.ReadValue<float>(), 0);
 
-            if(flightStamina.stamina > 0 && !flightStamina.outOfStamina)
+            if(boost.boost > 0 && !boost.outOfBoost)
             {
                 if (direction.y > 0)
                 {
                     Vector3 inputVector = new Vector3(0, direction.y, 0);
                     driveForward_command.Execute(player, inputVector);
-                    flightStamina.StaminaDown();
-                    rising = true;
+                    boost.BoostDown();
                 }
-            }
-
-            if(flightStamina.stamina < 150 && !rising)
-            {
-                flightStamina.StaminaUp();
             }
 
             if(direction.y < 0)
