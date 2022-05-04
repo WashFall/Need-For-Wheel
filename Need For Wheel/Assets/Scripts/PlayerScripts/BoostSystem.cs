@@ -4,10 +4,15 @@ using UnityEngine;
 
 public class BoostSystem
 {
-    public bool outOfBoost = false;
     public float boost = 150;
+    public bool outOfBoost = false;
 
-    public void StaminaDown()
+    public void SetBoost(float points)
+    {
+        boost = points;
+    }
+
+    public void BoostDown()
     {
         if (!outOfBoost && boost > 0)
         {
@@ -17,13 +22,5 @@ public class BoostSystem
         {
             outOfBoost = true;
         }
-    }
-
-    public void StaminaUp()
-    {
-        boost++;
-
-        if(boost > 0)
-            outOfBoost = false;
     }
 }
