@@ -9,7 +9,7 @@ public class BigRampTrigger : MonoBehaviour
         if(collision.tag == "Player")
         {
             PlayerController.State = PlayerState.Flying;
-            collision.GetComponent<InputManager>().boost.SetBoost(Mathf.Round(PointSystem.points / 100));
+            collision.GetComponent<InputManager>().boost.SetBoost(Mathf.Round(PointSystem.points / 10));
         }
     }
 }

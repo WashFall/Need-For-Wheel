@@ -132,8 +132,6 @@ public class InputManager : MonoBehaviour
 
         if (player.increaseGravity)
             player.Gravity();
-
-        Debug.Log(boost.boost);
     }
 
     private void ResetDirection(InputAction.CallbackContext context)
