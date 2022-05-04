@@ -1,26 +1,8 @@
 fileFormatVersion: 2
-guid: 5387ccfc0d3f7a649826a52a787f683c
+guid: bd9c2335631ac3842969335cb20552d0
 ModelImporter:
   serializedVersion: 20200
-  internalIDToNameTable:
-  - first:
-      74: -1591098863988251037
-    second: Armature|Armature|idle|Armature|idle
-  - first:
-      74: -5131793523495582627
-    second: Armature|drift left
-  - first:
-      74: 8920320419697083637
-    second: Armature|drift right
-  - first:
-      74: -7183653776464587748
-    second: Armature|idle standing
-  - first:
-      74: -8897550313144337857
-    second: Armature|sitting idle
-  - first:
-      74: 8847675645834236089
-    second: Armature|t pose
+  internalIDToNameTable: []
   externalObjects: {}
   materials:
     materialImportMode: 2
