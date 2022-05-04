@@ -16,10 +16,10 @@ public class PointSystem : MonoBehaviour
 
     private void Start()
     {
-        startingPoint = player.transform.position.z;
         points = 0;
-        rb = player.GetComponent<Rigidbody>();
         oldPosition = 0;
+        rb = player.GetComponent<Rigidbody>();
+        startingPoint = player.transform.position.z;
     }
 
     void FixedUpdate()

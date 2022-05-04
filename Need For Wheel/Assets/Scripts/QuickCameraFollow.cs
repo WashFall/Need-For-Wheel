@@ -7,14 +7,14 @@ public class QuickCameraFollow : MonoBehaviour
     public GameObject player;
 
     private Vector3 offset;
-    private Vector3 offsetChange;
     private Vector3 position;
     private bool stateChanged;
+    private Vector3 offsetChange;
 
     void Start()
     {
-        offset = transform.position - player.transform.position;
         stateChanged = false;
+        offset = transform.position - player.transform.position;
     }
 
     private void Update()
@@ -30,8 +30,8 @@ public class QuickCameraFollow : MonoBehaviour
 
     private void StateChanged()
     {
-        offsetChange += new Vector3(offset.x, offset.y - 3, offset.z - 7);
         stateChanged = true;
+        offsetChange += new Vector3(offset.x, offset.y - 3, offset.z - 7);
     }
 
     void LateUpdate()

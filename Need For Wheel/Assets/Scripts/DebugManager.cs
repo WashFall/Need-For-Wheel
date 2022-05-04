@@ -6,8 +6,8 @@ using UnityEngine.SceneManagement;
 
 public class DebugManager : MonoBehaviour
 {
-    public InputManager inputManager;
     public GameObject player;
+    public InputManager inputManager;
 
     private Steering steering;
 
@@ -26,6 +26,7 @@ public class DebugManager : MonoBehaviour
         else
             steering.Ground.Debug.performed += KeyboardDebugOnly;
     }
+
     private void DebugCommands(InputAction.CallbackContext context)
     {
         if (Keyboard.current.rKey.wasPressedThisFrame || Gamepad.current.buttonWest.wasPressedThisFrame)

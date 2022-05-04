@@ -21,11 +21,11 @@ public class InputManager : MonoBehaviour
 
     private void Awake()
     {
-        animator = GetComponentInChildren<Animator>();
         driveLeft_command = new DriveLeft();
         driveRight_command = new DriveRight();
         driveForward_command = new DriveForward();
         driveBackward_command = new DriveBackward();
+        animator = GetComponentInChildren<Animator>();
     }
 
     private void Start()
