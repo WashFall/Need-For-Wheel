@@ -5,15 +5,13 @@ using UnityEngine.InputSystem;
 
 public class InputManager : MonoBehaviour
 {
-    public bool flying;
     public float driftSpeed;
     public PlayerController player;
+    public BoostSystem boost = new BoostSystem();
 
     [HideInInspector]
     public Steering steering;
 
-    private bool rising;
-    private BoostSystem boost = new BoostSystem();
     private Animator animator;
 
     private ICommand driveLeft_command;
@@ -35,7 +33,6 @@ public class InputManager : MonoBehaviour
         steering = new Steering();
         steering.Ground.Enable();
         steering.Ground.LeftRight.canceled += ResetDirection;
-        steering.Ground.ForwardBack.canceled += (InputAction.CallbackContext context) => rising = false;
         steering.Ground.ForwardBack.canceled += ResetDirection;
     }
 
@@ -110,14 +107,8 @@ public class InputManager : MonoBehaviour
                 {
                     Vector3 inputVector = new Vector3(0, direction.y, 0);
                     driveForward_command.Execute(player, inputVector);
-                    boost.StaminaDown();
-                    rising = true;
+                    boost.BoostDown();
                 }
-            }
-
-            if(boost.boost < 150 && !rising)
-            {
-                boost.StaminaUp();
             }
 
             if(direction.y < 0)
@@ -141,6 +132,8 @@ public class InputManager : MonoBehaviour
 
         if (player.increaseGravity)
             player.Gravity();
+
+        Debug.Log(boost.boost);
     }
 
     private void ResetDirection(InputAction.CallbackContext context)

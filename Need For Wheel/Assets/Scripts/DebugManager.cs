@@ -45,9 +45,8 @@ public class DebugManager : MonoBehaviour
         }
         else if (Keyboard.current.hKey.wasPressedThisFrame)
         {
-            inputManager.flying = inputManager.flying ? false : true;
+            PlayerController.State = PlayerState.Flying;
         }
-
     }
 
     private void KeyboardDebugOnly(InputAction.CallbackContext context)
@@ -68,7 +67,7 @@ public class DebugManager : MonoBehaviour
         }
         else if (Keyboard.current.hKey.wasPressedThisFrame)
         {
-            inputManager.flying = inputManager.flying ? false : true;
+            PlayerController.State = PlayerState.Flying;
         }
     }
 }
