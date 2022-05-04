@@ -12,6 +12,9 @@ public class InputManager : MonoBehaviour
     [HideInInspector]
     public Steering steering;
 
+    private bool rising;
+    private FlightStamina flightStamina = new FlightStamina();
+
     private ICommand driveLeft_command;
     private ICommand driveRight_command;
     private ICommand driveForward_command;
@@ -30,6 +33,7 @@ public class InputManager : MonoBehaviour
         steering = new Steering();
         steering.Ground.Enable();
         steering.Ground.LeftRight.canceled += ResetDirection;
+        steering.Ground.ForwardBack.canceled += (InputAction.CallbackContext context) => rising = false;
         steering.Ground.ForwardBack.canceled += ResetDirection;
     }
 
@@ -61,7 +65,7 @@ public class InputManager : MonoBehaviour
 
             if(direction.z == 0)
             {
-                player.sidewayVelocityMultiplier = 5;
+                player.sidewayVelocityMultiplier = 7;
             }
 
             if (player.autoForward)
@@ -80,10 +84,20 @@ public class InputManager : MonoBehaviour
             Vector3 direction;
             direction = new Vector3(steering.Ground.LeftRight.ReadValue<float>(), steering.Ground.ForwardBack.ReadValue<float>(), 0);
 
-            if (direction.y > 0)
+            if(flightStamina.stamina > 0 && !flightStamina.outOfStamina)
             {
-                Vector3 inputVector = new Vector3(0, direction.y, 0);
-                driveForward_command.Execute(player, inputVector);
+                if (direction.y > 0)
+                {
+                    Vector3 inputVector = new Vector3(0, direction.y, 0);
+                    driveForward_command.Execute(player, inputVector);
+                    flightStamina.StaminaDown();
+                    rising = true;
+                }
+            }
+
+            if(flightStamina.stamina < 150 && !rising)
+            {
+                flightStamina.StaminaUp();
             }
 
             if(direction.y < 0)
@@ -104,7 +118,6 @@ public class InputManager : MonoBehaviour
                 driveLeft_command.Execute(player, inputVector);
             }
         }
-
 
         if (player.increaseGravity)
             player.Gravity();

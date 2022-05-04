@@ -11,17 +11,16 @@ GameObject:
   - component: {fileID: 6548619150207384728}
   - component: {fileID: 6548619150207384735}
   - component: {fileID: 6548619150207384734}
-  - component: {fileID: 6548619150207384733}
   - component: {fileID: 6548619150207384723}
   - component: {fileID: 6548619150207384729}
   - component: {fileID: 6548619150207384732}
   - component: {fileID: 6548619150207384730}
   - component: {fileID: 1934125793159342344}
   - component: {fileID: 5790571890958584284}
-  - component: {fileID: 4130231102913528212}
+  - component: {fileID: 8153881067988545560}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -34,8 +33,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6548619150207384722}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 473.7, z: 47.59}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: 473.94, z: 46.549}
+  m_LocalScale: {x: 0.4, y: 0.4, z: 0.4}
   m_Children:
   - {fileID: 3514298322579260717}
   m_Father: {fileID: 0}
@@ -90,19 +89,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &6548619150207384733
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6548619150207384722}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &6548619150207384723
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -162,7 +148,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dead: 0
-  tilt: 0
   noForward: 0
   autoForward: 1
   controls: {fileID: 0}
@@ -215,7 +200,7 @@ MonoBehaviour:
   risePower: 12
   divePower: -66
   flightSpeed: 4
---- !u!135 &4130231102913528212
+--- !u!135 &8153881067988545560
 SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -224,10 +209,10 @@ SphereCollider:
   m_GameObject: {fileID: 6548619150207384722}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: 0, y: 0, z: -0.81}
 --- !u!1 &7794803310471005991
 GameObject:
   m_ObjectHideFlags: 0
@@ -272,8 +257,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d439e885ec1240943bacd6ca07cd0bac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 6548619150207384722}
   bike: {fileID: 3514298322579260717}
+  turnSpeed: 0
+  player: {fileID: 6548619150207384722}
 --- !u!1001 &1209199275009326953
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -451,11 +437,55 @@ PrefabInstance:
       objectReference: {fileID: 6548619150207384722}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 025a7f021a717e1448383373a4d5945c, type: 3}
+--- !u!1 &8496176414784431470 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7291199406212127239, guid: 025a7f021a717e1448383373a4d5945c, type: 3}
+  m_PrefabInstance: {fileID: 1209199275009326953}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &9125326127663382484 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7954583543179395261, guid: 025a7f021a717e1448383373a4d5945c, type: 3}
   m_PrefabInstance: {fileID: 1209199275009326953}
   m_PrefabAsset: {fileID: 0}
+--- !u!135 &1043090641830061929
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8496176414784431470}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.55
+  m_Center: {x: 0, y: 0.53, z: 0.72}
+--- !u!135 &1636502158260851843
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8496176414784431470}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.4
+  m_Center: {x: -1.12, y: 0.39, z: -2.5}
+--- !u!135 &6187049898205442482
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8496176414784431470}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.4
+  m_Center: {x: 1.12, y: 0.39, z: -2.5}
 --- !u!1001 &3331273370927532063
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -465,7 +495,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 5387ccfc0d3f7a649826a52a787f683c, type: 3}
       propertyPath: m_RootOrder
-      value: 8
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 5387ccfc0d3f7a649826a52a787f683c, type: 3}
       propertyPath: m_LocalPosition.x
@@ -550,19 +580,22 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 5387ccfc0d3f7a649826a52a787f683c, type: 3}
   m_PrefabInstance: {fileID: 3331273370927532063}
   m_PrefabAsset: {fileID: 0}
---- !u!111 &5483505677900271507
-Animation:
+--- !u!95 &831830051063185452
+Animator:
+  serializedVersion: 3
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2520439825150489934}
   m_Enabled: 1
-  serializedVersion: 3
-  m_Animation: {fileID: -8897550313144337857, guid: 5387ccfc0d3f7a649826a52a787f683c, type: 3}
-  m_Animations:
-  - {fileID: -8897550313144337857, guid: 5387ccfc0d3f7a649826a52a787f683c, type: 3}
-  m_WrapMode: 0
-  m_PlayAutomatically: 1
-  m_AnimatePhysics: 0
-  m_CullingType: 0
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: c8e025e9efe70294db04413833839901, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

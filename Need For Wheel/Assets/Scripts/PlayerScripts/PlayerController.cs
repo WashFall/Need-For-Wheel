@@ -5,47 +5,32 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     public bool dead;
-    public bool tilt;
     public bool noForward;
     public bool autoForward;
     public Controls controls;
     public Rigidbody rigidBody;
     public bool increaseGravity;
     public float gravityIncrease;
-    public float sidewayVelocityMultiplier = 5;
+    public float sidewayVelocityMultiplier = 7;
     public float forwardVelocityMultiplier = 10;
     public static PlayerState State = new PlayerState();
-
-    private Vector3 rayOrigin;
-    private Renderer rend;
 
     private void Awake()
     {
         dead = false;
         State = PlayerState.Driving;
-        rend = GetComponent<Renderer>();
-        controls = GetComponent<DrivingControls>();
         rigidBody = GetComponent<Rigidbody>();
+        controls = GetComponent<DrivingControls>();
     }
 
     private void Update()
     {
-        if (tilt)
-        {
-            RaycastHit hit;
-            rayOrigin = transform.position + transform.forward * (rend.bounds.size.z / 2);
-            if (Physics.Raycast(rayOrigin, -(transform.up), out hit, 20, 5))
-            {
-                Quaternion newrot = Quaternion.LookRotation(Vector3.Cross(transform.right, hit.normal));
-                transform.rotation = Quaternion.Lerp(transform.rotation, newrot, 10 * Time.deltaTime);
-            }
-        }
-
         if(State == PlayerState.Flying)
         {
             controls = GetComponent<FlyingControls>();
             increaseGravity = false;
             rigidBody.drag = 0.1f;
+            rigidBody.rotation = Quaternion.identity;
         }
     }
 
