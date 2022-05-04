@@ -14,6 +14,7 @@ public class InputManager : MonoBehaviour
 
     private bool rising;
     private FlightStamina flightStamina = new FlightStamina();
+    private Animator animator;
 
     private ICommand driveLeft_command;
     private ICommand driveRight_command;
@@ -22,6 +23,7 @@ public class InputManager : MonoBehaviour
 
     private void Awake()
     {
+        animator = GetComponentInChildren<Animator>();
         driveLeft_command = new DriveLeft();
         driveRight_command = new DriveRight();
         driveForward_command = new DriveForward();
@@ -65,7 +67,7 @@ public class InputManager : MonoBehaviour
 
             if(direction.z == 0)
             {
-                player.sidewayVelocityMultiplier = 7;
+                player.sidewayVelocityMultiplier = 8;
             }
 
             if (player.autoForward)
@@ -78,6 +80,25 @@ public class InputManager : MonoBehaviour
                 Vector3 inputVector = new Vector3(0, 0, direction.z);
                 driveForward_command.Execute(player, inputVector);
             }
+
+            if(direction.z < 0 && direction.x > 0)
+            {
+                animator.SetBool("DriftRight", true);
+            }
+            else
+            {
+                animator.SetBool("DriftRight", false);
+            }
+
+            if(direction.z < 0 && direction.x < 0)
+            {
+                animator.SetBool("DriftLeft", true);
+            }
+            else
+            {
+                animator.SetBool("DriftLeft", false);
+            }
+            Debug.Log(animator.GetBool("DriftRight"));
         }
         else if(PlayerController.State == PlayerState.Flying)
         {
