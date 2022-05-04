@@ -65,7 +65,7 @@ public class InputManager : MonoBehaviour
 
             if(direction.z == 0)
             {
-                player.sidewayVelocityMultiplier = 5;
+                player.sidewayVelocityMultiplier = 7;
             }
 
             if (player.autoForward)

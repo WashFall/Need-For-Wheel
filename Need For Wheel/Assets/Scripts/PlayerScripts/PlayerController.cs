@@ -11,7 +11,7 @@ public class PlayerController : MonoBehaviour
     public Rigidbody rigidBody;
     public bool increaseGravity;
     public float gravityIncrease;
-    public float sidewayVelocityMultiplier = 5;
+    public float sidewayVelocityMultiplier = 7;
     public float forwardVelocityMultiplier = 10;
     public static PlayerState State = new PlayerState();
 
