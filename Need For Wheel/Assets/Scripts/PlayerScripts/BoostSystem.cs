@@ -4,8 +4,11 @@ using UnityEngine;
 
 public class BoostSystem
 {
-    public float boost = 150;
+    public static float boost = 0;
     public bool outOfBoost = false;
+
+    private int step = 0;
+    private int oldStep = 0;
 
     public void SetBoost(float points)
     {
@@ -21,6 +24,20 @@ public class BoostSystem
         else if (boost <= 0)
         {
             outOfBoost = true;
+        }
+    }
+
+    public void BoostUp(float position)
+    {
+        if(PlayerController.State == PlayerState.Driving)
+        {
+            step = Mathf.RoundToInt(position / 100);
+
+            if(step > oldStep)
+            {
+                boost += 100;
+                oldStep = step;
+            }
         }
     }
 }

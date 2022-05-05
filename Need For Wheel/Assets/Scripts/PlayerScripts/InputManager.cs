@@ -101,7 +101,7 @@ public class InputManager : MonoBehaviour
             Vector3 direction;
             direction = new Vector3(steering.Ground.LeftRight.ReadValue<float>(), steering.Ground.ForwardBack.ReadValue<float>(), 0);
 
-            if(boost.boost > 0 && !boost.outOfBoost)
+            if(BoostSystem.boost > 0 && !boost.outOfBoost)
             {
                 if (direction.y > 0)
                 {
@@ -132,6 +132,8 @@ public class InputManager : MonoBehaviour
 
         if (player.increaseGravity)
             player.Gravity();
+
+        boost.BoostUp(player.rigidBody.position.z - PointSystem.startingPoint);
     }
 
     private void ResetDirection(InputAction.CallbackContext context)

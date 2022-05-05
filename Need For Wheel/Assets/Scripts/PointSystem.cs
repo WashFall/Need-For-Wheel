@@ -8,11 +8,11 @@ public class PointSystem : MonoBehaviour
     public GameObject player;
     public Text pointsDisplay;
     public static float points;
+    public static float startingPoint;
 
     private Rigidbody rb;
     private float oldPosition;
     private float newPosition;
-    private float startingPoint;
 
     private void Start()
     {
