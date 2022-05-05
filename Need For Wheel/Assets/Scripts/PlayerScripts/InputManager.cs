@@ -134,6 +134,7 @@ public class InputManager : MonoBehaviour
             player.Gravity();
 
         boost.BoostUp(player.rigidBody.position.z - PointSystem.startingPoint);
+        print(player.rigidBody.velocity.z);
     }
 
     private void ResetDirection(InputAction.CallbackContext context)

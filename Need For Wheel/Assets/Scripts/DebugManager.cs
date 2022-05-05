@@ -37,7 +37,8 @@ public class DebugManager : MonoBehaviour
         }
         else if (Keyboard.current.escapeKey.wasPressedThisFrame || Gamepad.current.buttonEast.wasPressedThisFrame)
         {
-            UnityEditor.EditorApplication.isPlaying = false;
+            Application.Quit();
+            //UnityEditor.EditorApplication.isPlaying = false;
         }
         else if (Keyboard.current.gKey.wasPressedThisFrame)
         {
@@ -60,7 +61,8 @@ public class DebugManager : MonoBehaviour
         }
         else if (Keyboard.current.escapeKey.wasPressedThisFrame)
         {
-            UnityEditor.EditorApplication.isPlaying = false;
+            Application.Quit();
+            //UnityEditor.EditorApplication.isPlaying = false;
         }
         else if (Keyboard.current.gKey.wasPressedThisFrame)
         {
