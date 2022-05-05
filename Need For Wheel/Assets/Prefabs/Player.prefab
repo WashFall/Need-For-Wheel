@@ -154,7 +154,7 @@ MonoBehaviour:
   rigidBody: {fileID: 0}
   increaseGravity: 1
   gravityIncrease: 0
-  sidewayVelocityMultiplier: 5
+  sidewayVelocityMultiplier: 8
   forwardVelocityMultiplier: 7
 --- !u!114 &6548619150207384730
 MonoBehaviour:
@@ -168,7 +168,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4ad846ee3fc9f44c86897716ee9c195, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  flying: 0
   driftSpeed: 10
   player: {fileID: 6548619150207384732}
 --- !u!114 &1934125793159342344
@@ -197,9 +196,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 6548619150207384732}
-  risePower: 12
-  divePower: -66
-  flightSpeed: 4
+  risePower: 5
+  divePower: 3
+  flightSpeed: 3
 --- !u!135 &8153881067988545560
 SphereCollider:
   m_ObjectHideFlags: 0
