@@ -37,8 +37,7 @@ public class DebugManager : MonoBehaviour
         }
         else if (Keyboard.current.escapeKey.wasPressedThisFrame || Gamepad.current.buttonEast.wasPressedThisFrame)
         {
-            Application.Quit();
-            //UnityEditor.EditorApplication.isPlaying = false;
+            QuitGame();
         }
         else if (Keyboard.current.gKey.wasPressedThisFrame)
         {
@@ -61,8 +60,7 @@ public class DebugManager : MonoBehaviour
         }
         else if (Keyboard.current.escapeKey.wasPressedThisFrame)
         {
-            Application.Quit();
-            //UnityEditor.EditorApplication.isPlaying = false;
+            QuitGame();
         }
         else if (Keyboard.current.gKey.wasPressedThisFrame)
         {
@@ -72,5 +70,13 @@ public class DebugManager : MonoBehaviour
         {
             PlayerController.State = PlayerState.Flying;
         }
+    }
+
+    public void QuitGame()
+    {
+        #if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+        #endif
+        Application.Quit();
     }
 }

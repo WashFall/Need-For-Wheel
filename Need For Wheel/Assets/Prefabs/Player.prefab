@@ -26,7 +26,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4787941052802553202}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 1.94, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 6548619150207384728}
@@ -59,8 +59,8 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 5.1989517
-  m_Center: {x: 0, y: 1.72, z: 33.02}
+  m_Radius: 12.71
+  m_Center: {x: 0, y: 0.01, z: 33.02}
 --- !u!1 &6548619150207384722
 GameObject:
   m_ObjectHideFlags: 0
@@ -79,6 +79,7 @@ GameObject:
   - component: {fileID: 1934125793159342344}
   - component: {fileID: 5790571890958584284}
   - component: {fileID: 8153881067988545560}
+  - component: {fileID: 3096042254776959003}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -274,6 +275,19 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: -0.81}
+--- !u!135 &3096042254776959003
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6548619150207384722}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1.19
+  m_Center: {x: 0, y: 0.94, z: -1.61}
 --- !u!1 &7794803310471005991
 GameObject:
   m_ObjectHideFlags: 0

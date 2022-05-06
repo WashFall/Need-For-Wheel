@@ -7,7 +7,7 @@ public class DrivingControls : Controls
     public override void Forward(Vector3 inputVector) 
     {
         if (player.autoForward)
-            player.rigidBody.AddRelativeForce(new Vector3(0, 0, 1) * 1.5f, ForceMode.VelocityChange);
+            player.rigidBody.AddRelativeForce(new Vector3(0, 0, 1) * 15f, ForceMode.Impulse);
         else if (player.noForward) { }
         else
             player.rigidBody.AddRelativeForce(inputVector * player.forwardVelocityMultiplier, ForceMode.Impulse);
