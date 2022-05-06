@@ -33,6 +33,7 @@ public class DebugManager : MonoBehaviour
         {
             steering.Disable();
             inputManager.steering.Disable();
+            BoostSystem.boost = 0;
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
         else if (Keyboard.current.escapeKey.wasPressedThisFrame || Gamepad.current.buttonEast.wasPressedThisFrame)
@@ -55,6 +56,7 @@ public class DebugManager : MonoBehaviour
         if (Keyboard.current.rKey.wasPressedThisFrame)
         {
             steering.Disable();
+            BoostSystem.boost = 0;
             inputManager.steering.Disable();
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
