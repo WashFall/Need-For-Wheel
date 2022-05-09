@@ -31,7 +31,6 @@ public class BrickCollision : MonoBehaviour
         {
             if(pos.z < crashObject.transform.position.z - 20)
             {
-                Debug.Log("jello");
                 Destroy(gameObject);
             }
         }
