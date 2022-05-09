@@ -19,7 +19,7 @@ public class BoostSystem
     {
         if (!outOfBoost && boost > 0)
         {
-            boost -= 2;
+            boost -= 3;
         }
         else if (boost <= 0)
         {
