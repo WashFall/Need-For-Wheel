@@ -16,7 +16,6 @@ public class FlyingControls : Controls
     public override void Backward(Vector3 inputVector) //Dive
     {
         player.rigidBody.AddForce(inputVector * divePower, ForceMode.Impulse);
-        player.rigidBody.AddForce(new Vector3(0, 0, 1) * flightSpeed, ForceMode.Impulse);
     }
 
     public override void Left(Vector3 inputVector)
@@ -27,5 +26,11 @@ public class FlyingControls : Controls
     public override void Right(Vector3 inputVector)
     {
         player.rigidBody.AddRelativeForce(inputVector * 3, ForceMode.Impulse);
+    }
+
+    private void FixedUpdate()
+    {
+        if(PlayerController.State == PlayerState.Flying)
+            player.rigidBody.AddForce(new Vector3(0, 0, 0.5f), ForceMode.Impulse);
     }
 }
