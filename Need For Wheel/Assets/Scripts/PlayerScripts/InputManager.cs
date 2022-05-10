@@ -34,6 +34,8 @@ public class InputManager : MonoBehaviour
         steering.Ground.Enable();
         steering.Ground.LeftRight.canceled += ResetDirection;
         steering.Ground.ForwardBack.canceled += ResetDirection;
+
+        ServiceLocator.SetAudioService(new DebugAudioService());
     }
 
     private void FixedUpdate()
@@ -47,12 +49,14 @@ public class InputManager : MonoBehaviour
             {
                 Vector3 inputVector = new Vector3(direction.x, 0, 0);
                 driveRight_command.Execute(player, inputVector);
+                ServiceLocator.sound.PlayOnce("Right");
             }
 
             if (direction.x < 0)
             {
                 Vector3 inputVector = new Vector3(direction.x, 0, 0);
                 driveLeft_command.Execute(player, inputVector);
+                ServiceLocator.sound.PlayOnce("Left");
             }
 
             if (direction.z < 0)
@@ -60,9 +64,10 @@ public class InputManager : MonoBehaviour
                 Vector3 inputVector = new Vector3(0, 0, direction.z);
                 driveBackward_command.Execute(player, inputVector);
                 player.sidewayVelocityMultiplier = driftSpeed;
+                ServiceLocator.sound.PlayOnce("Back");
             }
 
-            if(direction.z == 0)
+            if (direction.z == 0)
             {
                 player.sidewayVelocityMultiplier = 8;
             }
