@@ -5,6 +5,7 @@ using UnityEngine;
 public class BrickCollision : MonoBehaviour
 {
     public GameObject player;
+    public GameObject parent;
 
     private Vector3 pos;
     private bool hasCrashed = false;
@@ -12,7 +13,7 @@ public class BrickCollision : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.tag == "Player")
+        if(other.tag == "PlayerTrigger")
         {
             GetComponent<Rigidbody>().isKinematic = false;
             crashObject = other.gameObject;
@@ -31,7 +32,7 @@ public class BrickCollision : MonoBehaviour
         {
             if(pos.z < crashObject.transform.position.z - 20)
             {
-                Destroy(gameObject);
+                Destroy(parent);
             }
         }
     }

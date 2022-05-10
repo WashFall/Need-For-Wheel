@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class DrivingControls : Controls
 {
+    public float forwardSpeed = 15;
+
     public override void Forward(Vector3 inputVector) 
     {
         if (player.autoForward)
-            player.rigidBody.AddRelativeForce(new Vector3(0, 0, 1) * 15f, ForceMode.Impulse);
+            player.rigidBody.AddRelativeForce(new Vector3(0, 0, 1) * forwardSpeed, ForceMode.Impulse);
         else if (player.noForward) { }
         else
             player.rigidBody.AddRelativeForce(inputVector * player.forwardVelocityMultiplier, ForceMode.Impulse);

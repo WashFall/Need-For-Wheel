@@ -5,7 +5,7 @@ using UnityEngine.InputSystem;
 
 public class InputManager : MonoBehaviour
 {
-    public float driftSpeed;
+    public float driftSpeed = 12;
     public PlayerController player;
     public BoostSystem boost = new BoostSystem();
 
