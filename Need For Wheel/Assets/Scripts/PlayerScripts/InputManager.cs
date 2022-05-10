@@ -34,6 +34,8 @@ public class InputManager : MonoBehaviour
         steering.Ground.Enable();
         steering.Ground.LeftRight.canceled += ResetDirection;
         steering.Ground.ForwardBack.canceled += ResetDirection;
+
+        ServiceLocator.SetAudioService(new NormalAudioService());
     }
 
     private void FixedUpdate()
@@ -62,7 +64,7 @@ public class InputManager : MonoBehaviour
                 player.sidewayVelocityMultiplier = driftSpeed;
             }
 
-            if(direction.z == 0)
+            if (direction.z == 0)
             {
                 player.sidewayVelocityMultiplier = 8;
             }
