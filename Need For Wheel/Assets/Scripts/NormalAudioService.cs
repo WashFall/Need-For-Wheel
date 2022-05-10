@@ -8,7 +8,7 @@ public class NormalAudioService : IAudioService
     private int sourceCount = 20;
     private List<AudioClip> clips;
     private List<AudioSource> sources;
-    private string audioPath = "/SFX";
+    private string audioPath = "SFX/";
     private Dictionary<string, AudioClip> audioKeys;
 
     public void BuildAudio()
