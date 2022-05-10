@@ -6,6 +6,10 @@ public class DrivingControls : Controls
 {
     public float forwardSpeed = 15;
 
+    private bool speedPower = false;
+    private float startTime;
+    private float endTime;
+
     public override void Forward(Vector3 inputVector) 
     {
         if (player.autoForward)
@@ -28,5 +32,30 @@ public class DrivingControls : Controls
     public override void Right(Vector3 inputVector) 
     {
         player.rigidBody.AddRelativeForce(inputVector * player.sidewayVelocityMultiplier, ForceMode.Impulse);
+    }
+
+    public void SpeedPowerUp()
+    {
+        startTime = Time.time;
+        endTime = Time.time + 5;
+        speedPower = true;
+    }
+
+    private void Update()
+    {
+        if (speedPower)
+        {
+            startTime = Time.time;
+            if(startTime < endTime)
+            {
+                forwardSpeed = 25f;
+            }
+            else if(endTime < startTime)
+            {
+                forwardSpeed = 15f;
+                speedPower = false;
+            }
+        }
+        Debug.Log(forwardSpeed);
     }
 }
