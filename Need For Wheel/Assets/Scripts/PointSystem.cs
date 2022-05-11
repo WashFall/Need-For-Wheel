@@ -13,6 +13,10 @@ public class PointSystem : MonoBehaviour
     private Rigidbody rb;
     private float oldPosition;
     private float newPosition;
+    private float velDivide = 10;
+    private bool multiplierActive = false;
+    private float startTime;
+    private float endTime;
 
     private void Start()
     {
@@ -27,10 +31,34 @@ public class PointSystem : MonoBehaviour
         if (!player.GetComponent<PlayerController>().dead)
         {
             newPosition = player.transform.position.z - startingPoint - oldPosition;
-            points += (newPosition) * (rb.velocity.z / 10);
+            points += (newPosition) * (rb.velocity.z / velDivide);
             points = Mathf.Round(points);
             pointsDisplay.text = "POINTS: " + points.ToString();
             oldPosition = player.transform.position.z - startingPoint;
+        }
+    }
+
+    public void Multiplier()
+    {
+        startTime = Time.time;
+        endTime = Time.time + 5;
+        multiplierActive = true;
+    }
+
+    private void Update()
+    {
+        if (multiplierActive)
+        {
+            startTime = Time.time;
+            if (startTime < endTime)
+            {
+                velDivide = 5;
+            }
+            else if (endTime < startTime)
+            {
+                velDivide = 10;
+                multiplierActive = false;
+            }
         }
     }
 }

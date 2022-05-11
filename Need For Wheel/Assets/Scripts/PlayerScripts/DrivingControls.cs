@@ -56,6 +56,5 @@ public class DrivingControls : Controls
                 speedPower = false;
             }
         }
-        Debug.Log(forwardSpeed);
     }
 }
