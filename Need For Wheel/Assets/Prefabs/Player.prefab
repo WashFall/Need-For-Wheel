@@ -260,6 +260,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 6548619150207384732}
+  forwardSpeed: 15
 --- !u!114 &5790571890958584284
 MonoBehaviour:
   m_ObjectHideFlags: 0
