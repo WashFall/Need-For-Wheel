@@ -31,6 +31,6 @@ public class FlyingControls : Controls
     private void FixedUpdate()
     {
         if(PlayerController.State == PlayerState.Flying)
-            player.rigidBody.AddForce(new Vector3(0, 0, 0.5f), ForceMode.Impulse);
+            player.rigidBody.AddForce(new Vector3(0, 0, 1f), ForceMode.Impulse);
     }
 }
