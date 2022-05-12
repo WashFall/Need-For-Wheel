@@ -6,6 +6,6 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Annika testbana.unity
-    guid: 3c0b7c69e9efd804683df7c70d5c1976
+    path: Assets/Scenes/PlayTest3.unity
+    guid: a2c80964bc772b946a34b228270644b6
   m_configObjects: {}
