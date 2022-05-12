@@ -17,8 +17,11 @@ public class BikeTurning : MonoBehaviour
 
     private void Update()
     {
-        bike.rotation = Quaternion.Lerp(bike.rotation, 
-        rb.velocity == Vector3.zero ? Quaternion.identity : Quaternion.LookRotation(rb.velocity), 
-        turnSpeed * Time.deltaTime);
+        if (!player.GetComponent<PlayerController>().dead)
+        {
+            bike.rotation = Quaternion.Lerp(bike.rotation, 
+            rb.velocity == Vector3.zero ? Quaternion.identity : Quaternion.LookRotation(rb.velocity), 
+            turnSpeed * Time.deltaTime);
+        }
     }
 }

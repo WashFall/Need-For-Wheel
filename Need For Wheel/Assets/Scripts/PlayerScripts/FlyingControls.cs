@@ -10,7 +10,7 @@ public class FlyingControls : Controls
 
     public override void Forward(Vector3 inputVector) //Rise
     {
-        player.rigidBody.AddRelativeForce(inputVector * risePower, ForceMode.Impulse);
+        player.rigidBody.AddForce(inputVector * risePower, ForceMode.Impulse);
     }
 
     public override void Backward(Vector3 inputVector) //Dive

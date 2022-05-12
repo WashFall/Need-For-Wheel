@@ -36,14 +36,13 @@ public class DebugManager : MonoBehaviour
             BoostSystem.boost = 0;
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
-        else if (Keyboard.current.escapeKey.wasPressedThisFrame || Gamepad.current.buttonEast.wasPressedThisFrame)
+        else if (Keyboard.current.escapeKey.wasPressedThisFrame)
         {
             QuitGame();
         }
-        else if (Keyboard.current.gKey.wasPressedThisFrame)
+        else if (Keyboard.current.gKey.wasPressedThisFrame || Gamepad.current.buttonEast.wasPressedThisFrame)
         {
-            var pc = player.GetComponent<PlayerController>();
-            pc.increaseGravity = pc.increaseGravity ? false : true;
+            inputManager.invertControls = inputManager.invertControls ? false : true;
         }
         else if (Keyboard.current.hKey.wasPressedThisFrame)
         {
@@ -66,7 +65,7 @@ public class DebugManager : MonoBehaviour
         }
         else if (Keyboard.current.gKey.wasPressedThisFrame)
         {
-            player.GetComponent<PlayerController>().GravitySwitch();
+            inputManager.invertControls = inputManager.invertControls ? false : true;
         }
         else if (Keyboard.current.hKey.wasPressedThisFrame)
         {

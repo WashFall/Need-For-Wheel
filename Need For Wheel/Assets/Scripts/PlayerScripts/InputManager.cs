@@ -5,6 +5,7 @@ using UnityEngine.InputSystem;
 
 public class InputManager : MonoBehaviour
 {
+    public bool invertControls;
     public float driftSpeed = 12;
     public PlayerController player;
     public BoostSystem boost = new BoostSystem();
@@ -13,7 +14,6 @@ public class InputManager : MonoBehaviour
     public Steering steering;
 
     private Animator animator;
-
     private ICommand driveLeft_command;
     private ICommand driveRight_command;
     private ICommand driveForward_command;
@@ -34,6 +34,7 @@ public class InputManager : MonoBehaviour
         steering.Ground.Enable();
         steering.Ground.LeftRight.canceled += ResetDirection;
         steering.Ground.ForwardBack.canceled += ResetDirection;
+        steering.Ground.Drift.canceled += ResetDirection;
 
         ServiceLocator.SetAudioService(new NormalAudioService());
     }
@@ -44,6 +45,7 @@ public class InputManager : MonoBehaviour
         {
             Vector3 direction;
             direction = new Vector3(steering.Ground.LeftRight.ReadValue<float>(), 0, steering.Ground.ForwardBack.ReadValue<float>());
+            float drifting = steering.Ground.Drift.ReadValue<float>();
 
             if (direction.x > 0)
             {
@@ -63,6 +65,12 @@ public class InputManager : MonoBehaviour
                 driveBackward_command.Execute(player, inputVector);
                 player.sidewayVelocityMultiplier = driftSpeed;
             }
+            else if(drifting < 0)
+            {
+                Vector3 inputVector = new Vector3(0, 0, drifting);
+                driveBackward_command.Execute (player, inputVector);
+                player.sidewayVelocityMultiplier = driftSpeed;
+            }
 
             if (direction.z == 0)
             {
@@ -80,7 +88,7 @@ public class InputManager : MonoBehaviour
                 driveForward_command.Execute(player, inputVector);
             }
 
-            if(direction.z < 0 && direction.x > 0)
+            if(direction.z < 0 && direction.x > 0 || drifting < 0 && direction.x > 0)
             {
                 animator.SetBool("DriftRight", true);
             }
@@ -89,7 +97,7 @@ public class InputManager : MonoBehaviour
                 animator.SetBool("DriftRight", false);
             }
 
-            if(direction.z < 0 && direction.x < 0)
+            if(direction.z < 0 && direction.x < 0 || drifting < 0 && direction.x < 0)
             {
                 animator.SetBool("DriftLeft", true);
             }
@@ -102,6 +110,11 @@ public class InputManager : MonoBehaviour
         {
             Vector3 direction;
             direction = new Vector3(steering.Ground.LeftRight.ReadValue<float>(), steering.Ground.ForwardBack.ReadValue<float>(), 0);
+
+            if (invertControls)
+            {
+                direction.y *= -1;
+            }
 
             if(BoostSystem.boost > 0 && !boost.outOfBoost)
             {

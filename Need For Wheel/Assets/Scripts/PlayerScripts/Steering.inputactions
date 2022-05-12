@@ -556,6 +556,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "Drift",
+                    "type": "Button",
+                    "id": "62d06a41-25b7-40d4-a018-e36595b70728",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -770,39 +779,6 @@
                 },
                 {
                     "name": "1D Axis",
-                    "id": "eb5e7649-d38a-4f5c-af39-f9fe4bd4da8e",
-                    "path": "1DAxis",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "ForwardBack",
-                    "isComposite": true,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "negative",
-                    "id": "6f75e25c-b8ef-4b22-ba04-00be1cfb52ed",
-                    "path": "<Gamepad>/leftStick/down",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Gamepad",
-                    "action": "ForwardBack",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "positive",
-                    "id": "b015b8a6-7284-46bc-918b-908eb572f017",
-                    "path": "<Gamepad>/leftStick/up",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Gamepad",
-                    "action": "ForwardBack",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "1D Axis",
                     "id": "b75898c5-d8ef-4e48-b80a-94f7e45864b7",
                     "path": "1DAxis",
                     "interactions": "",
@@ -830,6 +806,39 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard&Mouse",
+                    "action": "ForwardBack",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "1D Axis",
+                    "id": "a0f15c16-f657-4b6d-b5b5-c6042efcbb9f",
+                    "path": "1DAxis",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ForwardBack",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "negative",
+                    "id": "ba412ad2-957c-436a-a8f9-98e5b644666a",
+                    "path": "<Gamepad>/rightStick/down",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "ForwardBack",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "positive",
+                    "id": "ae3ba485-e9b4-4326-88df-dbe8be840623",
+                    "path": "<Gamepad>/rightStick/up",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
                     "action": "ForwardBack",
                     "isComposite": false,
                     "isPartOfComposite": true
@@ -932,6 +941,28 @@
                     "action": "LeftRight",
                     "isComposite": false,
                     "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "5da8fde5-489b-4152-a3ec-780309a2f832",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "Invert",
+                    "groups": "Keyboard&Mouse",
+                    "action": "Drift",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "957c7df2-7216-4240-ae7d-6b45b1a652e1",
+                    "path": "<Gamepad>/buttonSouth",
+                    "interactions": "",
+                    "processors": "Invert",
+                    "groups": "Gamepad",
+                    "action": "Drift",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         }
