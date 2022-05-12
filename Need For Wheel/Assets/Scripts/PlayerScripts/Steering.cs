@@ -578,6 +578,15 @@ public partial class @Steering : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Drift"",
+                    ""type"": ""Button"",
+                    ""id"": ""62d06a41-25b7-40d4-a018-e36595b70728"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -792,39 +801,6 @@ public partial class @Steering : IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": ""1D Axis"",
-                    ""id"": ""eb5e7649-d38a-4f5c-af39-f9fe4bd4da8e"",
-                    ""path"": ""1DAxis"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""ForwardBack"",
-                    ""isComposite"": true,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": ""negative"",
-                    ""id"": ""6f75e25c-b8ef-4b22-ba04-00be1cfb52ed"",
-                    ""path"": ""<Gamepad>/leftStick/down"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Gamepad"",
-                    ""action"": ""ForwardBack"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""positive"",
-                    ""id"": ""b015b8a6-7284-46bc-918b-908eb572f017"",
-                    ""path"": ""<Gamepad>/leftStick/up"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Gamepad"",
-                    ""action"": ""ForwardBack"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""1D Axis"",
                     ""id"": ""b75898c5-d8ef-4e48-b80a-94f7e45864b7"",
                     ""path"": ""1DAxis"",
                     ""interactions"": """",
@@ -852,6 +828,39 @@ public partial class @Steering : IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""ForwardBack"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""1D Axis"",
+                    ""id"": ""a0f15c16-f657-4b6d-b5b5-c6042efcbb9f"",
+                    ""path"": ""1DAxis"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ForwardBack"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""negative"",
+                    ""id"": ""ba412ad2-957c-436a-a8f9-98e5b644666a"",
+                    ""path"": ""<Gamepad>/rightStick/down"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""ForwardBack"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""positive"",
+                    ""id"": ""ae3ba485-e9b4-4326-88df-dbe8be840623"",
+                    ""path"": ""<Gamepad>/rightStick/up"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
                     ""action"": ""ForwardBack"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
@@ -954,6 +963,28 @@ public partial class @Steering : IInputActionCollection2, IDisposable
                     ""action"": ""LeftRight"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""5da8fde5-489b-4152-a3ec-780309a2f832"",
+                    ""path"": ""<Keyboard>/space"",
+                    ""interactions"": """",
+                    ""processors"": ""Invert"",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""Drift"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""957c7df2-7216-4240-ae7d-6b45b1a652e1"",
+                    ""path"": ""<Gamepad>/buttonSouth"",
+                    ""interactions"": """",
+                    ""processors"": ""Invert"",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Drift"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -1039,6 +1070,7 @@ public partial class @Steering : IInputActionCollection2, IDisposable
         m_Ground_Debug = m_Ground.FindAction("Debug", throwIfNotFound: true);
         m_Ground_ForwardBack = m_Ground.FindAction("ForwardBack", throwIfNotFound: true);
         m_Ground_LeftRight = m_Ground.FindAction("LeftRight", throwIfNotFound: true);
+        m_Ground_Drift = m_Ground.FindAction("Drift", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -1207,6 +1239,7 @@ public partial class @Steering : IInputActionCollection2, IDisposable
     private readonly InputAction m_Ground_Debug;
     private readonly InputAction m_Ground_ForwardBack;
     private readonly InputAction m_Ground_LeftRight;
+    private readonly InputAction m_Ground_Drift;
     public struct GroundActions
     {
         private @Steering m_Wrapper;
@@ -1215,6 +1248,7 @@ public partial class @Steering : IInputActionCollection2, IDisposable
         public InputAction @Debug => m_Wrapper.m_Ground_Debug;
         public InputAction @ForwardBack => m_Wrapper.m_Ground_ForwardBack;
         public InputAction @LeftRight => m_Wrapper.m_Ground_LeftRight;
+        public InputAction @Drift => m_Wrapper.m_Ground_Drift;
         public InputActionMap Get() { return m_Wrapper.m_Ground; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -1236,6 +1270,9 @@ public partial class @Steering : IInputActionCollection2, IDisposable
                 @LeftRight.started -= m_Wrapper.m_GroundActionsCallbackInterface.OnLeftRight;
                 @LeftRight.performed -= m_Wrapper.m_GroundActionsCallbackInterface.OnLeftRight;
                 @LeftRight.canceled -= m_Wrapper.m_GroundActionsCallbackInterface.OnLeftRight;
+                @Drift.started -= m_Wrapper.m_GroundActionsCallbackInterface.OnDrift;
+                @Drift.performed -= m_Wrapper.m_GroundActionsCallbackInterface.OnDrift;
+                @Drift.canceled -= m_Wrapper.m_GroundActionsCallbackInterface.OnDrift;
             }
             m_Wrapper.m_GroundActionsCallbackInterface = instance;
             if (instance != null)
@@ -1252,6 +1289,9 @@ public partial class @Steering : IInputActionCollection2, IDisposable
                 @LeftRight.started += instance.OnLeftRight;
                 @LeftRight.performed += instance.OnLeftRight;
                 @LeftRight.canceled += instance.OnLeftRight;
+                @Drift.started += instance.OnDrift;
+                @Drift.performed += instance.OnDrift;
+                @Drift.canceled += instance.OnDrift;
             }
         }
     }
@@ -1320,5 +1360,6 @@ public partial class @Steering : IInputActionCollection2, IDisposable
         void OnDebug(InputAction.CallbackContext context);
         void OnForwardBack(InputAction.CallbackContext context);
         void OnLeftRight(InputAction.CallbackContext context);
+        void OnDrift(InputAction.CallbackContext context);
     }
 }
