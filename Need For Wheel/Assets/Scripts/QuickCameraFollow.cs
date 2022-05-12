@@ -31,7 +31,7 @@ public class QuickCameraFollow : MonoBehaviour
     private void StateChanged()
     {
         stateChanged = true;
-        offsetChange += new Vector3(offset.x, offset.y - 3, offset.z - 7);
+        offsetChange += new Vector3(offset.x, offset.y - 3, offset.z - 3);
     }
 
     void LateUpdate()
