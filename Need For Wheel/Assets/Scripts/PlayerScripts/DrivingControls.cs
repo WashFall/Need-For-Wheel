@@ -48,7 +48,7 @@ public class DrivingControls : Controls
             startTime = Time.time;
             if(startTime < endTime)
             {
-                forwardSpeed = 25f;
+                forwardSpeed = 20f;
             }
             else if(endTime < startTime)
             {
