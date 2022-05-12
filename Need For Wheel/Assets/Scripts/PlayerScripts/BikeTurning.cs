@@ -23,5 +23,9 @@ public class BikeTurning : MonoBehaviour
             rb.velocity == Vector3.zero ? Quaternion.identity : Quaternion.LookRotation(rb.velocity), 
             turnSpeed * Time.deltaTime);
         }
+        else
+        {
+            bike.rotation = Quaternion.identity;
+        }
     }
 }
