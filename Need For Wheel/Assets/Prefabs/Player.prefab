@@ -540,6 +540,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8131313758446394957, guid: 025a7f021a717e1448383373a4d5945c, type: 3}
+      propertyPath: moveWithTransform
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8131313758446394957, guid: 025a7f021a717e1448383373a4d5945c, type: 3}
+      propertyPath: moveWithCustomTransform
+      value: 
+      objectReference: {fileID: 6548619150207384728}
+    - target: {fileID: 8131313758446394957, guid: 025a7f021a717e1448383373a4d5945c, type: 3}
+      propertyPath: InitialModule.startSpeed.scalar
+      value: 2.5
+      objectReference: {fileID: 0}
     - target: {fileID: 8325908142621360514, guid: 025a7f021a717e1448383373a4d5945c, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -548,6 +560,18 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 6548619150207384722}
+    - target: {fileID: 8972157358597953916, guid: 025a7f021a717e1448383373a4d5945c, type: 3}
+      propertyPath: moveWithTransform
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8972157358597953916, guid: 025a7f021a717e1448383373a4d5945c, type: 3}
+      propertyPath: moveWithCustomTransform
+      value: 
+      objectReference: {fileID: 6548619150207384728}
+    - target: {fileID: 8972157358597953916, guid: 025a7f021a717e1448383373a4d5945c, type: 3}
+      propertyPath: InitialModule.startSpeed.scalar
+      value: 2.5
+      objectReference: {fileID: 0}
     - target: {fileID: 8992548730475769541, guid: 025a7f021a717e1448383373a4d5945c, type: 3}
       propertyPath: player
       value: 
