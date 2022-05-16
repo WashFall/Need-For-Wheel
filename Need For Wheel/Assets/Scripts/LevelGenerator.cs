@@ -54,21 +54,21 @@ public class LevelGenerator : MonoBehaviour
                 //spawnPosition = spawnPosition + new Vector3(0f, 0, previousSection.SectionSize.y);
 
                 break;
-            case LevelSectionData.Direction.East:
-                nextRequiredDirection = LevelSectionData.Direction.West;
-                //spawnPosition = spawnPosition + new Vector3(previousSection.SectionSize.x, 0, 0);
+            //case LevelSectionData.Direction.East:
+            //    nextRequiredDirection = LevelSectionData.Direction.West;
+            //    //spawnPosition = spawnPosition + new Vector3(previousSection.SectionSize.x, 0, 0);
 
-                break;
-            case LevelSectionData.Direction.South:
-                nextRequiredDirection = LevelSectionData.Direction.North;
-                // spawnPosition = spawnPosition + new Vector3(0, 0, -previousSection.SectionSize.y);
+            //    break;
+            //case LevelSectionData.Direction.South:
+            //    nextRequiredDirection = LevelSectionData.Direction.North;
+            //    // spawnPosition = spawnPosition + new Vector3(0, 0, -previousSection.SectionSize.y);
 
-                break;
-            case LevelSectionData.Direction.West:
-                nextRequiredDirection = LevelSectionData.Direction.East;
-                //spawnPosition = spawnPosition + new Vector3(-previousSection.SectionSize.x, 0, 0);
+            //    break;
+            //case LevelSectionData.Direction.West:
+            //    nextRequiredDirection = LevelSectionData.Direction.East;
+            //    //spawnPosition = spawnPosition + new Vector3(-previousSection.SectionSize.x, 0, 0);
 
-                break;
+            //    break;
             default:
                 break;
         }
@@ -113,15 +113,15 @@ public class LevelGenerator : MonoBehaviour
             case LevelSectionData.Direction.North:
                 spawnPosition += new Vector3(0f, 0f, previousSection.SectionSize.y * 0.5f + sectionToSpawn.SectionSize.y * 0.5f);
                 break;
-            case LevelSectionData.Direction.West:
-                spawnPosition += new Vector3(-previousSection.SectionSize.x * 0.5f - sectionToSpawn.SectionSize.x * 0.5f, 0f, 0f);
-                break;
-            case LevelSectionData.Direction.South:
-                spawnPosition += new Vector3(0f, 0f, -previousSection.SectionSize.y * 0.5f - sectionToSpawn.SectionSize.y * 0.5f);
-                break;
-            case LevelSectionData.Direction.East:
-                spawnPosition += new Vector3(previousSection.SectionSize.x * 0.5f + sectionToSpawn.SectionSize.x * 0.5f, 0f, 0f);
-                break;
+                //case LevelSectionData.Direction.West:
+                //    spawnPosition += new Vector3(-previousSection.SectionSize.x * 0.5f - sectionToSpawn.SectionSize.x * 0.5f, 0f, 0f);
+                //    break;
+                //case LevelSectionData.Direction.South:
+                //    spawnPosition += new Vector3(0f, 0f, -previousSection.SectionSize.y * 0.5f - sectionToSpawn.SectionSize.y * 0.5f);
+                //    break;
+                //case LevelSectionData.Direction.East:
+                //    spawnPosition += new Vector3(previousSection.SectionSize.x * 0.5f + sectionToSpawn.SectionSize.x * 0.5f, 0f, 0f);
+                //    break;
         }
 
         GameObject objectFromSection = sectionToSpawn.levelSections[Random.Range(0, sectionToSpawn.levelSections.Length)];
