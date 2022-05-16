@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f56c66ea5edafc45ad597e8120028c7, type: 3}
   m_Name: West North
   m_EditorClassIdentifier: 
-  SectionSize: {x: 20, y: 50}
+  SectionSize: {x: 100, y: 100}
   levelSections:
-  - {fileID: 4687071045826751161, guid: e0d3759e3f00f434484636aa5b008d99, type: 3}
+  - {fileID: 1506573248620345387, guid: fe6bd7b444d33b848b5ed8bb97beee10, type: 3}
   entryDirection: 3
   exitDirection: 0
