@@ -16,4 +16,11 @@ public class LevelSectionData : ScriptableObject
     public Direction entryDirection;
     public Direction exitDirection;
 
+    public void ApplySize()
+    {
+        foreach (var levelSection in levelSections)
+        {
+            levelSection.transform.localScale = SectionSize;
+        }
+    }
 }
