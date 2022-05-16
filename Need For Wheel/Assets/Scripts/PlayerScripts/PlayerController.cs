@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     public bool dead;
+    public bool grounded;
     public bool noForward;
     public bool autoForward;
     public Controls controls;
@@ -32,6 +33,17 @@ public class PlayerController : MonoBehaviour
             rigidBody.drag = 0.1f;
             rigidBody.rotation = Quaternion.identity;
         }
+        GroundedCheck();
+    }
+
+    private void GroundedCheck()
+    {
+        RaycastHit hit;
+        Physics.Raycast(rigidBody.position, Vector3.down, out hit, 1);
+        if(hit.collider != null)
+            grounded = true;
+        else
+            grounded = false;
     }
 
     public void GravitySwitch()
