@@ -10,7 +10,7 @@ public class ParticleController : MonoBehaviour
 
     private Rigidbody playerRigid;
 
-    private void Start()
+    private void Awake()
     {
         playerRigid = player.gameObject.GetComponent<Rigidbody>();
     }
@@ -40,10 +40,10 @@ public class ParticleController : MonoBehaviour
         var leftEmission = dustLeft.emission;
         var rightEmission = dustRight.emission;
 
-        if(playerRigid.velocity.z > 50)
+        if(playerRigid.velocity.z > 0)
         {
-            leftEmission.rateOverTime = (playerRigid.velocity.z) / 2;
-            rightEmission.rateOverTime = (playerRigid.velocity.z) / 2;
+            leftEmission.rateOverTime = Mathf.Round(playerRigid.velocity.z) / 2;
+            rightEmission.rateOverTime = Mathf.Round(playerRigid.velocity.z) / 2;
         }
         else
         {
