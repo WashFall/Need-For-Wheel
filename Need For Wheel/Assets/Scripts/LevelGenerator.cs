@@ -15,6 +15,7 @@ public class LevelGenerator : MonoBehaviour
 
     private Vector3 spawnPosition;
     public int sectionsToSpawn = 10;
+    public GameObject finalSection;
 
     private void Update()
     {
@@ -29,15 +30,17 @@ public class LevelGenerator : MonoBehaviour
 
         for (int i = 0; i < sectionsToSpawn; i++)
         {
-            SpawnLegalSection();
+            SpawnLegalSection(i);
         }
+
+        SpawnFinalSection();
 
         steering = new Steering();
         steering.Ground.Enable();
         steering.Ground.Debug.performed += SpawnLegalSectionTrigger;
     }
 
-    LevelSectionData PickNextSection()
+    LevelSectionData PickNextSection(int sectionId)
     {
         List<LevelSectionData> legalSectionList = new List<LevelSectionData>();
         LevelSectionData nextSection = null;
@@ -48,49 +51,83 @@ public class LevelGenerator : MonoBehaviour
         {
             case LevelSectionData.Direction.North:
                 nextRequiredDirection = LevelSectionData.Direction.South;
-                spawnPosition = spawnPosition + new Vector3(0f, 0, previousSection.SectionSize.y);
+                //spawnPosition = spawnPosition + new Vector3(0f, 0, previousSection.SectionSize.y);
 
                 break;
-            case LevelSectionData.Direction.East:
-                nextRequiredDirection = LevelSectionData.Direction.West;
-                spawnPosition = spawnPosition + new Vector3(previousSection.SectionSize.x, 0, 0);
+            //case LevelSectionData.Direction.East:
+            //    nextRequiredDirection = LevelSectionData.Direction.West;
+            //    //spawnPosition = spawnPosition + new Vector3(previousSection.SectionSize.x, 0, 0);
 
-                break;
-            case LevelSectionData.Direction.South:
-                nextRequiredDirection = LevelSectionData.Direction.North;
-                spawnPosition = spawnPosition + new Vector3(0, 0, -previousSection.SectionSize.y);
+            //    break;
+            //case LevelSectionData.Direction.South:
+            //    nextRequiredDirection = LevelSectionData.Direction.North;
+            //    // spawnPosition = spawnPosition + new Vector3(0, 0, -previousSection.SectionSize.y);
 
-                break;
-            case LevelSectionData.Direction.West:
-                nextRequiredDirection = LevelSectionData.Direction.East;
-                spawnPosition = spawnPosition + new Vector3(-previousSection.SectionSize.x, 0, 0);
+            //    break;
+            //case LevelSectionData.Direction.West:
+            //    nextRequiredDirection = LevelSectionData.Direction.East;
+            //    //spawnPosition = spawnPosition + new Vector3(-previousSection.SectionSize.x, 0, 0);
 
-                break;
+            //    break;
             default:
                 break;
         }
 
-        for (int i = 0; i < levelSectionData.Length; i++)
+        if (sectionId == sectionsToSpawn - 1) 
         {
-            if (levelSectionData[i].entryDirection == nextRequiredDirection)
+            for (int i = 0; i < levelSectionData.Length; i++)
             {
-                legalSectionList.Add(levelSectionData[i]);
+                if (levelSectionData[i].entryDirection == nextRequiredDirection && levelSectionData[i].exitDirection == LevelSectionData.Direction.North)
+                {
+                    nextSection = levelSectionData[i];
+                }
+            }
+
+            if (nextSection == null)
+            {
+                Debug.LogError($"No section found with required directions from {nextRequiredDirection} to North");
             }
         }
+        else
+        {
+            for (int i = 0; i < levelSectionData.Length; i++)
+            {
+                if (levelSectionData[i].entryDirection == nextRequiredDirection)
+                {
+                    legalSectionList.Add(levelSectionData[i]);
+                }
+            }
 
-        nextSection = legalSectionList[Random.Range(0, legalSectionList.Count)];
+            nextSection = legalSectionList[Random.Range(0, legalSectionList.Count)];
+        }
 
         return nextSection;
     }
 
-    void SpawnLegalSection()
+    void SpawnLegalSection(int sectionId)
     {
-        LevelSectionData sectionToSpawn = PickNextSection();
+        LevelSectionData sectionToSpawn = PickNextSection(sectionId);
+
+        switch (previousSection.exitDirection)
+        {
+            case LevelSectionData.Direction.North:
+                spawnPosition += new Vector3(0f, 0f, previousSection.SectionSize.y * 0.5f + sectionToSpawn.SectionSize.y * 0.5f);
+                break;
+                //case LevelSectionData.Direction.West:
+                //    spawnPosition += new Vector3(-previousSection.SectionSize.x * 0.5f - sectionToSpawn.SectionSize.x * 0.5f, 0f, 0f);
+                //    break;
+                //case LevelSectionData.Direction.South:
+                //    spawnPosition += new Vector3(0f, 0f, -previousSection.SectionSize.y * 0.5f - sectionToSpawn.SectionSize.y * 0.5f);
+                //    break;
+                //case LevelSectionData.Direction.East:
+                //    spawnPosition += new Vector3(previousSection.SectionSize.x * 0.5f + sectionToSpawn.SectionSize.x * 0.5f, 0f, 0f);
+                //    break;
+        }
 
         GameObject objectFromSection = sectionToSpawn.levelSections[Random.Range(0, sectionToSpawn.levelSections.Length)];
         previousSection = sectionToSpawn;
-        Instantiate(objectFromSection, spawnPosition + spawnOrigin, Quaternion.identity);
-
+        var spawnedSection = Instantiate(objectFromSection, spawnPosition + spawnOrigin, Quaternion.identity);
+        spawnedSection.transform.localScale = new Vector3(sectionToSpawn.SectionSize.x / 100f, 1f, sectionToSpawn.SectionSize.y / 100f);
     }
 
     public void UpdateSpawnOrigin(Vector3 originDelta)
@@ -102,7 +139,13 @@ public class LevelGenerator : MonoBehaviour
     {
         if (Keyboard.current.tKey.wasPressedThisFrame)
         {
-            SpawnLegalSection();
+            SpawnLegalSection(0);
         }
+    }
+
+    void SpawnFinalSection()
+    {
+        var finalSectionInstance = 
+            Instantiate(finalSection, spawnPosition + new Vector3(0f, 0f, previousSection.SectionSize.y * 0.5f), Quaternion.identity);
     }
 }

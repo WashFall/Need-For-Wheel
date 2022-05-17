@@ -35,7 +35,7 @@ public class BoostSystem
 
             if(step > oldStep)
             {
-                boost += 50;
+                boost += 40;
                 oldStep = step;
             }
         }

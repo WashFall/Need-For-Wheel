@@ -556,11 +556,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levelSectionData:
-  - {fileID: 11400000, guid: 7411103d645ad5d48add61645668ecdd, type: 2}
   - {fileID: 11400000, guid: 9f66f5e25222e1d44a70b66bcb7bd88a, type: 2}
-  - {fileID: 11400000, guid: 0c30c2dd71e872a4b88c05a38f6573b8, type: 2}
-  - {fileID: 11400000, guid: a703ab7fbd6e99f4c8dbae8abfeae506, type: 2}
-  - {fileID: 11400000, guid: ab62d990c597d3045a235333c3b4a8d5, type: 2}
   firstSection: {fileID: 11400000, guid: 9f66f5e25222e1d44a70b66bcb7bd88a, type: 2}
   spawnOrigin: {x: 0, y: 0, z: 0}
-  sectionsToSpawn: 5
+  sectionsToSpawn: 20
+  finalSection: {fileID: 801413674729686974, guid: 5541ca217a3949a4e8efe4454ca88870, type: 3}
