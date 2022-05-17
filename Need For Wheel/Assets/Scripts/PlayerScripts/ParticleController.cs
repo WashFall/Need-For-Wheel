@@ -40,10 +40,10 @@ public class ParticleController : MonoBehaviour
         var leftEmission = dustLeft.emission;
         var rightEmission = dustRight.emission;
 
-        if(playerRigid.velocity.z > 0)
+        if(playerRigid.velocity.z > 70)
         {
-            leftEmission.rateOverTime = Mathf.Round(playerRigid.velocity.z) / 2;
-            rightEmission.rateOverTime = Mathf.Round(playerRigid.velocity.z) / 2;
+            leftEmission.rateOverTime = Mathf.Round(playerRigid.velocity.z) / 3;
+            rightEmission.rateOverTime = Mathf.Round(playerRigid.velocity.z) / 3;
         }
         else
         {

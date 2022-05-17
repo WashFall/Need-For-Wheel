@@ -541,12 +541,20 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8131313758446394957, guid: 025a7f021a717e1448383373a4d5945c, type: 3}
+      propertyPath: looping
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8131313758446394957, guid: 025a7f021a717e1448383373a4d5945c, type: 3}
+      propertyPath: prewarm
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8131313758446394957, guid: 025a7f021a717e1448383373a4d5945c, type: 3}
       propertyPath: cullingMode
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8131313758446394957, guid: 025a7f021a717e1448383373a4d5945c, type: 3}
       propertyPath: lengthInSec
-      value: 100
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 8131313758446394957, guid: 025a7f021a717e1448383373a4d5945c, type: 3}
       propertyPath: moveWithTransform
@@ -569,12 +577,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 6548619150207384722}
     - target: {fileID: 8972157358597953916, guid: 025a7f021a717e1448383373a4d5945c, type: 3}
+      propertyPath: prewarm
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8972157358597953916, guid: 025a7f021a717e1448383373a4d5945c, type: 3}
       propertyPath: cullingMode
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8972157358597953916, guid: 025a7f021a717e1448383373a4d5945c, type: 3}
       propertyPath: lengthInSec
-      value: 100
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 8972157358597953916, guid: 025a7f021a717e1448383373a4d5945c, type: 3}
       propertyPath: moveWithTransform
