@@ -9,6 +9,7 @@ public class PlayerController : MonoBehaviour
     public bool noForward;
     public bool autoForward;
     public Controls controls;
+    public GameObject glider;
     public Rigidbody rigidBody;
     public bool increaseGravity;
     public float gravityIncrease;
@@ -32,6 +33,7 @@ public class PlayerController : MonoBehaviour
             increaseGravity = false;
             rigidBody.drag = 0.1f;
             rigidBody.rotation = Quaternion.identity;
+            glider.gameObject.SetActive(true);
         }
         GroundedCheck();
     }
