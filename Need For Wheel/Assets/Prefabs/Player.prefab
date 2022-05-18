@@ -490,7 +490,7 @@ MonoBehaviour:
   noForward: 0
   autoForward: 1
   controls: {fileID: 0}
-  glider: {fileID: 0}
+  glider: {fileID: 7275497387952087123}
   rigidBody: {fileID: 0}
   increaseGravity: 1
   gravityIncrease: 0
@@ -1142,6 +1142,11 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 36cc1fd7199ed1d4b8abb9f4046d62ee, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e9a92947ebe05f2418501ba33a007e2f, type: 3}
+--- !u!1 &7275497387952087123 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: e9a92947ebe05f2418501ba33a007e2f, type: 3}
+  m_PrefabInstance: {fileID: 7509378005016747266}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &8051331120922032873 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: e9a92947ebe05f2418501ba33a007e2f, type: 3}
