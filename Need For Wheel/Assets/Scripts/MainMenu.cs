@@ -1,21 +1,12 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.EventSystems;
-
+using UnityEngine.SceneManagement;
 public class MainMenu : MonoBehaviour
 {
-    
-    void Start()
-    {
-        
-    }
+    public Button startButton, optionsButton, creditsButton;
 
-    void Update()
+    public void PlayGame()
     {
-        
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
-
-    
 }
