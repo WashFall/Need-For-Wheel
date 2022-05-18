@@ -9,6 +9,6 @@ EditorBuildSettings:
     path: Assets/Scenes/MainMenu.unity
     guid: ee10b16f3ed3d144e841b44a02a6b3f8
   - enabled: 1
-    path: Assets/Scenes/PlayTest3.unity
-    guid: a2c80964bc772b946a34b228270644b6
+    path: Assets/Scenes/Annika testbana.unity
+    guid: 3c0b7c69e9efd804683df7c70d5c1976
   m_configObjects: {}
