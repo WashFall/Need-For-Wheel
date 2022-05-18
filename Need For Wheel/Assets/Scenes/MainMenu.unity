@@ -362,6 +362,7 @@ GameObject:
   - component: {fileID: 379013972}
   - component: {fileID: 379013971}
   - component: {fileID: 379013970}
+  - component: {fileID: 379013973}
   m_Layer: 5
   m_Name: OptionsButton
   m_TagString: Untagged
@@ -471,6 +472,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 379013968}
   m_CullTransparentMesh: 1
+--- !u!114 &379013973
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 379013968}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 102d53112dc79764cac34b2677a08e6b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &425784856
 GameObject:
   m_ObjectHideFlags: 0
@@ -529,7 +542,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76c392e42b5098c458856cdf6ecaaaa1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_FirstSelected: {fileID: 0}
+  m_FirstSelected: {fileID: 1916807262}
   m_sendNavigationEvents: 1
   m_DragThreshold: 10
 --- !u!4 &425784859
@@ -948,8 +961,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278625769
-  m_fontColor: {r: 0.9150943, g: 0.6482686, b: 0.023021169, a: 1}
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -1103,6 +1116,7 @@ GameObject:
   - component: {fileID: 1902628785}
   - component: {fileID: 1902628784}
   - component: {fileID: 1902628783}
+  - component: {fileID: 1902628787}
   m_Layer: 5
   m_Name: Menu
   m_TagString: Untagged
@@ -1193,6 +1207,18 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &1902628787
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1902628782}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34f70feaf53ec674c95e2673bda87011, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1916807262
 GameObject:
   m_ObjectHideFlags: 0
@@ -1205,6 +1231,7 @@ GameObject:
   - component: {fileID: 1916807266}
   - component: {fileID: 1916807265}
   - component: {fileID: 1916807264}
+  - component: {fileID: 1916807267}
   m_Layer: 5
   m_Name: StartButton
   m_TagString: Untagged
@@ -1314,6 +1341,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1916807262}
   m_CullTransparentMesh: 1
+--- !u!114 &1916807267
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1916807262}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 102d53112dc79764cac34b2677a08e6b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1918971078
 GameObject:
   m_ObjectHideFlags: 0
@@ -1326,6 +1365,7 @@ GameObject:
   - component: {fileID: 1918971082}
   - component: {fileID: 1918971081}
   - component: {fileID: 1918971080}
+  - component: {fileID: 1918971083}
   m_Layer: 5
   m_Name: CreditsButton
   m_TagString: Untagged
@@ -1435,6 +1475,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1918971078}
   m_CullTransparentMesh: 1
+--- !u!114 &1918971083
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1918971078}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 102d53112dc79764cac34b2677a08e6b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1957487433
 GameObject:
   m_ObjectHideFlags: 0
