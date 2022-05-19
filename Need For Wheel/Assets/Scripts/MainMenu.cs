@@ -6,11 +6,11 @@ using TMPro;
 
 public class MainMenu : MonoBehaviour
 {
-    private void OnEnable()
-    {
-        if(EventSystem.current?.currentSelectedGameObject)
-            EventSystem.current.currentSelectedGameObject.GetComponentInChildren<TMP_Text>().color = new Color32(233, 165, 6, 255);
-    }
+    //private void OnEnable()
+    //{
+    //    if(EventSystem.current?.currentSelectedGameObject)
+    //        EventSystem.current.currentSelectedGameObject.GetComponentInChildren<TMP_Text>().color = new Color32(233, 165, 6, 255);
+    //}
 
     public void PlayGame()
     {

@@ -54,9 +54,5 @@ public class ButtonHandler : MonoBehaviour,
     private void OnEnable()
     {
         text.text = textCopy;
-        if(text.text != "CONTINUE" || text.text != "START")
-            text.color = Color.white;
-        else
-            text.color = orangeish;
     }
 }
