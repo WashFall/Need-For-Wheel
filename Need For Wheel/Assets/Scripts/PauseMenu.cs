@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class PauseMenu : MonoBehaviour
 {
@@ -26,5 +28,10 @@ public class PauseMenu : MonoBehaviour
         inputManager.steering.Disable();
         Time.timeScale = 1;
         SceneManager.LoadScene(0);
+    }
+
+    private void OnEnable()
+    {
+        EventSystem.current.SetSelectedGameObject(transform.GetChild(2).gameObject);
     }
 }

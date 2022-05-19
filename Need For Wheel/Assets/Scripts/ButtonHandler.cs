@@ -14,7 +14,7 @@ public class ButtonHandler : MonoBehaviour,
     private TMP_Text text;
     private string textCopy;
 
-    void Start()
+    void Awake()
     {
         orangeish = new Color32(233, 165, 6, 255);
         text = transform.GetChild(0).gameObject.GetComponent<TMP_Text>();
@@ -49,5 +49,14 @@ public class ButtonHandler : MonoBehaviour,
     public void OnPointerExit(PointerEventData eventData)
     {
         text.color = Color.white;
+    }
+
+    private void OnEnable()
+    {
+        text.text = textCopy;
+        if(text.text != "CONTINUE")
+            text.color = Color.white;
+        else
+            text.color = orangeish;
     }
 }
