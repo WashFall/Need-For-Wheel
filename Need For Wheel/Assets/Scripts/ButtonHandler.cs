@@ -12,11 +12,13 @@ public class ButtonHandler : MonoBehaviour,
 {
     private Color32 orangeish;
     private TMP_Text text;
+    private string textCopy;
 
     void Start()
     {
         orangeish = new Color32(233, 165, 6, 255);
         text = transform.GetChild(0).gameObject.GetComponent<TMP_Text>();
+        textCopy = text.text;
     }
 
     public void OnPointerDown(PointerEventData eventData)
