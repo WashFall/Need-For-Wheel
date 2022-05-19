@@ -6,7 +6,6 @@ using UnityEngine.InputSystem;
 public class InputManager : MonoBehaviour
 {
     public bool invertControls;
-    public PauseMenu pauseMenu;
     public float driftSpeed = 12;
     public PlayerController player;
     public BoostSystem boost = new BoostSystem();
@@ -31,7 +30,6 @@ public class InputManager : MonoBehaviour
 
     private void Start()
     {
-        pauseMenu = Instantiate(pauseMenu);
         steering = new Steering();
         steering.Ground.Enable();
         steering.Ground.LeftRight.canceled += ResetDirection;

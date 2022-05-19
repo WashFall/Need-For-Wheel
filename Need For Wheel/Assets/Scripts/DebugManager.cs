@@ -9,6 +9,8 @@ public class DebugManager : MonoBehaviour
 {
     public GameObject player;
     public InputManager inputManager;
+    public GameObject pauseMenu;
+    public GameObject optionsMenu;
 
     public Steering steering;
 
@@ -68,7 +70,7 @@ public class DebugManager : MonoBehaviour
         {
             if (!gamePaused)
                 PauseGame();
-            else
+            else if(!optionsMenu.gameObject.activeSelf)
                 ContinueGame();
         }
         else if (Keyboard.current.gKey.wasPressedThisFrame)
@@ -85,13 +87,13 @@ public class DebugManager : MonoBehaviour
     {
         gamePaused = false;
         Time.timeScale = 1;
-        inputManager.pauseMenu.gameObject.SetActive(false);
+        pauseMenu.gameObject.SetActive(false);
     }
 
     public void PauseGame()
     {
         gamePaused = true;
         Time.timeScale = 0;
-        inputManager.pauseMenu?.gameObject.SetActive(true);
+        pauseMenu.gameObject.SetActive(true);
     }
 }

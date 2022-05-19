@@ -17,6 +17,5 @@ public class VolumeSlider : MonoBehaviour
     public void SetVolume()
     {
         VolumeSettings.ChangeVolume(slider.value);
-        Debug.Log(PlayerPrefs.GetFloat("volume"));
     }
 }
