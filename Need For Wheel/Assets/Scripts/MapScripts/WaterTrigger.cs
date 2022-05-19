@@ -18,6 +18,7 @@ public class WaterTrigger : MonoBehaviour
         {
             other.gameObject.GetComponent<InputManager>().steering.Ground.Disable();
             other.gameObject.GetComponent<PlayerController>().dead = true;
+            PlayerController.State = PlayerState.Dead;
             canvas.SetActive(true);
         }
     }

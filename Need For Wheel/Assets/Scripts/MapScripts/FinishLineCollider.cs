@@ -16,6 +16,7 @@ public class FinishLineCollider : MonoBehaviour
         if(collision.transform.tag == "Player")
         {
             collision.transform.GetComponent<PlayerController>().dead = true;
+            PlayerController.State = PlayerState.Dead;
             collision.gameObject.GetComponent<InputManager>().steering.Ground.Disable();
             canvas.SetActive(true);
         }
