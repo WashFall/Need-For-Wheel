@@ -6,10 +6,14 @@ public class CheckScores : MonoBehaviour
 {
     void Start()
     {
-        Debug.Log(PlayerPrefs.HasKey("hScore1"));
-        Debug.Log(PlayerPrefs.HasKey("hScore2"));
-        Debug.Log(PlayerPrefs.HasKey("hScore3"));
-        Debug.Log(PlayerPrefs.HasKey("hScore4"));
-        Debug.Log(PlayerPrefs.HasKey("hScore5"));
+        Debug.Log(PlayerPrefs.GetFloat("hScore1"));
+        Debug.Log(PlayerPrefs.GetFloat("hScore2"));
+        Debug.Log(PlayerPrefs.GetFloat("hScore3"));
+        Debug.Log(PlayerPrefs.GetFloat("hScore4"));
+        Debug.Log(PlayerPrefs.GetFloat("hScore5"));
+
+        string longString = "1. 80000";
+        string sub = longString.Substring(3, longString.Length - 3);
+        Debug.Log(sub);
     }
 }
