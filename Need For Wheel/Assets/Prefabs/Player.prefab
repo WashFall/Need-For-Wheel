@@ -509,6 +509,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   invertControls: 0
+  pauseMenu: {fileID: 8882521823654621900, guid: 6ebecff5f1780c041a0ba2590b791157, type: 3}
   driftSpeed: 10
   player: {fileID: 6548619150207384732}
 --- !u!114 &1934125793159342344
