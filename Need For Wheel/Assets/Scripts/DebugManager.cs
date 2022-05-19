@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,10 +10,11 @@ public class DebugManager : MonoBehaviour
     public GameObject player;
     public InputManager inputManager;
 
-    private Steering steering;
+    public Steering steering;
 
     [SerializeField]
     private bool gamepadConnected;
+    private bool gamePaused;
 
     void Start()
     {
@@ -38,7 +40,10 @@ public class DebugManager : MonoBehaviour
         }
         else if (Keyboard.current.escapeKey.wasPressedThisFrame)
         {
-            QuitGame();
+            if (!gamePaused)
+                PauseGame();
+            else
+                ContinueGame();
         }
         else if (Keyboard.current.gKey.wasPressedThisFrame || Gamepad.current.buttonEast.wasPressedThisFrame)
         {
@@ -61,7 +66,10 @@ public class DebugManager : MonoBehaviour
         }
         else if (Keyboard.current.escapeKey.wasPressedThisFrame)
         {
-            QuitGame();
+            if (!gamePaused)
+                PauseGame();
+            else
+                ContinueGame();
         }
         else if (Keyboard.current.gKey.wasPressedThisFrame)
         {
@@ -73,11 +81,17 @@ public class DebugManager : MonoBehaviour
         }
     }
 
-    public void QuitGame()
+    private void ContinueGame()
     {
-        #if UNITY_EDITOR
-        UnityEditor.EditorApplication.isPlaying = false;
-        #endif
-        Application.Quit();
+        gamePaused = false;
+        Time.timeScale = 1;
+        inputManager.pauseMenu.gameObject.SetActive(false);
+    }
+
+    public void PauseGame()
+    {
+        gamePaused = true;
+        Time.timeScale = 0;
+        inputManager.pauseMenu?.gameObject.SetActive(true);
     }
 }

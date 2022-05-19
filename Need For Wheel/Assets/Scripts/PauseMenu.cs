@@ -5,6 +5,15 @@ using UnityEngine.SceneManagement;
 
 public class PauseMenu : MonoBehaviour
 {
+    private InputManager inputManager;
+    private DebugManager debugManager;
+
+    private void Start()
+    {
+        debugManager = FindObjectOfType<DebugManager>();
+        inputManager = FindObjectOfType<InputManager>();
+    }
+
     public void Continue()
     {
         Time.timeScale = 1;
@@ -13,6 +22,9 @@ public class PauseMenu : MonoBehaviour
 
     public void MainMenu()
     {
+        debugManager.steering.Disable();
+        inputManager.steering.Disable();
+        Time.timeScale = 1;
         SceneManager.LoadScene(0);
     }
 }
