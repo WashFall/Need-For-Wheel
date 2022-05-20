@@ -21,6 +21,5 @@ public class InvertControlsToggle : MonoBehaviour
 
         if(inputManager != null)
             inputManager.invertControls = toggle.isOn;
-        Debug.Log(PlayerPrefs.GetInt("invertFlying"));
     }
 }

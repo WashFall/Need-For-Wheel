@@ -11,12 +11,12 @@ public class DebugManager : MonoBehaviour
     public InputManager inputManager;
     public GameObject pauseMenu;
     public GameObject optionsMenu;
+    public bool gamePaused;
 
     public Steering steering;
 
     [SerializeField]
     private bool gamepadConnected;
-    private bool gamePaused;
 
     void Start()
     {
@@ -44,7 +44,7 @@ public class DebugManager : MonoBehaviour
         {
             if (!gamePaused)
                 PauseGame();
-            else
+            else if(!optionsMenu.gameObject.activeSelf)
                 ContinueGame();
         }
         else if (Keyboard.current.gKey.wasPressedThisFrame || Gamepad.current.buttonEast.wasPressedThisFrame)
@@ -83,7 +83,7 @@ public class DebugManager : MonoBehaviour
         }
     }
 
-    private void ContinueGame()
+    public void ContinueGame()
     {
         gamePaused = false;
         Time.timeScale = 1;
