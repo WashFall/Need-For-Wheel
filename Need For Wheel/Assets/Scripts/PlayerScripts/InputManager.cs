@@ -23,6 +23,7 @@ public class InputManager : MonoBehaviour
     private ICommand driveForward_command;
     private ICommand driveBackward_command;
     private Quaternion correctionQuaternion;
+    private float driftFloat;
 
     private void Awake()
     {
@@ -69,8 +70,10 @@ public class InputManager : MonoBehaviour
                 direction.x = direction.z;
                 direction.z = temp;
                 direction.x *= -1;
+                if(direction.z <= 0)
+                    direction.z = 0;
             }
-            float drifting = steering.Ground.Drift.ReadValue<float>();
+            float drifting = driftFloat;
 
             if (direction.x > 0)
             {
@@ -200,5 +203,15 @@ public class InputManager : MonoBehaviour
             driveForward_command.Execute(player, direction);
             driveBackward_command.Execute(player, direction);
         }
+    }
+
+    public void DriftSet()
+    {
+        driftFloat = steering.Ground.Drift.ReadValue<float>();
+    }
+
+    public void DriftReset()
+    {
+        driftFloat = 0;
     }
 }
