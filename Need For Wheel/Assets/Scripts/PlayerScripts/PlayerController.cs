@@ -36,7 +36,6 @@ public class PlayerController : MonoBehaviour
             glider.gameObject.SetActive(true);
         }
         GroundedCheck();
-        Debug.Log(BoostSystem.boost);
     }
 
     private void GroundedCheck()
