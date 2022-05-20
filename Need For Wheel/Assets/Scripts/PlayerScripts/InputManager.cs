@@ -40,10 +40,10 @@ public class InputManager : MonoBehaviour
             InputSystem.EnableDevice(UnityEngine.InputSystem.Gyroscope.current);
             gyroActive = true;
         }
-        //if (AttitudeSensor.current != null)
-        //{
-        //    InputSystem.EnableDevice(AttitudeSensor.current);
-        //}
+        if (AttitudeSensor.current != null)
+        {
+            InputSystem.EnableDevice(AttitudeSensor.current);
+        }
 
         steering = new Steering();
         steering.Ground.Enable();
@@ -68,6 +68,7 @@ public class InputManager : MonoBehaviour
                 var temp = direction.x;
                 direction.x = direction.z;
                 direction.z = temp;
+                direction.x *= -1;
             }
             float drifting = steering.Ground.Drift.ReadValue<float>();
 
