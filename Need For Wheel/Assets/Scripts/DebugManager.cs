@@ -10,7 +10,7 @@ public class DebugManager : MonoBehaviour
     public GameObject player;
     public InputManager inputManager;
     public GameObject pauseMenu;
-    public GameObject optionsMenu;
+    public GameObject optionsMenu, hscore1, hscore2, hscore3;
     public bool gamePaused;
 
     public Steering steering;
@@ -33,53 +33,25 @@ public class DebugManager : MonoBehaviour
 
     private void DebugCommands(InputAction.CallbackContext context)
     {
-        if (Keyboard.current.rKey.wasPressedThisFrame || Gamepad.current.buttonWest.wasPressedThisFrame)
-        {
-            steering.Disable();
-            inputManager.steering.Disable();
-            BoostSystem.boost = 0;
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-        }
-        else if (Keyboard.current.escapeKey.wasPressedThisFrame)
+         if (Keyboard.current.escapeKey.wasPressedThisFrame || Gamepad.current.startButton.wasPressedThisFrame)
         {
             if (!gamePaused)
                 PauseGame();
-            else if(!optionsMenu.gameObject.activeSelf)
+            else if(!optionsMenu.gameObject.activeSelf || !hscore1.gameObject.activeSelf
+                || !hscore2.gameObject.activeSelf || !hscore3.gameObject.activeSelf)
                 ContinueGame();
-        }
-        else if (Keyboard.current.gKey.wasPressedThisFrame || Gamepad.current.buttonEast.wasPressedThisFrame)
-        {
-            inputManager.invertControls = inputManager.invertControls ? false : true;
-        }
-        else if (Keyboard.current.hKey.wasPressedThisFrame)
-        {
-            PlayerController.State = PlayerState.Flying;
         }
     }
 
     private void KeyboardDebugOnly(InputAction.CallbackContext context)
     {
-        if (Keyboard.current.rKey.wasPressedThisFrame)
-        {
-            steering.Disable();
-            BoostSystem.boost = 0;
-            inputManager.steering.Disable();
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-        }
-        else if (Keyboard.current.escapeKey.wasPressedThisFrame)
+        if (Keyboard.current.escapeKey.wasPressedThisFrame)
         {
             if (!gamePaused)
                 PauseGame();
-            else if(!optionsMenu.gameObject.activeSelf)
+            else if(!optionsMenu.gameObject.activeSelf || !hscore1.gameObject.activeSelf
+                || !hscore2.gameObject.activeSelf || !hscore3.gameObject.activeSelf)
                 ContinueGame();
-        }
-        else if (Keyboard.current.gKey.wasPressedThisFrame)
-        {
-            inputManager.invertControls = inputManager.invertControls ? false : true;
-        }
-        else if (Keyboard.current.hKey.wasPressedThisFrame)
-        {
-            PlayerController.State = PlayerState.Flying;
         }
     }
 

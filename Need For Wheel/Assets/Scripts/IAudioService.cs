@@ -4,6 +4,8 @@ using UnityEngine;
 
 public interface IAudioService
 {
+    public void UpdateSound();
+
     public void BuildAudio();
     public void DestroyAudio();
 

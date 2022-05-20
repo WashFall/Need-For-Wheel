@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class DebugAudioService : IAudioService
 {
+    public void UpdateSound()
+    {
+        Debug.Log("Volume updated");
+    }
+
     public void BuildAudio()
     {
         Debug.Log("Audio is Built");

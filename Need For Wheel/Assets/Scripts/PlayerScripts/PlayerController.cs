@@ -36,6 +36,7 @@ public class PlayerController : MonoBehaviour
             glider.gameObject.SetActive(true);
         }
         GroundedCheck();
+        Debug.Log(BoostSystem.boost);
     }
 
     private void GroundedCheck()
@@ -56,5 +57,14 @@ public class PlayerController : MonoBehaviour
     public void Gravity()
     {
         rigidBody.AddRelativeForce(new Vector3(0, gravityIncrease, 0), ForceMode.Acceleration);
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.tag == "BrickWall")
+        {
+            ServiceLocator.sound.PlayOnce("car crash");
+            BoostSystem.boost -= 5;
+        }
     }
 }

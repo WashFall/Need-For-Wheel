@@ -5,10 +5,10 @@ using UnityEngine.UI;
 
 public class FuelDisplay : MonoBehaviour
 {
-    public Text fuelDisplay;
+    public Image fuelDisplay;
 
     private void Update()
     {
-        fuelDisplay.text = "FUEL: " + BoostSystem.boost.ToString();
+        fuelDisplay.fillAmount = BoostSystem.boost / 1760;
     }
 }

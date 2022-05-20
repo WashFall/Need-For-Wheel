@@ -2410,7 +2410,7 @@ GameObject:
   - component: {fileID: 4200620238794680077}
   m_Layer: 0
   m_Name: Wall_Breakable_Bigger_Bricks
-  m_TagString: Untagged
+  m_TagString: BrickWall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

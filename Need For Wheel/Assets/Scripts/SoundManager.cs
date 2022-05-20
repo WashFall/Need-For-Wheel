@@ -8,4 +8,9 @@ public class SoundManager : MonoBehaviour
     {
         ServiceLocator.SetAudioService(new NormalAudioService());
     }
+
+    private void Start()
+    {
+        ServiceLocator.GetAudioService().StartLoop("surf");
+    }
 }

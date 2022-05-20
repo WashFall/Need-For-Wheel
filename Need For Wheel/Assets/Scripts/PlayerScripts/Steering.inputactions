@@ -745,6 +745,17 @@
                     "isPartOfComposite": false
                 },
                 {
+                    "name": "",
+                    "id": "d7fba93c-7019-4ef9-b612-29af0c00c843",
+                    "path": "<Gamepad>/start",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "Debug",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
                     "name": "1D Axis",
                     "id": "ccb8fb83-946d-4d28-977c-a74119f09647",
                     "path": "1DAxis",

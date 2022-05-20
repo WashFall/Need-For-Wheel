@@ -2,11 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class PointSystem : MonoBehaviour
 {
     public GameObject player;
-    public Text pointsDisplay;
+    public TMP_Text pointsDisplay;
     public static float points;
     public static float startingPoint;
 
@@ -33,7 +34,7 @@ public class PointSystem : MonoBehaviour
             newPosition = player.transform.position.z - startingPoint - oldPosition;
             points += (newPosition) * (rb.velocity.z / velDivide);
             points = Mathf.Round(points);
-            pointsDisplay.text = "POINTS: " + points.ToString();
+            pointsDisplay.text = "P: " + points.ToString();
             oldPosition = player.transform.position.z - startingPoint;
         }
     }

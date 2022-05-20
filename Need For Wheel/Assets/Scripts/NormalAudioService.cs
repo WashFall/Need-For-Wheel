@@ -11,6 +11,14 @@ public class NormalAudioService : IAudioService
     private string audioPath = "SFX/";
     private Dictionary<string, AudioClip> audioKeys;
 
+    public void UpdateSound()
+    {
+        foreach(AudioSource source in sources)
+        {
+            source.volume = PlayerPrefs.GetFloat("volume");
+        }
+    }
+
     public void BuildAudio()
     {
         sources = new List<AudioSource>();
@@ -18,6 +26,7 @@ public class NormalAudioService : IAudioService
         {
             AudioSource source = new GameObject().AddComponent<AudioSource>();
             sources.Add(source);
+            source.volume = PlayerPrefs.GetFloat("volume");
         }
 
         clips = new List<AudioClip>();

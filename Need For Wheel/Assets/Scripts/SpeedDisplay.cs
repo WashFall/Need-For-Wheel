@@ -2,11 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class SpeedDisplay : MonoBehaviour
 {
     public Rigidbody player;
-    public Text speedText;
+    public TMP_Text speedText;
 
     private float speed;
 
@@ -14,6 +15,6 @@ public class SpeedDisplay : MonoBehaviour
     {
         speed = Mathf.Round(player.velocity.z);
 
-        speedText.text = "SPEED: " + speed;
+        speedText.text = speed + " km/h";
     }
 }

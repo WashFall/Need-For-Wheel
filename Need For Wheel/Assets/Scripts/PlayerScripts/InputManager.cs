@@ -35,8 +35,9 @@ public class InputManager : MonoBehaviour
         steering.Ground.LeftRight.canceled += ResetDirection;
         steering.Ground.ForwardBack.canceled += ResetDirection;
         steering.Ground.Drift.canceled += ResetDirection;
-
-        ServiceLocator.SetAudioService(new NormalAudioService());
+        steering.Ground.Drift.performed += (InputAction.CallbackContext context) => {
+            ServiceLocator.sound.PlayOnce("tires");
+        };
     }
 
     private void FixedUpdate()

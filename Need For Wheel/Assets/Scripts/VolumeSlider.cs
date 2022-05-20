@@ -17,5 +17,6 @@ public class VolumeSlider : MonoBehaviour
     public void SetVolume()
     {
         VolumeSettings.ChangeVolume(slider.value);
+        ServiceLocator.GetAudioService().UpdateSound();
     }
 }
