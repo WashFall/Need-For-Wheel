@@ -1396,8 +1396,8 @@ Camera:
   m_GameObject: {fileID: 604828849}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_ClearFlags: 2
+  m_BackGroundColor: {r: 1, g: 0.81568635, b: 0.427451, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -3100,7 +3100,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1902628783
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3994,16 +3994,32 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4629804336106651118, guid: eaafeac94eaccbf478b2669f7b84e74d, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4629804336106651118, guid: eaafeac94eaccbf478b2669f7b84e74d, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4629804336106651118, guid: eaafeac94eaccbf478b2669f7b84e74d, type: 3}
       propertyPath: m_AnchorMin.x
-      value: 0.5
+      value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4629804337288143775, guid: eaafeac94eaccbf478b2669f7b84e74d, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 8714773195231571436, guid: 07d29867c0681924e8eb23f8ce347f1f, type: 3}
+    - target: {fileID: 4629804337322723597, guid: eaafeac94eaccbf478b2669f7b84e74d, type: 3}
+      propertyPath: m_Transition
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4629804337322723597, guid: eaafeac94eaccbf478b2669f7b84e74d, type: 3}
+      propertyPath: m_SpriteState.m_SelectedSprite
+      value: 
+      objectReference: {fileID: -1505225624100401155, guid: bba2b074fb9ad9444b49e1bc912279e4, type: 3}
+    - target: {fileID: 4629804337322723597, guid: eaafeac94eaccbf478b2669f7b84e74d, type: 3}
+      propertyPath: m_SpriteState.m_HighlightedSprite
+      value: 
+      objectReference: {fileID: -1505225624100401155, guid: bba2b074fb9ad9444b49e1bc912279e4, type: 3}
     - target: {fileID: 4629804337662691397, guid: eaafeac94eaccbf478b2669f7b84e74d, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -4092,21 +4108,25 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 604828851}
+    - target: {fileID: 4629804337662691399, guid: eaafeac94eaccbf478b2669f7b84e74d, type: 3}
+      propertyPath: m_MatchWidthOrHeight
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4629804337662691450, guid: eaafeac94eaccbf478b2669f7b84e74d, type: 3}
       propertyPath: m_Name
       value: OptionsMenu
       objectReference: {fileID: 0}
     - target: {fileID: 4629804337662691450, guid: eaafeac94eaccbf478b2669f7b84e74d, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4629804337777922182, guid: eaafeac94eaccbf478b2669f7b84e74d, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4629804337777922182, guid: eaafeac94eaccbf478b2669f7b84e74d, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4629804337834324338, guid: eaafeac94eaccbf478b2669f7b84e74d, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target

@@ -587,6 +587,15 @@ public partial class @Steering : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Mobile"",
+                    ""type"": ""Button"",
+                    ""id"": ""acd5f7a6-7dde-4fcd-8d99-1e0706058dcb"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -996,6 +1005,28 @@ public partial class @Steering : IInputActionCollection2, IDisposable
                     ""action"": ""Drift"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""3dc8f383-331b-4387-bebb-83f6485e53d4"",
+                    ""path"": ""<Touchscreen>/Press"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Touch"",
+                    ""action"": ""Drift"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""988364cd-172b-49e2-9fca-0dd622a95745"",
+                    ""path"": ""<Sensor>"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Touch"",
+                    ""action"": ""Mobile"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -1082,6 +1113,7 @@ public partial class @Steering : IInputActionCollection2, IDisposable
         m_Ground_ForwardBack = m_Ground.FindAction("ForwardBack", throwIfNotFound: true);
         m_Ground_LeftRight = m_Ground.FindAction("LeftRight", throwIfNotFound: true);
         m_Ground_Drift = m_Ground.FindAction("Drift", throwIfNotFound: true);
+        m_Ground_Mobile = m_Ground.FindAction("Mobile", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -1251,6 +1283,7 @@ public partial class @Steering : IInputActionCollection2, IDisposable
     private readonly InputAction m_Ground_ForwardBack;
     private readonly InputAction m_Ground_LeftRight;
     private readonly InputAction m_Ground_Drift;
+    private readonly InputAction m_Ground_Mobile;
     public struct GroundActions
     {
         private @Steering m_Wrapper;
@@ -1260,6 +1293,7 @@ public partial class @Steering : IInputActionCollection2, IDisposable
         public InputAction @ForwardBack => m_Wrapper.m_Ground_ForwardBack;
         public InputAction @LeftRight => m_Wrapper.m_Ground_LeftRight;
         public InputAction @Drift => m_Wrapper.m_Ground_Drift;
+        public InputAction @Mobile => m_Wrapper.m_Ground_Mobile;
         public InputActionMap Get() { return m_Wrapper.m_Ground; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -1284,6 +1318,9 @@ public partial class @Steering : IInputActionCollection2, IDisposable
                 @Drift.started -= m_Wrapper.m_GroundActionsCallbackInterface.OnDrift;
                 @Drift.performed -= m_Wrapper.m_GroundActionsCallbackInterface.OnDrift;
                 @Drift.canceled -= m_Wrapper.m_GroundActionsCallbackInterface.OnDrift;
+                @Mobile.started -= m_Wrapper.m_GroundActionsCallbackInterface.OnMobile;
+                @Mobile.performed -= m_Wrapper.m_GroundActionsCallbackInterface.OnMobile;
+                @Mobile.canceled -= m_Wrapper.m_GroundActionsCallbackInterface.OnMobile;
             }
             m_Wrapper.m_GroundActionsCallbackInterface = instance;
             if (instance != null)
@@ -1303,6 +1340,9 @@ public partial class @Steering : IInputActionCollection2, IDisposable
                 @Drift.started += instance.OnDrift;
                 @Drift.performed += instance.OnDrift;
                 @Drift.canceled += instance.OnDrift;
+                @Mobile.started += instance.OnMobile;
+                @Mobile.performed += instance.OnMobile;
+                @Mobile.canceled += instance.OnMobile;
             }
         }
     }
@@ -1372,5 +1412,6 @@ public partial class @Steering : IInputActionCollection2, IDisposable
         void OnForwardBack(InputAction.CallbackContext context);
         void OnLeftRight(InputAction.CallbackContext context);
         void OnDrift(InputAction.CallbackContext context);
+        void OnMobile(InputAction.CallbackContext context);
     }
 }

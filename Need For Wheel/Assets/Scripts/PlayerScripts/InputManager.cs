@@ -13,11 +13,16 @@ public class InputManager : MonoBehaviour
     [HideInInspector]
     public Steering steering;
 
+    private UnityEngine.InputSystem.Gyroscope gyro;
+    private Quaternion rotation;
+    private bool gyroActive;
+
     private Animator animator;
     private ICommand driveLeft_command;
     private ICommand driveRight_command;
     private ICommand driveForward_command;
     private ICommand driveBackward_command;
+    private Quaternion correctionQuaternion;
 
     private void Awake()
     {
@@ -30,6 +35,16 @@ public class InputManager : MonoBehaviour
 
     private void Start()
     {
+        if (UnityEngine.InputSystem.Gyroscope.current != null)
+        {
+            InputSystem.EnableDevice(UnityEngine.InputSystem.Gyroscope.current);
+            gyroActive = true;
+        }
+        //if (AttitudeSensor.current != null)
+        //{
+        //    InputSystem.EnableDevice(AttitudeSensor.current);
+        //}
+
         steering = new Steering();
         steering.Ground.Enable();
         steering.Ground.LeftRight.canceled += ResetDirection;
@@ -45,7 +60,15 @@ public class InputManager : MonoBehaviour
         if(PlayerController.State == PlayerState.Driving)
         {
             Vector3 direction;
-            direction = new Vector3(steering.Ground.LeftRight.ReadValue<float>(), 0, steering.Ground.ForwardBack.ReadValue<float>());
+            if (!gyroActive)
+                direction = new Vector3(steering.Ground.LeftRight.ReadValue<float>(), 0, steering.Ground.ForwardBack.ReadValue<float>());
+            else
+            {
+                direction = (UnityEngine.InputSystem.Gyroscope.current.angularVelocity.ReadValue());
+                var temp = direction.x;
+                direction.x = direction.z;
+                direction.z = temp;
+            }
             float drifting = steering.Ground.Drift.ReadValue<float>();
 
             if (direction.x > 0)
@@ -110,7 +133,15 @@ public class InputManager : MonoBehaviour
         else if(PlayerController.State == PlayerState.Flying)
         {
             Vector3 direction;
-            direction = new Vector3(steering.Ground.LeftRight.ReadValue<float>(), steering.Ground.ForwardBack.ReadValue<float>(), 0);
+            if(!gyroActive)
+                direction = new Vector3(steering.Ground.LeftRight.ReadValue<float>(), steering.Ground.ForwardBack.ReadValue<float>(), 0);
+            else
+            {
+                direction = (UnityEngine.InputSystem.Gyroscope.current.angularVelocity.ReadValue());
+                var temp = direction.x;
+                direction.x = direction.y;
+                direction.y = temp;
+            }
 
             if (invertControls)
             {
