@@ -560,4 +560,5 @@ MonoBehaviour:
   firstSection: {fileID: 11400000, guid: 9f66f5e25222e1d44a70b66bcb7bd88a, type: 2}
   spawnOrigin: {x: 0, y: 0, z: 0}
   sectionsToSpawn: 20
-  finalSection: {fileID: 801413674729686974, guid: 5541ca217a3949a4e8efe4454ca88870, type: 3}
+  finalSection: {fileID: 3499225463014417328, guid: 5541ca217a3949a4e8efe4454ca88870, type: 3}
+  segmentRotation: 18
