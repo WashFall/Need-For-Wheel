@@ -171,7 +171,7 @@ Transform:
   m_LocalScale: {x: 1, y: 2000, z: 5662}
   m_Children: []
   m_Father: {fileID: 187007471}
-  m_RootOrder: 4
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &179179662
 BoxCollider:
@@ -263,11 +263,11 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1983930652}
-  - {fileID: 1094370049}
-  - {fileID: 1657426337}
   - {fileID: 491911269}
   - {fileID: 179179661}
   - {fileID: 850772588}
+  - {fileID: 1094370049}
+  - {fileID: 1657426337}
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -477,7 +477,7 @@ Transform:
   m_LocalScale: {x: 1, y: 500, z: 15715}
   m_Children: []
   m_Father: {fileID: 187007471}
-  m_RootOrder: 3
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: -0.523, y: 0, z: 90}
 --- !u!1 &496899674 stripped
 GameObject:
@@ -515,6 +515,56 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2cb2e726d31a7394a81625e3814bd908, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &656089016
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 656089018}
+  - component: {fileID: 656089017}
+  m_Layer: 0
+  m_Name: LevelGenerator
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &656089017
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 656089016}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: effe29db2412e5640a9e18ccbd44c0d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levelSectionData:
+  - {fileID: 11400000, guid: 9f66f5e25222e1d44a70b66bcb7bd88a, type: 2}
+  firstSection: {fileID: 11400000, guid: 9f66f5e25222e1d44a70b66bcb7bd88a, type: 2}
+  spawnOrigin: {x: 0, y: 0, z: 0}
+  sectionsToSpawn: 20
+  finalSection: {fileID: 3499225463014417328, guid: 5541ca217a3949a4e8efe4454ca88870, type: 3}
+  segmentRotation: 18
+--- !u!4 &656089018
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 656089016}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &679300844
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -805,7 +855,7 @@ Transform:
   m_LocalScale: {x: 1, y: 2000, z: 5662}
   m_Children: []
   m_Father: {fileID: 187007471}
-  m_RootOrder: 5
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &850772589
 BoxCollider:
