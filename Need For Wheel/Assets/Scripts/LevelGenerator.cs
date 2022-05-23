@@ -141,7 +141,7 @@ public class LevelGenerator : MonoBehaviour
         previousSection = sectionToSpawn;
         var rotation = Quaternion.Euler(segmentRotation, 0f, 0f);
         var spawnedSection = Instantiate(objectFromSection, spawnPosition + spawnOrigin, rotation);
-        spawnedSection.transform.localScale = new Vector3(sectionToSpawn.SectionSize.x / 100f, 1f, sectionToSpawn.SectionSize.y / 100f);
+        spawnedSection.transform.localScale = new Vector3(sectionToSpawn.SectionSize.x / 19f, sectionToSpawn.SectionSize.y / 100f, sectionToSpawn.SectionSize.z / 10f);
     }
 
     public void UpdateSpawnOrigin(Vector3 originDelta)

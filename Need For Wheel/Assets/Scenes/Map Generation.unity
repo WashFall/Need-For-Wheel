@@ -549,7 +549,6 @@ MonoBehaviour:
   firstSection: {fileID: 11400000, guid: 9f66f5e25222e1d44a70b66bcb7bd88a, type: 2}
   spawnOrigin: {x: 0, y: 0, z: 0}
   sectionsToSpawn: 20
-  finalSection: {fileID: 3499225463014417328, guid: 5541ca217a3949a4e8efe4454ca88870, type: 3}
   segmentRotation: 18
 --- !u!4 &656089018
 Transform:
@@ -1220,15 +1219,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6548619150207384728, guid: 2a85816d04f9be9478b50c352af9b0a5, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -24.56556
+      value: -10.64
       objectReference: {fileID: 0}
     - target: {fileID: 6548619150207384728, guid: 2a85816d04f9be9478b50c352af9b0a5, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.763504
+      value: -4.6735067
       objectReference: {fileID: 0}
     - target: {fileID: 6548619150207384728, guid: 2a85816d04f9be9478b50c352af9b0a5, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -27.556213
+      value: 310.9138
       objectReference: {fileID: 0}
     - target: {fileID: 6548619150207384728, guid: 2a85816d04f9be9478b50c352af9b0a5, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1408,7 +1407,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1393519870}
   m_LocalRotation: {x: 0.17879921, y: -0, z: -0, w: 0.9838856}
-  m_LocalPosition: {x: 0, y: 16.11, z: -43.07}
+  m_LocalPosition: {x: 13.925559, y: 14.2, z: 295.4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}

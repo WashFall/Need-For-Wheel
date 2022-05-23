@@ -10,7 +10,7 @@ public class LevelSectionData : ScriptableObject
         North, East, South, West
     }
 
-    public Vector2 SectionSize = new Vector2(10f, 10f);
+    public Vector3 SectionSize = new Vector3(10f, 10f, 10f);
 
     public GameObject[] levelSections;
     public Direction entryDirection;
