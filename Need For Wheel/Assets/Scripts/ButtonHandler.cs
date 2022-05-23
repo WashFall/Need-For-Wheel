@@ -12,9 +12,9 @@ public class ButtonHandler : MonoBehaviour,
 
     void Awake()
     {
-        textCopy = text.text;
         orangeish = new Color32(233, 165, 6, 255);
         text = transform.GetChild(0).gameObject.GetComponent<TMP_Text>();
+        textCopy = text.text;
     }
 
     public void OnPointerDown(PointerEventData eventData)

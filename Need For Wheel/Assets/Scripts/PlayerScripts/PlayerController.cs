@@ -15,12 +15,16 @@ public class PlayerController : MonoBehaviour
     public float forwardVelocityMultiplier = 9;
     public static PlayerState State = new PlayerState();
 
+    private float refreshTime;
+    private float oldTime;
+
     private void Awake()
     {
         dead = false;
         State = PlayerState.Driving;
         rigidBody = GetComponent<Rigidbody>();
         controls = GetComponent<DrivingControls>();
+        oldTime = Time.time;
     }
 
     private void Update()
@@ -58,10 +62,17 @@ public class PlayerController : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.tag == "BrickWall")
+        refreshTime = Time.time;
+
+        if(refreshTime - oldTime > 1)
         {
-            ServiceLocator.sound.PlayOnce("car crash");
-            BoostSystem.boost -= 5;
+            if(other.tag == "BrickWall")
+            {
+                ServiceLocator.sound.PlayOnce("car crash");
+                BoostSystem.boost -= 5;
+                Debug.Log("Hej");
+                oldTime = Time.time;
+            }
         }
     }
 }
