@@ -1008,7 +1008,7 @@ public partial class @Steering : IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""8ae5fd43-9cab-455d-ba0e-6d729d470d4f"",
+                    ""id"": ""34e476d4-d807-4d5c-b57e-421a55e76733"",
                     ""path"": ""<Touchscreen>/Press"",
                     ""interactions"": """",
                     ""processors"": """",
