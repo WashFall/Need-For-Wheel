@@ -8,7 +8,7 @@ public class DrivingControls : Controls
     private float startTime;
     private bool speedPower = false;
 
-    public override void Forward(Vector3 inputVector) 
+    public override void Forward(Vector3 inputVector) // Changes forward movement based on bools
     {
         if (player.autoForward)
         {
@@ -39,7 +39,7 @@ public class DrivingControls : Controls
         player.rigidBody.AddRelativeForce(inputVector * player.sidewayVelocityMultiplier, ForceMode.Impulse);
     }
 
-    public void SpeedPowerUp()
+    public void SpeedPowerUp() // Gets called when a power up is picked up
     {
         endTime = Time.time + 5;
         startTime = Time.time;

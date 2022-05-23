@@ -1,5 +1,7 @@
 using UnityEngine;
 
+// Not used, was meant to turn the front wheel when the player turned
+
 public class HandleTurning : MonoBehaviour
 {
     public GameObject player;

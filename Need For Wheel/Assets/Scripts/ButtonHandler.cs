@@ -17,6 +17,8 @@ public class ButtonHandler : MonoBehaviour,
         textCopy = text.text;
     }
 
+    // A few events that changes the looks of the buttons
+
     public void OnPointerDown(PointerEventData eventData)
     {
         text.text = "MEOW";

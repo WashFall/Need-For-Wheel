@@ -19,6 +19,7 @@ public class QuickCameraFollow : MonoBehaviour
         rotation = transform.rotation;
     }
 
+    // If the player enters a new state the camera should adjust itself accordingly
     private void Update()
     {
         if(PlayerController.State == PlayerState.Flying)
@@ -47,6 +48,7 @@ public class QuickCameraFollow : MonoBehaviour
         newPosition = new Vector3(position.x, position.y + 5, position.z - 5);
     }
 
+    // Make the camera stop its movement when the player "dies"
     void LateUpdate()
     {
         if (!player.GetComponent<PlayerController>().dead)

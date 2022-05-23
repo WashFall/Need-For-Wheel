@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public interface ICommand
+public interface ICommand // The command interface for the movement inputs
 {
     void Execute(PlayerController player, Vector3 inputVector);
 }

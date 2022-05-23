@@ -1,6 +1,9 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
+// Handles (mostly) all inputs from the player
+// Keyboard and mouse, controller and phone (gyroscope)
+// Also sends the commands for movement based on what the input vector says
 public class InputManager : MonoBehaviour
 {
     public bool invertControls;
@@ -44,7 +47,7 @@ public class InputManager : MonoBehaviour
         //    InputSystem.EnableDevice(AttitudeSensor.current);
         //}
 
-        steering = new Steering();
+        steering = new Steering(); // Using the new Input system
         steering.Ground.Enable();
         steering.Ground.LeftRight.canceled += ResetDirection;
         steering.Ground.ForwardBack.canceled += ResetDirection;
@@ -114,6 +117,7 @@ public class InputManager : MonoBehaviour
                 driveForward_command.Execute(player, inputVector);
             }
 
+            // Changes the animation based on if the player is drifting or not
             if(direction.z < 0 && direction.x > 0 || drifting < 0 && direction.x > 0)
             {
                 animator.SetBool("DriftRight", true);
@@ -150,6 +154,7 @@ public class InputManager : MonoBehaviour
                 direction.y *= -1;
             }
 
+            // Limits the player from rising in flight mode if there is no boost left
             if(BoostSystem.boost > 0 && !boost.outOfBoost)
             {
                 if (direction.y > 0)
@@ -185,6 +190,8 @@ public class InputManager : MonoBehaviour
         boost.BoostUp(player.rigidBody.position.z - PointSystem.startingPoint);
     }
 
+    // Resets the direction the player is travelling in if the inputs are let go of
+    // This is to prevent the player from travelling to the edges if no input is given
     private void ResetDirection(InputAction.CallbackContext context)
     {
         Vector3 direction = new Vector3(steering.Ground.LeftRight.ReadValue<float>(), 0, steering.Ground.ForwardBack.ReadValue<float>());

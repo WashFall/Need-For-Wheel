@@ -8,7 +8,7 @@ public class SpeedDisplay : MonoBehaviour
 
     private float speed;
 
-    void Update()
+    void Update() // Updates the speed display on the UI to the players current velocity
     {
         speed = Mathf.Round(player.velocity.z);
 

@@ -20,7 +20,7 @@ public class HighScoreSystem : MonoBehaviour
         SaveScore();
     }
 
-    void CheckIfScoreExist()
+    void CheckIfScoreExist() // Either load existing scores or create new ones
     {
         try
         {
@@ -51,7 +51,7 @@ public class HighScoreSystem : MonoBehaviour
         PlayerPrefs.Save();
     }
 
-    void SaveScore()
+    void SaveScore() // Save score when the game is completed
     {
         if (finish.collideOnce && !saved)
         {

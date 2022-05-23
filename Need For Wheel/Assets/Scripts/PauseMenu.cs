@@ -17,6 +17,7 @@ public class PauseMenu : MonoBehaviour
         debugManager = FindObjectOfType<DebugManager>();
     }
 
+    // Functions that handle the Pause Menu buttons
     public void Continue()
     {
         Time.timeScale = 1;

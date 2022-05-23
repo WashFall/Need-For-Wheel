@@ -3,6 +3,7 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
+    // Functions for the buttons in the main menu
     public void PlayGame()
     {
         Time.timeScale = 1;
