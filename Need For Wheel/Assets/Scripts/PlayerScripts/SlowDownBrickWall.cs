@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class SlowDownBrickWall : MonoBehaviour
@@ -10,9 +8,6 @@ public class SlowDownBrickWall : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.tag == "BrickWall")
-        {
-            player.velocity *= speedDown;
-        }
+        if(other.tag == "BrickWall") player.velocity *= speedDown;
     }
 }

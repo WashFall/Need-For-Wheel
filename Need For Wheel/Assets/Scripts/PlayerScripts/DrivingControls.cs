@@ -1,22 +1,27 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class DrivingControls : Controls
 {
     public float forwardSpeed = 15;
 
-    private bool speedPower = false;
-    private float startTime;
     private float endTime;
+    private float startTime;
+    private bool speedPower = false;
 
     public override void Forward(Vector3 inputVector) 
     {
         if (player.autoForward)
+        {
             player.rigidBody.AddRelativeForce(new Vector3(0, 0, 1) * forwardSpeed, ForceMode.Impulse);
-        else if (player.noForward) { }
+        }
+        else if (player.noForward)
+        {
+            //Do nothing
+        }
         else
+        {
             player.rigidBody.AddRelativeForce(inputVector * player.forwardVelocityMultiplier, ForceMode.Impulse);
+        }
     }
 
     public override void Backward(Vector3 inputVector) 
@@ -36,8 +41,8 @@ public class DrivingControls : Controls
 
     public void SpeedPowerUp()
     {
-        startTime = Time.time;
         endTime = Time.time + 5;
+        startTime = Time.time;
         speedPower = true;
     }
 
@@ -46,6 +51,7 @@ public class DrivingControls : Controls
         if (speedPower)
         {
             startTime = Time.time;
+
             if(startTime < endTime)
             {
                 forwardSpeed = 20f;

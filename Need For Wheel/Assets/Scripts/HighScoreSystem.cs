@@ -1,22 +1,30 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class HighScoreSystem : MonoBehaviour
 {
-    public PlayerController player;
     public GameObject pointCanvas;
+    public PlayerController player;
     public FinishLineCollider finish;
 
-    private List<float> scoresList = new List<float>();
     private bool saved;
+    private List<float> scoresList = new List<float>();
 
     void Start()
     {
+        CheckIfScoreExist();
+    }
+
+    void Update()
+    {
+        SaveScore();
+    }
+
+    void CheckIfScoreExist()
+    {
         try
         {
-            if (!PlayerPrefs.HasKey("hScore1"))
-                throw new System.Exception();
+            if (!PlayerPrefs.HasKey("hScore1")) throw new System.Exception();
         }
         catch (System.Exception)
         {
@@ -43,22 +51,24 @@ public class HighScoreSystem : MonoBehaviour
         PlayerPrefs.Save();
     }
 
-    private void Update()
+    void SaveScore()
     {
         if (finish.collideOnce && !saved)
         {
-            for(int i = 0; i < 5; i++)
+            for (int i = 0; i < 5; i++)
             {
-                if(PointSystem.points > scoresList[i])
+                if (PointSystem.points > scoresList[i])
                 {
                     scoresList.Insert(i, PointSystem.points);
                     break;
                 }
             }
-            for(int i = 0; i < 5; i++)
+
+            for (int i = 0; i < 5; i++)
             {
                 PlayerPrefs.SetFloat(string.Format("hScore{0}", i + 1), scoresList[i]);
             }
+
             PlayerPrefs.Save();
             saved = true;
         }

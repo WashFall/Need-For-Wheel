@@ -1,23 +1,20 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 using TMPro;
 
 public class PointSystem : MonoBehaviour
 {
     public GameObject player;
-    public TMP_Text pointsDisplay;
     public static float points;
+    public TMP_Text pointsDisplay;
     public static float startingPoint;
 
     private Rigidbody rb;
+    private float endTime;
+    private float startTime;
     private float oldPosition;
     private float newPosition;
     private float velDivide = 10;
     private bool multiplierActive = false;
-    private float startTime;
-    private float endTime;
 
     private void Start()
     {

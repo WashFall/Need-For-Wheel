@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class BigRampTrigger : MonoBehaviour
@@ -8,8 +6,8 @@ public class BigRampTrigger : MonoBehaviour
     {
         if(collision.tag == "Player")
         {
-            PlayerController.State = PlayerState.Flying;
             ServiceLocator.sound.PlayOnce("yahoo");
+            PlayerController.State = PlayerState.Flying;
         }
     }
 }

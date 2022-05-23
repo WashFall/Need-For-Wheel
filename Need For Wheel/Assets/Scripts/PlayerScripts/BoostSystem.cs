@@ -1,10 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class BoostSystem
 {
     public static float boost = 0;
+
     public bool outOfBoost = false;
 
     private int step = 0;

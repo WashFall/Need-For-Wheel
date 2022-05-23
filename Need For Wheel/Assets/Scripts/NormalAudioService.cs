@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -7,8 +6,8 @@ public class NormalAudioService : IAudioService
 {
     private int sourceCount = 20;
     private List<AudioClip> clips;
-    private List<AudioSource> sources;
     private string audioPath = "SFX/";
+    private List<AudioSource> sources;
     private Dictionary<string, AudioClip> audioKeys;
 
     public void UpdateSound()

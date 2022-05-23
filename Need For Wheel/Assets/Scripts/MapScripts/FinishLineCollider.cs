@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class FinishLineCollider : MonoBehaviour
@@ -18,12 +16,12 @@ public class FinishLineCollider : MonoBehaviour
         if(collision.transform.tag == "Player" && !collideOnce)
         {
             collideOnce = true;
-            collision.transform.GetComponent<PlayerController>().dead = true;
-            PlayerController.State = PlayerState.Dead;
-            collision.gameObject.GetComponent<InputManager>().steering.Ground.Disable();
             canvas.SetActive(true);
             PointSystem.points *= 1.5f;
+            PlayerController.State = PlayerState.Dead;
             PointSystem.points = Mathf.Round(PointSystem.points);
+            collision.transform.GetComponent<PlayerController>().dead = true;
+            collision.gameObject.GetComponent<InputManager>().steering.Ground.Disable();
         }
     }
 }

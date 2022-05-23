@@ -1,14 +1,12 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class SpeedFOV : MonoBehaviour
 {
     public Camera cam;
     public Rigidbody body;
+    public float maxSpeed;
     public float minimumFOV;
     public float maximumFOV;
-    public float maxSpeed;
 
     void Update()
     {

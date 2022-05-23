@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class BrickCollision : MonoBehaviour
@@ -8,16 +6,16 @@ public class BrickCollision : MonoBehaviour
     public GameObject parent;
 
     private Vector3 pos;
-    private bool hasCrashed = false;
     private GameObject crashObject;
+    private bool hasCrashed = false;
 
     private void OnTriggerEnter(Collider other)
     {
         if(other.tag == "PlayerTrigger")
         {
-            GetComponent<Rigidbody>().isKinematic = false;
-            crashObject = other.gameObject;
             hasCrashed = true;
+            crashObject = other.gameObject;
+            GetComponent<Rigidbody>().isKinematic = false;
         }
     }
 

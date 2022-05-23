@@ -1,19 +1,14 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.SceneManagement;
 
 public class DebugManager : MonoBehaviour
 {
-    public GameObject player;
-    public InputManager inputManager;
-    public GameObject pauseMenu;
-    public GameObject optionsMenu, hscore1, hscore2, hscore3;
     public bool gamePaused;
-
     public Steering steering;
+    public GameObject player;
+    public GameObject pauseMenu;
+    public InputManager inputManager;
+    public GameObject optionsMenu, hscore1, hscore2, hscore3;
 
     [SerializeField]
     private bool gamepadConnected;
@@ -33,13 +28,16 @@ public class DebugManager : MonoBehaviour
 
     private void DebugCommands(InputAction.CallbackContext context)
     {
-         if (Keyboard.current.escapeKey.wasPressedThisFrame || Gamepad.current.startButton.wasPressedThisFrame)
+         if (Keyboard.current.escapeKey.wasPressedThisFrame || 
+            Gamepad.current.startButton.wasPressedThisFrame)
         {
             if (!gamePaused)
                 PauseGame();
-            else if(!optionsMenu.gameObject.activeSelf || !hscore1.gameObject.activeSelf
-                || !hscore2.gameObject.activeSelf || !hscore3.gameObject.activeSelf)
-                ContinueGame();
+            else if(!optionsMenu.gameObject.activeSelf || 
+                        !hscore1.gameObject.activeSelf ||
+                        !hscore2.gameObject.activeSelf || 
+                        !hscore3.gameObject.activeSelf)
+                            ContinueGame();
         }
     }
 
@@ -49,9 +47,11 @@ public class DebugManager : MonoBehaviour
         {
             if (!gamePaused)
                 PauseGame();
-            else if(!optionsMenu.gameObject.activeSelf || !hscore1.gameObject.activeSelf
-                || !hscore2.gameObject.activeSelf || !hscore3.gameObject.activeSelf)
-                ContinueGame();
+            else if(!optionsMenu.gameObject.activeSelf || 
+                        !hscore1.gameObject.activeSelf ||
+                        !hscore2.gameObject.activeSelf || 
+                        !hscore3.gameObject.activeSelf)
+                            ContinueGame();
         }
     }
 

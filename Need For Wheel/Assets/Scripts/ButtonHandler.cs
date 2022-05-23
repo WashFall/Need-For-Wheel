@@ -1,24 +1,20 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
-using UnityEngine.UI;
 using TMPro;
-
 
 public class ButtonHandler : MonoBehaviour, 
     IPointerEnterHandler, IPointerDownHandler, 
     ISelectHandler, ISubmitHandler, IDeselectHandler, IPointerExitHandler
 {
-    private Color32 orangeish;
     private TMP_Text text;
     private string textCopy;
+    private Color32 orangeish;
 
     void Awake()
     {
+        textCopy = text.text;
         orangeish = new Color32(233, 165, 6, 255);
         text = transform.GetChild(0).gameObject.GetComponent<TMP_Text>();
-        textCopy = text.text;
     }
 
     public void OnPointerDown(PointerEventData eventData)

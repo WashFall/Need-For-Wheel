@@ -1,7 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class WaterTrigger : MonoBehaviour
 {
@@ -16,10 +13,10 @@ public class WaterTrigger : MonoBehaviour
     {
         if(other.tag == "Player")
         {
-            other.gameObject.GetComponent<InputManager>().steering.Ground.Disable();
-            other.gameObject.GetComponent<PlayerController>().dead = true;
-            PlayerController.State = PlayerState.Dead;
             canvas.SetActive(true);
+            PlayerController.State = PlayerState.Dead;
+            other.gameObject.GetComponent<PlayerController>().dead = true;
+            other.gameObject.GetComponent<InputManager>().steering.Ground.Disable();
         }
     }
 }

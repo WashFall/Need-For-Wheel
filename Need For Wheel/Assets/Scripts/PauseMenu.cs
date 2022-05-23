@@ -1,24 +1,20 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
-using UnityEngine.UI;
 using TMPro;
 
 public class PauseMenu : MonoBehaviour
 {
+    private GameObject menuButton;
+    private GameObject optionsButton;
+    private GameObject continueButton;
     private InputManager inputManager;
     private DebugManager debugManager;
-    private GameObject continueButton;
-    private GameObject optionsButton;
-    private GameObject menuButton;
 
     private void Start()
     {
-        debugManager = FindObjectOfType<DebugManager>();
         inputManager = FindObjectOfType<InputManager>();
-        
+        debugManager = FindObjectOfType<DebugManager>();
     }
 
     public void Continue()
@@ -29,10 +25,10 @@ public class PauseMenu : MonoBehaviour
 
     public void MainMenu()
     {
-        debugManager.steering.Disable();
-        inputManager.steering.Disable();
         Time.timeScale = 1;
         SceneManager.LoadScene(0);
+        debugManager.steering.Disable();
+        inputManager.steering.Disable();
     }
 
     private void OnEnable()
@@ -40,9 +36,10 @@ public class PauseMenu : MonoBehaviour
         continueButton = transform.GetChild(2).gameObject;
         optionsButton = transform.GetChild(3).gameObject;
         menuButton = transform.GetChild(4).gameObject;
+
         EventSystem.current.SetSelectedGameObject(continueButton);
-        continueButton.transform.GetChild(0).GetComponent<TMP_Text>().color = new Color32(233, 165, 6, 255);
-        optionsButton.transform.GetChild(0).GetComponent<TMP_Text>().color = Color.white;
         menuButton.transform.GetChild(0).GetComponent<TMP_Text>().color = Color.white;
+        optionsButton.transform.GetChild(0).GetComponent<TMP_Text>().color = Color.white;
+        continueButton.transform.GetChild(0).GetComponent<TMP_Text>().color = new Color32(233, 165, 6, 255);
     }
 }

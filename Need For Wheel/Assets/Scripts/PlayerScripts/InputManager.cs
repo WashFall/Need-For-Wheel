@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -13,17 +11,17 @@ public class InputManager : MonoBehaviour
     [HideInInspector]
     public Steering steering;
 
-    private UnityEngine.InputSystem.Gyroscope gyro;
-    private Quaternion rotation;
     private bool gyroActive;
+    private Quaternion rotation;
+    private UnityEngine.InputSystem.Gyroscope gyro;
 
+    private float driftFloat;
     private Animator animator;
     private ICommand driveLeft_command;
     private ICommand driveRight_command;
     private ICommand driveForward_command;
     private ICommand driveBackward_command;
     private Quaternion correctionQuaternion;
-    private float driftFloat;
 
     private void Awake()
     {

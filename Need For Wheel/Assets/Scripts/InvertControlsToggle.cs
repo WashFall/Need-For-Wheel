@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -19,7 +17,6 @@ public class InvertControlsToggle : MonoBehaviour
     {
         InvertedControls.ChangeInvert(toggle.isOn);
 
-        if(inputManager != null)
-            inputManager.invertControls = toggle.isOn;
+        if(inputManager != null) inputManager.invertControls = toggle.isOn;
     }
 }

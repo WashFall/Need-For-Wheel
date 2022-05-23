@@ -1,17 +1,15 @@
 using UnityEngine;
-using System.Collections;
-using System;
 
 public class QuickCameraFollow : MonoBehaviour
 {
     public GameObject player;
 
+    private bool finished;
     private Vector3 offset;
-    private Quaternion rotation;
-    private Vector3 newPosition;
     private Vector3 position;
     private bool stateChanged;
-    private bool finished;
+    private Quaternion rotation;
+    private Vector3 newPosition;
     private Vector3 offsetChange;
 
     void Start()
@@ -25,15 +23,17 @@ public class QuickCameraFollow : MonoBehaviour
     {
         if(PlayerController.State == PlayerState.Flying)
         {
-            if(!stateChanged)
-                StateChanged();
-            transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.identity, 10 * Time.deltaTime);
+            if(!stateChanged) StateChanged();
+
+            transform.rotation = Quaternion.Lerp(transform.rotation, 
+                                 Quaternion.identity, 10 * Time.deltaTime);
+
             offset = Vector3.Lerp(offset, offsetChange, 7 * Time.deltaTime);
         }
         else if(PlayerController.State == PlayerState.Dead)
         {
-            if (!stateChanged)
-                StateChanged();
+            if (!stateChanged) StateChanged();
+                
             transform.rotation = Quaternion.Lerp(transform.rotation, rotation, 3 * Time.deltaTime);
             transform.position = Vector3.Lerp(transform.position, newPosition, 3 * Time.deltaTime);
         }
@@ -50,7 +50,9 @@ public class QuickCameraFollow : MonoBehaviour
     void LateUpdate()
     {
         if (!player.GetComponent<PlayerController>().dead)
+        {
             transform.position = player.transform.position + offset;
+        }
         else if(player.GetComponent<PlayerController>().dead && !finished)
         {
             stateChanged = false;

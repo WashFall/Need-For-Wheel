@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
@@ -29,11 +27,11 @@ public class PlayerController : MonoBehaviour
     {
         if(State == PlayerState.Flying)
         {
-            controls = GetComponent<FlyingControls>();
-            increaseGravity = false;
             rigidBody.drag = 0.1f;
-            rigidBody.rotation = Quaternion.identity;
+            increaseGravity = false;
             glider.gameObject.SetActive(true);
+            rigidBody.rotation = Quaternion.identity;
+            controls = GetComponent<FlyingControls>();
         }
         GroundedCheck();
     }
