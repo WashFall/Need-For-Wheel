@@ -15,7 +15,9 @@ public class LevelGenerator : MonoBehaviour
 
     private Vector3 spawnPosition;
     public int sectionsToSpawn = 10;
-    public GameObject finalSection;
+    public FinalDestination finalSection;
+
+    public float segmentRotation;
 
     private void Update()
     {
@@ -111,7 +113,25 @@ public class LevelGenerator : MonoBehaviour
         switch (previousSection.exitDirection)
         {
             case LevelSectionData.Direction.North:
-                spawnPosition += new Vector3(0f, 0f, previousSection.SectionSize.y * 0.5f + sectionToSpawn.SectionSize.y * 0.5f);
+                Vector3 segmentShift;
+                if (sectionId == 0)
+                {
+                    segmentShift = new Vector3(
+                        0f,
+                        -(previousSection.SectionSize.y * 0.5f) * Mathf.Sin(segmentRotation * Mathf.Deg2Rad),
+                        previousSection.SectionSize.y * 0.5f + sectionToSpawn.SectionSize.y * 0.5f * Mathf.Cos(segmentRotation * Mathf.Deg2Rad)
+                    );
+                }
+                else
+                {
+                    segmentShift = new Vector3(
+                        0f,
+                        -(previousSection.SectionSize.y * 0.5f + sectionToSpawn.SectionSize.y * 0.5f) * Mathf.Sin(segmentRotation * Mathf.Deg2Rad),
+                        (previousSection.SectionSize.y * 0.5f + sectionToSpawn.SectionSize.y * 0.5f) * Mathf.Cos(segmentRotation * Mathf.Deg2Rad)
+                    );
+                }
+
+                spawnPosition += segmentShift;
                 break;
                 //case LevelSectionData.Direction.West:
                 //    spawnPosition += new Vector3(-previousSection.SectionSize.x * 0.5f - sectionToSpawn.SectionSize.x * 0.5f, 0f, 0f);
@@ -126,7 +146,8 @@ public class LevelGenerator : MonoBehaviour
 
         GameObject objectFromSection = sectionToSpawn.levelSections[Random.Range(0, sectionToSpawn.levelSections.Length)];
         previousSection = sectionToSpawn;
-        var spawnedSection = Instantiate(objectFromSection, spawnPosition + spawnOrigin, Quaternion.identity);
+        var rotation = Quaternion.Euler(segmentRotation, 0f, 0f);
+        var spawnedSection = Instantiate(objectFromSection, spawnPosition + spawnOrigin, rotation);
         spawnedSection.transform.localScale = new Vector3(sectionToSpawn.SectionSize.x / 100f, 1f, sectionToSpawn.SectionSize.y / 100f);
     }
 
@@ -146,6 +167,7 @@ public class LevelGenerator : MonoBehaviour
     void SpawnFinalSection()
     {
         var finalSectionInstance = 
-            Instantiate(finalSection, spawnPosition + new Vector3(0f, 0f, previousSection.SectionSize.y * 0.5f), Quaternion.identity);
+            Instantiate(finalSection, spawnPosition + new Vector3(0f, -previousSection.SectionSize.y * 0.5f * Mathf.Sin(segmentRotation * Mathf.Deg2Rad), previousSection.SectionSize.y * 0.5f * Mathf.Cos(segmentRotation * Mathf.Deg2Rad)), Quaternion.identity);
+        finalSectionInstance.RotateSlope(segmentRotation);
     }
 }
