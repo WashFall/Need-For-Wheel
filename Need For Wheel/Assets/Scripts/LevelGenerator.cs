@@ -15,17 +15,10 @@ public class LevelGenerator : MonoBehaviour
 
     private Vector3 spawnPosition;
     public int sectionsToSpawn = 10;
-    public FinalDestination finalSection;
+    //public FinalDestination finalSection;
 
     public float segmentRotation;
 
-    private void Update()
-    {
-        //if (Input.GetKeyDown(KeyCode.T))
-        //{
-        //    SpawnLegalSection();
-        //}
-    }
     private void Start()
     {
         previousSection = firstSection;
@@ -35,7 +28,7 @@ public class LevelGenerator : MonoBehaviour
             SpawnLegalSection(i);
         }
 
-        SpawnFinalSection();
+        //SpawnFinalSection();
 
         steering = new Steering();
         steering.Ground.Enable();
@@ -164,10 +157,10 @@ public class LevelGenerator : MonoBehaviour
         }
     }
 
-    void SpawnFinalSection()
-    {
-        var finalSectionInstance = 
-            Instantiate(finalSection, spawnPosition + new Vector3(0f, -previousSection.SectionSize.y * 0.5f * Mathf.Sin(segmentRotation * Mathf.Deg2Rad), previousSection.SectionSize.y * 0.5f * Mathf.Cos(segmentRotation * Mathf.Deg2Rad)), Quaternion.identity);
-        finalSectionInstance.RotateSlope(segmentRotation);
-    }
+    //void SpawnFinalSection()
+    //{
+    //    var finalSectionInstance = 
+    //        Instantiate(finalSection, spawnPosition + new Vector3(0f, -previousSection.SectionSize.y * 0.5f * Mathf.Sin(segmentRotation * Mathf.Deg2Rad), previousSection.SectionSize.y * 0.5f * Mathf.Cos(segmentRotation * Mathf.Deg2Rad)), Quaternion.identity);
+    //    finalSectionInstance.RotateSlope(segmentRotation);
+    //}
 }
