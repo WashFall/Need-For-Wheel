@@ -12,6 +12,7 @@ public class WheelRotate : MonoBehaviour
         rb = player.GetComponent<Rigidbody>();
     }
 
+    // Rotates the wheels around their center point relative to player velocity
     private void Update()
     {
         Vector3 position = GetComponentInChildren<MeshRenderer>().bounds.center;
