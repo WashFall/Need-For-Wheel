@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -14,9 +15,10 @@ public class InputManager : MonoBehaviour
     [HideInInspector]
     public Steering steering;
 
-    private bool gyroActive;
+    private bool gyroActive; 
     private Quaternion rotation;
     private UnityEngine.InputSystem.Gyroscope gyro;
+    private AttitudeSensor attitude;
 
     private float driftFloat;
     private Animator animator;
@@ -41,11 +43,15 @@ public class InputManager : MonoBehaviour
         //{
         //    InputSystem.EnableDevice(UnityEngine.InputSystem.Gyroscope.current);
         //    gyroActive = true;
+        //    gyro = UnityEngine.InputSystem.Gyroscope.current;
         //}
         //if (AttitudeSensor.current != null)
         //{
         //    InputSystem.EnableDevice(AttitudeSensor.current);
+        //    attitude = AttitudeSensor.current;
+        //    AttitudeSetup();
         //}
+        InputSystem.EnableDevice(Accelerometer.current);
 
         steering = new Steering(); // Using the new Input system
         steering.Ground.Enable();
@@ -62,19 +68,15 @@ public class InputManager : MonoBehaviour
         if(PlayerController.State == PlayerState.Driving)
         {
             Vector3 direction;
-            //if (!gyroActive)
+            if(!Accelerometer.current.enabled)
                 direction = new Vector3(steering.Ground.LeftRight.ReadValue<float>(), 0, steering.Ground.ForwardBack.ReadValue<float>());
-            //else
-            //{
-            //    direction = (UnityEngine.InputSystem.Gyroscope.current.angularVelocity.ReadValue());
-            //    var temp = direction.x;
-            //    direction.x = direction.z;
-            //    direction.z = temp;
-            //    direction.x *= -1;
-            //    if (direction.z <= 0)
-            //        direction.z = 0;
-            //}
-            float drifting = driftFloat = steering.Ground.Drift.ReadValue<float>(); ;
+            else
+            {
+                float dirX = Accelerometer.current.acceleration.y.ReadValue();
+                dirX *= -1;
+                direction = new Vector3(Mathf.Clamp(dirX, -1, 1), 0, 0);
+            }
+            float drifting = driftFloat = steering.Ground.Drift.ReadValue<float>();
 
             if (direction.x > 0)
             {
@@ -139,16 +141,14 @@ public class InputManager : MonoBehaviour
         else if(PlayerController.State == PlayerState.Flying)
         {
             Vector3 direction;
-            //if (!gyroActive)
+            if(!Accelerometer.current.enabled)
                 direction = new Vector3(steering.Ground.LeftRight.ReadValue<float>(), steering.Ground.ForwardBack.ReadValue<float>(), 0);
-            //else
-            //{
-            //    direction = (UnityEngine.InputSystem.Gyroscope.current.angularVelocity.ReadValue());
-            //    var temp = direction.x;
-            //    direction.x = direction.y;
-            //    direction.y = temp;
-            //}
-
+            else
+            {
+                float dirX = Accelerometer.current.acceleration.y.ReadValue();
+                dirX *= -1;
+                direction = new Vector3(Mathf.Clamp(dirX, -1, 1), 0, 0);
+            }
             if (invertControls)
             {
                 direction.y *= -1;
@@ -209,4 +209,18 @@ public class InputManager : MonoBehaviour
             driveBackward_command.Execute(player, direction);
         }
     }
+
+    //private Vector3 GyroAttitude()
+    //{
+    //    UnityEngine.InputSystem.Controls.QuaternionControl atti = attitude.attitude;
+    //    Vector3 returnVector = new Vector3(atti.x, 0, 0);
+    //    Quaternion rot = new Quaternion(0.5f, 0.5f, -0.5f, 0.5f) * attitude.attitude * new Quaternion(0, 0, 1, 0);
+    //}
+
+    //private void AttitudeSetup()
+    //{
+    //    attitude.attitude.x.normalizeMin = -1f;
+    //    attitude.attitude.x.normalizeMax = 1f;
+    //    attitude.attitude.x.normalize = true;
+    //}
 }
