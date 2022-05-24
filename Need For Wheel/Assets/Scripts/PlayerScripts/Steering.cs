@@ -590,7 +590,7 @@ public partial class @Steering : IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": ""Mobile"",
-                    ""type"": ""PassThrough"",
+                    ""type"": ""Button"",
                     ""id"": ""acd5f7a6-7dde-4fcd-8d99-1e0706058dcb"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
@@ -1008,21 +1008,10 @@ public partial class @Steering : IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""34e476d4-d807-4d5c-b57e-421a55e76733"",
-                    ""path"": ""<Touchscreen>/Press"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Drift"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""26e4c03e-376f-4070-a37f-9358b630b35f"",
+                    ""id"": ""cbaac8d6-7e82-4bc7-8f75-c3902517f6e7"",
                     ""path"": ""<Touchscreen>/primaryTouch/press"",
-                    ""interactions"": """",
-                    ""processors"": """",
+                    ""interactions"": ""Press(behavior=2)"",
+                    ""processors"": ""Invert"",
                     ""groups"": ""Touch"",
                     ""action"": ""Mobile"",
                     ""isComposite"": false,

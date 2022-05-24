@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 
 // Handles (mostly) all inputs from the player
-// Keyboard and mouse, controller and phone (gyroscope)
+// Keyboard and mouse, controller and phone (accelerometer)
 // Also sends the commands for movement based on what the input vector says
 public class InputManager : MonoBehaviour
 {
@@ -15,13 +15,11 @@ public class InputManager : MonoBehaviour
     [HideInInspector]
     public Steering steering;
 
-    private bool gyroActive; 
-    private Quaternion rotation;
-    private UnityEngine.InputSystem.Gyroscope gyro;
-    private AttitudeSensor attitude;
-
-    private float driftFloat;
+    private float drifting;
+    private bool mobile;
     private Animator animator;
+    private Accelerometer acc;
+    private Touchscreen touch;
     private ICommand driveLeft_command;
     private ICommand driveRight_command;
     private ICommand driveForward_command;
@@ -39,28 +37,17 @@ public class InputManager : MonoBehaviour
 
     private void Start()
     {
-        //if (UnityEngine.InputSystem.Gyroscope.current != null)
-        //{
-        //    InputSystem.EnableDevice(UnityEngine.InputSystem.Gyroscope.current);
-        //    gyroActive = true;
-        //    gyro = UnityEngine.InputSystem.Gyroscope.current;
-        //}
-        //if (AttitudeSensor.current != null)
-        //{
-        //    InputSystem.EnableDevice(AttitudeSensor.current);
-        //    attitude = AttitudeSensor.current;
-        //    AttitudeSetup();
-        //}
-        InputSystem.EnableDevice(Accelerometer.current);
+        if(SystemInfo.supportsAccelerometer)
+            InputSystem.EnableDevice(Accelerometer.current);
+        acc = Accelerometer.current;
+        mobile = (acc != null);
 
         steering = new Steering(); // Using the new Input system
         steering.Ground.Enable();
         steering.Ground.LeftRight.canceled += ResetDirection;
         steering.Ground.ForwardBack.canceled += ResetDirection;
         steering.Ground.Drift.canceled += ResetDirection;
-        steering.Ground.Drift.performed += (InputAction.CallbackContext context) => {
-            ServiceLocator.sound.PlayOnce("tires");
-        };
+        steering.Ground.Drift.performed += context => { ServiceLocator.sound.PlayOnce("tires"); };
     }
 
     private void FixedUpdate()
@@ -68,7 +55,7 @@ public class InputManager : MonoBehaviour
         if(PlayerController.State == PlayerState.Driving)
         {
             Vector3 direction;
-            if(!Accelerometer.current.enabled)
+            if (!mobile)
                 direction = new Vector3(steering.Ground.LeftRight.ReadValue<float>(), 0, steering.Ground.ForwardBack.ReadValue<float>());
             else
             {
@@ -76,7 +63,11 @@ public class InputManager : MonoBehaviour
                 dirX *= -1;
                 direction = new Vector3(Mathf.Clamp(dirX, -1, 1), 0, 0);
             }
-            float drifting = driftFloat = steering.Ground.Drift.ReadValue<float>();
+
+            if (!mobile)
+                drifting = steering.Ground.Drift.ReadValue<float>();
+            else
+                drifting = steering.Ground.Mobile.ReadValue<float>();
 
             if (direction.x > 0)
             {
@@ -141,7 +132,7 @@ public class InputManager : MonoBehaviour
         else if(PlayerController.State == PlayerState.Flying)
         {
             Vector3 direction;
-            if(!Accelerometer.current.enabled)
+            if(!mobile)
                 direction = new Vector3(steering.Ground.LeftRight.ReadValue<float>(), steering.Ground.ForwardBack.ReadValue<float>(), 0);
             else
             {
@@ -157,9 +148,15 @@ public class InputManager : MonoBehaviour
             // Limits the player from rising in flight mode if there is no boost left
             if(BoostSystem.boost > 0 && !boost.outOfBoost)
             {
-                if (direction.y > 0)
+                float flight;
+                if (mobile)
+                    flight = steering.Ground.Mobile.ReadValue<float>() * -1;
+                else
+                    flight = direction.y;
+
+                if (flight > 0)
                 {
-                    Vector3 inputVector = new Vector3(0, direction.y, 0);
+                    Vector3 inputVector = new Vector3(0, flight, 0);
                     driveForward_command.Execute(player, inputVector);
                     boost.BoostDown();
                 }
@@ -209,18 +206,4 @@ public class InputManager : MonoBehaviour
             driveBackward_command.Execute(player, direction);
         }
     }
-
-    //private Vector3 GyroAttitude()
-    //{
-    //    UnityEngine.InputSystem.Controls.QuaternionControl atti = attitude.attitude;
-    //    Vector3 returnVector = new Vector3(atti.x, 0, 0);
-    //    Quaternion rot = new Quaternion(0.5f, 0.5f, -0.5f, 0.5f) * attitude.attitude * new Quaternion(0, 0, 1, 0);
-    //}
-
-    //private void AttitudeSetup()
-    //{
-    //    attitude.attitude.x.normalizeMin = -1f;
-    //    attitude.attitude.x.normalizeMax = 1f;
-    //    attitude.attitude.x.normalize = true;
-    //}
 }
