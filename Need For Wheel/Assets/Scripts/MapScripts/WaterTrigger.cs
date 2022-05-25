@@ -3,6 +3,7 @@ using UnityEngine;
 public class WaterTrigger : MonoBehaviour
 {
     public GameObject pointCanvas;
+    public bool collideOnce;
 
     private GameObject canvas;
 
@@ -13,8 +14,9 @@ public class WaterTrigger : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.tag == "Player")
+        if(other.tag == "Player" && !collideOnce)
         {
+            collideOnce = true;
             canvas.SetActive(true);
             pointCanvas.SetActive(false);
             PlayerController.State = PlayerState.Dead;

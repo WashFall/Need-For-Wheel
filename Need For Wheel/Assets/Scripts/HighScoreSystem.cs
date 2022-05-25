@@ -6,6 +6,7 @@ public class HighScoreSystem : MonoBehaviour
     public GameObject pointCanvas;
     public PlayerController player;
     public FinishLineCollider finish;
+    public WaterTrigger water;
 
     private bool saved;
     private List<float> scoresList = new List<float>();
@@ -53,7 +54,7 @@ public class HighScoreSystem : MonoBehaviour
 
     void SaveScore() // Save score when the game is completed
     {
-        if (finish.collideOnce && !saved)
+        if (finish.collideOnce && !saved || water.collideOnce && !saved)
         {
             for (int i = 0; i < 5; i++)
             {
