@@ -3,6 +3,7 @@ using UnityEngine;
 public class FinishLineCollider : MonoBehaviour
 {
     public bool collideOnce;
+    public GameObject pointCanvas;
 
     private GameObject canvas;
 
@@ -18,6 +19,7 @@ public class FinishLineCollider : MonoBehaviour
             collideOnce = true;
             canvas.SetActive(true);
             PointSystem.points *= 1.5f;
+            pointCanvas.SetActive(false);
             PlayerController.State = PlayerState.Dead;
             PointSystem.points = Mathf.Round(PointSystem.points);
             collision.transform.GetComponent<PlayerController>().dead = true;
