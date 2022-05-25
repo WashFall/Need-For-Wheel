@@ -395,6 +395,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5088541709659033687, guid: e3e4568f5348f994a98cbe8d22c8f8c6, type: 3}
+      propertyPath: pointCanvas
+      value: 
+      objectReference: {fileID: 1640349058}
     - target: {fileID: 8112671970634009585, guid: e3e4568f5348f994a98cbe8d22c8f8c6, type: 3}
       propertyPath: debugManager
       value: 
@@ -558,8 +562,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 153c06f43f119274cbe613fa1c8c7c5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 2128011549}
   pointCanvas: {fileID: 1640349058}
+  player: {fileID: 2128011549}
   finish: {fileID: 520076096}
 --- !u!114 &520076096 stripped
 MonoBehaviour:
@@ -605,7 +609,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 9f66f5e25222e1d44a70b66bcb7bd88a, type: 2}
   firstSection: {fileID: 11400000, guid: 9f66f5e25222e1d44a70b66bcb7bd88a, type: 2}
   spawnOrigin: {x: 0, y: 0, z: 0}
-  sectionsToSpawn: 20
+  sectionsToSpawn: 40
   segmentRotation: 18
 --- !u!4 &656089018
 Transform:
@@ -856,6 +860,10 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 1185424138682956863, guid: 2a9b7af78e10ff542b9c03d15de0b0f7, type: 3}
+      propertyPath: pointCanvas
+      value: 
+      objectReference: {fileID: 1640349058}
     - target: {fileID: 7303118419171837843, guid: 2a9b7af78e10ff542b9c03d15de0b0f7, type: 3}
       propertyPath: debugManager
       value: 
@@ -1497,9 +1505,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cam: {fileID: 1393519872}
   body: {fileID: 1246101551}
+  maxSpeed: 100
   minimumFOV: 30
   maximumFOV: 100
-  maxSpeed: 100
 --- !u!1001 &1462427719
 PrefabInstance:
   m_ObjectHideFlags: 0
