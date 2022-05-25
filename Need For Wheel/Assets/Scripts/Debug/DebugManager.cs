@@ -10,7 +10,7 @@ public class DebugManager : MonoBehaviour
     public GameObject player;
     public GameObject pauseMenu;
     public InputManager inputManager;
-    public GameObject optionsMenu, hscore1, hscore2, hscore3;
+    public GameObject optionsMenu, hscore1, hscore2, hscore3, pointCanvas;
 
     [SerializeField]
     private bool gamepadConnected;
@@ -62,12 +62,14 @@ public class DebugManager : MonoBehaviour
         gamePaused = false;
         Time.timeScale = 1;
         pauseMenu.gameObject.SetActive(false);
+        pointCanvas.gameObject.SetActive(true);
     }
 
     public void PauseGame()
     {
         gamePaused = true;
         Time.timeScale = 0;
+        pointCanvas.gameObject.SetActive(false);
         pauseMenu.gameObject.SetActive(true);
     }
 }
