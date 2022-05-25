@@ -5,6 +5,7 @@ public class VolumeSlider : MonoBehaviour
 {
     private Slider slider;
 
+    // Reads the value of the volume slider and sends calls to save it and update audio sources
     void Start()
     {
         slider = GetComponent<Slider>();

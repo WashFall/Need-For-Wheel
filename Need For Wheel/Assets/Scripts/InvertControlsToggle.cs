@@ -7,6 +7,7 @@ public class InvertControlsToggle : MonoBehaviour
 
     private Toggle toggle;
 
+    // Toggles inverted flight controls through the settings menu
     private void Start()
     {
         toggle = GetComponent<Toggle>();

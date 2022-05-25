@@ -7,6 +7,7 @@ public class HScoreMenu : MonoBehaviour
     public InputManager inputManager;
     public DebugManager debugManager;
 
+    // The functions for the buttons on the High Score screen
     public void Restart()
     {
         BoostSystem.boost = 0;

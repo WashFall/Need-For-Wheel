@@ -1,6 +1,8 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
+// This class was used for debug commands in game, but now it handles pause menu logic
+// and checks if there is a controller connected to the machine
 public class DebugManager : MonoBehaviour
 {
     public bool gamePaused;

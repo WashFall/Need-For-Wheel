@@ -26,7 +26,7 @@ public class FlyingControls : Controls
         player.rigidBody.AddRelativeForce(inputVector * 3, ForceMode.Impulse);
     }
 
-    private void FixedUpdate()
+    private void FixedUpdate() // Adds forward momentum continuously while flying
     {
         if(PlayerController.State == PlayerState.Flying)
             player.rigidBody.AddForce(new Vector3(0, 0, 1f), ForceMode.Impulse);

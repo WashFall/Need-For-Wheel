@@ -4,6 +4,7 @@ using TMPro;
 
 public class CreditsMenu : MonoBehaviour
 {
+    // To make sure a button gets colored when selected
     private void OnEnable()
     {
         if (EventSystem.current?.currentSelectedGameObject)

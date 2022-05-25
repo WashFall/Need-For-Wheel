@@ -24,7 +24,7 @@ public class PointSystem : MonoBehaviour
         startingPoint = player.transform.position.z;
     }
 
-    void FixedUpdate()
+    void FixedUpdate() // You get more points the faster you travel
     {
         if (!player.GetComponent<PlayerController>().dead)
         {
@@ -36,7 +36,7 @@ public class PointSystem : MonoBehaviour
         }
     }
 
-    public void Multiplier()
+    public void Multiplier() // Multiplier power upp toggle
     {
         startTime = Time.time;
         endTime = Time.time + 5;

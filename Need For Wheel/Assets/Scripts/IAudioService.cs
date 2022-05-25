@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public interface IAudioService
+public interface IAudioService // The interface for the Sound System
 {
     public void UpdateSound();
 

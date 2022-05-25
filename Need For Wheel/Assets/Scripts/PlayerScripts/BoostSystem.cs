@@ -1,5 +1,7 @@
 using UnityEngine;
 
+// Handles the boost the player recieves when driving down the hill
+// And also how it depletes in the flying section of the game
 public class BoostSystem
 {
     public static float boost = 0;

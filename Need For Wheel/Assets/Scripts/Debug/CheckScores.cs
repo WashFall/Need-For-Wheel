@@ -1,5 +1,6 @@
 using UnityEngine;
 
+// Code to check if the high scores work as intended
 public class CheckScores : MonoBehaviour
 {
     void Start()

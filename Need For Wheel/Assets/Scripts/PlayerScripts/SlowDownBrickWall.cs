@@ -1,5 +1,6 @@
 using UnityEngine;
 
+// Slowing the player down before colliding with a brick wall
 public class SlowDownBrickWall : MonoBehaviour
 {
     public Rigidbody player;

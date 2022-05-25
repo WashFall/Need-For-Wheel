@@ -1,5 +1,7 @@
 using UnityEngine;
 
+// An audio service that instead of playing sounds, writes their name in the console
+// This is used for testing the system without having the sounds
 public class DebugAudioService : IAudioService
 {
     public void UpdateSound()

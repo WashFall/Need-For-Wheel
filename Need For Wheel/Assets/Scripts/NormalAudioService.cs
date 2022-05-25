@@ -10,7 +10,7 @@ public class NormalAudioService : IAudioService
     private List<AudioSource> sources;
     private Dictionary<string, AudioClip> audioKeys;
 
-    public void UpdateSound()
+    public void UpdateSound() // Changes the volume for every Audio Source
     {
         foreach(AudioSource source in sources)
         {
@@ -18,7 +18,7 @@ public class NormalAudioService : IAudioService
         }
     }
 
-    public void BuildAudio()
+    public void BuildAudio() // Creates all the Audio Sources and adds all Audio Clips to array
     {
         sources = new List<AudioSource>();
         for(int i = 0; i < sourceCount; i++)
@@ -38,7 +38,7 @@ public class NormalAudioService : IAudioService
         }
     }
 
-    public void DestroyAudio()
+    public void DestroyAudio() // Destroys all Audio Sources
     {
         for(int i = 0; i < sourceCount; i++)
         {
@@ -98,7 +98,8 @@ public class NormalAudioService : IAudioService
         }
     }
 
-    private AudioSource GetAvailableSource()
+    // Makes sure to use a source that is not playing any sounds at the moment
+    private AudioSource GetAvailableSource() 
     {
         foreach (AudioSource source in sources)
         {

@@ -1,5 +1,6 @@
 using UnityEngine;
 
+// Turns the bike to be facing forward in the direction the player travels
 public class BikeTurning : MonoBehaviour
 {
     public Transform bike;
@@ -15,6 +16,8 @@ public class BikeTurning : MonoBehaviour
 
     private void Update()
     {
+        // When using LookRotaion an annoying console line is sent when the bike looks to Zero.
+        // Therefor I check the velocity and calls Quaternion.identity if it gets to zero.
         if (!player.GetComponent<PlayerController>().dead)
         {
             bike.rotation = Quaternion.Lerp(bike.rotation, 

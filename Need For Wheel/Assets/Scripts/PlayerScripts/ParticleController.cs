@@ -1,5 +1,6 @@
 using UnityEngine;
 
+// Controls the dust particles from the two back wheels on the bike
 public class ParticleController : MonoBehaviour
 {
     public GameObject bike;
@@ -19,6 +20,7 @@ public class ParticleController : MonoBehaviour
         ParticleSpeed();
     }
 
+    // Only plays if the player is on the ground
     private void IsGrounded()
     {
         if (player.grounded)
@@ -33,6 +35,7 @@ public class ParticleController : MonoBehaviour
         }
     }
 
+    // Changes the rate of the particles the faster the player travels
     private void ParticleSpeed()
     {
         var leftEmission = dustLeft.emission;

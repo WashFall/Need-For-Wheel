@@ -1,5 +1,6 @@
 using UnityEngine;
 
+// An abstract class for the movement controls, which enables easy swapping between movement options
 public abstract class Controls : MonoBehaviour
 {
     public PlayerController player;
